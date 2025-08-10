@@ -65,44 +65,44 @@ const About = () => {
   };
   const data = [
     {
-      name: "PixelCraft",
+      name: "Bitsmart",
       category: "Web Design",
-      img: "https://cdn.dribbble.com/userupload/15287907/file/original-1947f11c0ad56aba125d43db4d155cc2.png?resize=752x564&vertical=center",
+      img: "images/bitsmart2.jpeg",
       subtitle: "Crafting digital masterpieces pixel by pixel.",
       description:
-        "PixelCraft is a visually stunning web design project focused on delivering pixel-perfect interfaces and engaging user experiences for creative brands.",
-      techStack: ["Figma", "Adobe XD", "React", "Tailwind CSS"],
-      year: 2023,
-    },
-    {
-      name: "CreativeVision",
-      category: "Web Design",
-      img: "https://cdn.dribbble.com/userupload/15027790/file/original-ec0a19ccfded1a1640077d91738715d0.png?resize=752x564&vertical=center",
-      subtitle: "Bringing creative ideas to life online.",
-      description:
-        "CreativeVision transforms innovative concepts into beautiful, functional websites, emphasizing creativity and modern aesthetics.",
-      techStack: ["Figma", "Next.js", "Chakra UI", "GSAP"],
-      year: 2022,
-    },
-    {
-      name: "Code Nexus",
-      category: "Web Development",
-      img: "https://cdn.dribbble.com/userupload/40515275/file/original-dfc2d613e15f0cfe4a34f4def8a94edc.png?resize=1200x900&vertical=center",
-      subtitle: "Where code meets innovation.",
-      description:
-        "Code Nexus is a robust web development platform that connects advanced coding practices with innovative solutions for scalable applications.",
-      techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+        "A modern, responsive, and brand-focused company portfolio website for Bitsmart Tech. Built to showcase services, projects, and client engagement with an emphasis on creativity, clean UI, and smooth user experience.",
+      techStack: ["Next.js", "Tailwind-CSS", "Framer-Motion", "Mongodb","REST API"],
       year: 2024,
     },
     {
-      name: "BrandFlow",
+      name: "SuperSub",
       category: "Web Design",
-      img: "https://cdn.dribbble.com/userupload/40490768/file/original-cca1edc6f848feb3af09c6f764ff4ade.png?resize=1200x900&vertical=center",
-      subtitle: "Designing brands that flow with purpose.",
+      img: "images/super2.jpeg",
+      subtitle: "Bringing businesses to the digital world.",
       description:
-        "BrandFlow delivers seamless brand experiences through elegant web design, focusing on fluid layouts and strong visual identity.",
-      techStack: ["Figma", "React", "Styled Components", "Framer Motion"],
-      year: 2023,
+        "SuperSub Officials — an IPTV subscription selling platform  built with a modern tech to showcase its offerings. The site features an integrated online payment system with multiple banks options and a scalable design for future growth.",
+      techStack: ["React.js", "Expres.js", "Tailwind-CSS", "MongoDB","REST API"],
+      year: 2024,
+    },
+    {
+      name: "FashionMane",
+      category: "Web Development",
+      img: "images/fashion2.jpeg",
+      subtitle: "Your style, your stories — managed effortlessly",
+      description:
+        "FashionMane is a fully functional blogging platform with a built-in CMS, featuring a user-friendly frontend, powerful admin panel, and secure backend. It supports full CRUD operations, dynamic routing, and is optimized for SEO.",
+      techStack: ["Next.js", "Framer-Motion", "Tailwind-CSS", "MongoDB","REST API"],
+      year: 2025,
+    },
+    {
+      name: "BusGoes+",
+      category: "Web Design",
+      img: "images/bus2.jpeg",
+      subtitle: "Making bus journeys just a click away.",
+      description:
+        "Bus Goes is a modern online bus booking platform with a built-in CMS that makes intercity travel simple. It offers a seamless booking experience, smart route management, and an intuitive admin dashboard for effortless reservation handling.",
+      techStack: ["Next.js", "Framer-Motion", "Tailwind-CSS", "MongoDB","REST API"],
+      year: 2024,
     },
   ];
 
@@ -124,19 +124,18 @@ const About = () => {
       : true;
   });
   useGSAP(() => {
-    // if (!aboutContainerRef.current) return;
     gsap.set(".contthings", { opacity: 0 });
     gsap.to(".contthings", {
       opacity: 1,
       ease: "power1.inOut",
       duration: 1,
-      
       scrollTrigger: {
         trigger: ".projects",
-        start: "bottom bottom ",
-        end: "bottom bottom ",
+        start: "bottom bottom",
+        end: "bottom bottom",
       },
     });
+  
     let sections = data.length;
     let tl = gsap.timeline({
       scrollTrigger: {
@@ -147,138 +146,53 @@ const About = () => {
         scrub: true,
         snap: {
           snapTo: "labelsDirectional",
-          duration: { min: 0.2, max: 0.5 },
+          duration: { min: 0.2, max: 0.4 },
           ease: "power1.inOut",
-          // inertia: false,
         },
       },
     });
-
+  
     for (let i = 0; i < sections; i++) {
       tl.addLabel(`section${i}`);
-
-      // Fade out current content and network simultaneously
-
+  
+      // Fade OUT current content
       tl.to(
-        ".project-text h1",
+        [".project-text h1", ".project-text h2", ".project-text p",".techstack"],
         {
           opacity: 0,
-          x: 5,
-          ease: "power1.inOut",
-          duration: 0.5,
-        },
-        `section${i}`
-      );
-      tl.to(
-        ".project-text section",
-        {
-          opacity: 0,
-          x: 15,
+          y: 10,
           ease: "power1.inOut",
           duration: 0.5,
         },
         `section${i}`
       )
         .to(
-          ".project-text h2",
-          {
-            opacity: 0,
-            y: 5,
-            ease: "power1.inOut",
-            duration: 0.5,
-          },
-          `section${i}`
-        )
-        .to(
-          ".project-text p",
-          {
-            opacity: 0,
-            y: 5,
-            ease: "power1.inOut",
-            duration: 0.5,
-          },
-          `section${i}`
-        )
-        .to(
           ".images",
           {
-
             transformOrigin: "bottom right",
             scale: 0,
-            // opacity: 0,
             duration: 0.5,
             ease: "power1.inOut",
           },
           `section${i}`
         )
-
-        // Update active index
-        .add(() => setActiveIndex(i))
-
-        // Bring in new content - network and text together
-
+        .add(() => setActiveIndex(i)) // change active index
+  
+        // Fade IN new content
         .fromTo(
           ".images",
-          {
-
-            scale: 0,
-            transformOrigin: "top left",
-          },
-          {
-
-            scale: 1,
-            transformOrigin: "top left",
-
-            duration: 0.5,
-            ease: "power1.inout",
-          }
-        )
-
-        .fromTo(
-          ".project-text section",
-          {
-            x: -15,
-            opacity: 0,
-          },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power1.inout",
-          }
+          { scale: 0, transformOrigin: "top left" },
+          { scale: 1, transformOrigin: "top left", duration: 0.5, ease: "power1.inOut" }
         )
         .fromTo(
-          ".project-text h1",
-          {
-            opacity: 0,
-            x: -10,
-          },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.5,
-            ease: "power1.out",
-          },
-        )
-
-        .fromTo(
-          [ ".project-text h2", ".project-text p"],
-          {
-            opacity: 0,
-            y: -5,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power2.out",
-            stagger: 0.08,
-          },
-          "<" // Start at the same time as images animation
+          [".project-text h1", ".project-text h2", ".project-text p",".techstack"],
+          { opacity: 0, y: -10 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "power2.out", stagger: 0.08 },
+          "<"
         );
-      // .add(() => setActiveIndex(i));
     }
   }, []);
+  
   useEffect(() => {
     const allCategories = data.map((item) => item.category.toLowerCase());
     const uniqueCategories = [...new Set(allCategories)];
@@ -287,12 +201,12 @@ const About = () => {
 
   return (
     <div className="projects mt-[120px] relative b w-full  h-screen py-4 ">
-            <div className="absolute w-full h-[100px] bg-gradient-to-b   z-[100] from-black via-black/70 to-transparent top-0 left-0 "></div>
-            <div className="absolute w-full h-[100px] bg-gradient-to-t   z-[100] from-black via-black/70 to-transparent   bottom-0  left-0"></div>
+      <div className="absolute w-full h-[100px] bg-gradient-to-b   z-[100] from-black via-black/70 to-transparent top-0 left-0 "></div>
+      <div className="absolute w-full h-[100px] bg-gradient-to-t   z-[100] from-black via-black/70 to-transparent   bottom-0  left-0"></div>
       <motion.div
-      initial={{opacity:0}}
-      whileInView={{opacity:1}}
-      transition={{duration:0.5,ease:'easeInOut'}}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
         className="absolute inset-0 z-0"
         style={{
           background: `
@@ -305,7 +219,7 @@ const About = () => {
           backgroundRepeat: "no-repeat",
         }}
       ></motion.div>
-      
+
       <div
         name="projects"
         className=" bg- h-full container  relative z-[100] bg-[#ffffff17] p-3  rounded-3xl backdrop-blur-2xl mx-auto    "
@@ -322,8 +236,7 @@ const About = () => {
           </div>
           <div className="flex md:flex-row flex-col justify-around h-full   xl:gap-30 ">
             <div className=" relative   h-full flex flex-col  md:gap-0 gap-4 rounded-2xl justify-evenly  col-">
-
-              <div className="images md:w-[350px] lg:w-[450px] xl:w-[550px] xl:h-[350px] rounded-sm object-cover">
+              <div className="images md:w-[350px] lg:w-[450px] xl:w-[500px]  rounded-sm object-cover">
                 <ImageDistortionEffect imageUrl={data[activeIndex].img} />
               </div>
 
@@ -343,7 +256,7 @@ const About = () => {
               </div>
               <div className="hidden md:block space-y-3">
                 <h4 className="contthings text-gray-400">Tech Stack</h4>
-                <section className="flex flex-wrap gap-4">
+                <section className="techstack flex flex-wrap gap-4">
                   {data[activeIndex].techStack.map((datas, index) => (
                     <div
                       key={index}
