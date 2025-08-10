@@ -199,12 +199,12 @@ const Hero = ({ anidone }) => {
                 <div className=" title2 lg:pl-1 text-[10px] md:space-y-2 xl:text-[20px] font-Raleway  text-white ">
                   <h3 className="tracking-widest font-Poppins text-xl md:text-3xl">Hi, I'm</h3>
 
-                  <span className="text-xl xl:text-[36px] font-Poppins space-x   hover:text-white transition-all duration-200 ease-in-out">
+                  <span className="text-xl xl:text-[32px] font-Poppins space-x   hover:text-white transition-all duration-200 ease-in-out">
                     <span className="text-[] ">Full-Stack Developer</span>{" "}
 
                   </span>
                 </div>
-                <div className="title1 w-full  font-Poppins font-light text-[30px] lg:text-7xl xl:text-[88px]  lg:leading-[110px]">
+                <div className="title1 w-full  font-Montserrat font-[400] text-[30px] lg:text-6xl xl:text-[80px]  lg:leading-[100px] xl:leading-[110px]">
                   <div className="">
                     Transforming <span className="animate-">Ideas</span> into
                   </div>
