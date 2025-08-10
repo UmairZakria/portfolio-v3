@@ -4,17 +4,13 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { useGSAP } from "@gsap/react";
-import { MoveRight } from "lucide-react";
-import Word3 from "./Word3";
 import Greeting from "./Greeting";
 import Word from "./Word";
 import { Linkedin, Github } from "lucide-react";
-import { useTopLayer } from "./Dlayers";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = ({ anidone }) => {
-  const layer = useTopLayer(["Home", "welcome"]);
   const contref = useRef(null);
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);

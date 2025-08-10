@@ -10,7 +10,6 @@ import Contact from "../components/Contact";
 import Footer2 from "../components/Footer2";
 import { useState, useEffect } from "react";
 import CustomScrollbar from "../components/CustomScrollbar";
-import About4 from '../components/About4'
 
 const Main = () => {
   const [anidone, setAnidone] = useState(true);
