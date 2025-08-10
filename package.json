@@ -16,6 +16,7 @@
     "@react-three/drei": "^10.6.1",
     "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/vite": "^4.0.12",
+    "@vercel/analytics": "^1.5.0",
     "axios": "^1.9.0",
     "barba.js": "^1.0.0",
     "framer-motion": "^12.23.12",
