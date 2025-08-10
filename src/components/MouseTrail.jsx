@@ -4,7 +4,7 @@ const MouseTrail = () => {
   const svgRef = useRef(null);
   const pathRef = useRef(null);
   const points = useRef([]);
-  const segments = 50;
+  const segments = 30;
   const mouse = useRef({ x: 0, y: 0 });
   const animationFrameId = useRef();
 
