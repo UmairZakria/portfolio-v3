@@ -2,10 +2,11 @@ import React, { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MoveRight, MoveRightIcon, MoveDown } from "lucide-react";
+import { MoveRight, MoveRightIcon, MoveDown,ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ImageDistortionEffect from "./WaveImage";
 import SplitType from "split-type";
+
 import Word from "./Word";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -71,7 +72,13 @@ const About = () => {
       subtitle: "Crafting digital masterpieces pixel by pixel.",
       description:
         "A modern, responsive, and brand-focused company portfolio website for Bitsmart Tech. Built to showcase services, projects, and client engagement with an emphasis on creativity, clean UI, and smooth user experience.",
-      techStack: ["Next.js", "Tailwind-CSS", "Framer-Motion", "Mongodb","REST API"],
+      techStack: [
+        "Next.js",
+        "Tailwind-CSS",
+        "Framer-Motion",
+        "Mongodb",
+        "REST API",
+      ],
       year: 2024,
     },
     {
@@ -81,7 +88,13 @@ const About = () => {
       subtitle: "Bringing businesses to the digital world.",
       description:
         "SuperSub Officials — an IPTV subscription selling platform  built with a modern tech to showcase its offerings. The site features an integrated online payment system with multiple banks options and a scalable design for future growth.",
-      techStack: ["React.js", "Expres.js", "Tailwind-CSS", "MongoDB","REST API"],
+      techStack: [
+        "React.js",
+        "Expres.js",
+        "Tailwind-CSS",
+        "MongoDB",
+        "REST API",
+      ],
       year: 2024,
     },
     {
@@ -91,7 +104,13 @@ const About = () => {
       subtitle: "Your style, your stories — managed effortlessly",
       description:
         "FashionMane is a fully functional blogging platform with a built-in CMS, featuring a user-friendly frontend, powerful admin panel, and secure backend. It supports full CRUD operations, dynamic routing, and is optimized for SEO.",
-      techStack: ["Next.js", "Framer-Motion", "Tailwind-CSS", "MongoDB","REST API"],
+      techStack: [
+        "Next.js",
+        "Framer-Motion",
+        "Tailwind-CSS",
+        "MongoDB",
+        "REST API",
+      ],
       year: 2025,
     },
     {
@@ -101,7 +120,13 @@ const About = () => {
       subtitle: "Making bus journeys just a click away.",
       description:
         "Bus Goes is a modern online bus booking platform with a built-in CMS that makes intercity travel simple. It offers a seamless booking experience, smart route management, and an intuitive admin dashboard for effortless reservation handling.",
-      techStack: ["Next.js", "Framer-Motion", "Tailwind-CSS", "MongoDB","REST API"],
+      techStack: [
+        "Next.js",
+        "Framer-Motion",
+        "Tailwind-CSS",
+        "MongoDB",
+        "REST API",
+      ],
       year: 2024,
     },
   ];
@@ -135,7 +160,7 @@ const About = () => {
         end: "bottom bottom",
       },
     });
-  
+
     let sections = data.length;
     let tl = gsap.timeline({
       scrollTrigger: {
@@ -151,13 +176,18 @@ const About = () => {
         },
       },
     });
-  
+
     for (let i = 0; i < sections; i++) {
       tl.addLabel(`section${i}`);
-  
+
       // Fade OUT current content
       tl.to(
-        [".project-text h1", ".project-text h2", ".project-text p",".techstack"],
+        [
+          ".project-text h1",
+          ".project-text h2",
+          ".project-text p",
+          ".techstack",
+        ],
         {
           opacity: 0,
           y: 10,
@@ -177,22 +207,38 @@ const About = () => {
           `section${i}`
         )
         .add(() => setActiveIndex(i)) // change active index
-  
+
         // Fade IN new content
         .fromTo(
           ".images",
           { scale: 0, transformOrigin: "top left" },
-          { scale: 1, transformOrigin: "top left", duration: 0.5, ease: "power1.inOut" }
+          {
+            scale: 1,
+            transformOrigin: "top left",
+            duration: 0.5,
+            ease: "power1.inOut",
+          }
         )
         .fromTo(
-          [".project-text h1", ".project-text h2", ".project-text p",".techstack"],
+          [
+            ".project-text h1",
+            ".project-text h2",
+            ".project-text p",
+            ".techstack",
+          ],
           { opacity: 0, y: -10 },
-          { opacity: 1, y: 0, duration: 0.5, ease: "power2.out", stagger: 0.08 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            stagger: 0.08,
+          },
           "<"
         );
     }
   }, []);
-  
+
   useEffect(() => {
     const allCategories = data.map((item) => item.category.toLowerCase());
     const uniqueCategories = [...new Set(allCategories)];
@@ -250,9 +296,23 @@ const About = () => {
               </div>
             </div>
             <div className="project-text py-4 md:gap-0 gap-1 lg:py-[20px] w-full  md:w-[300px] lg:w-[400px] h-full flex flex-col  2xl:justify-evenly  md:justify-around    font-Poppins ">
-              <div>
-                <h4 className="contthings text-gray-400">Year</h4>
-                <p className=" text-lg lg:text-2xl">{data[activeIndex].year}</p>
+              <div className="flex flex-wrap w-full items-start justify-between">
+                <div>
+                  <h4 className="contthings text-gray-400">Year</h4>
+                  <p className=" text-lg lg:text-2xl">
+                    {data[activeIndex].year}
+                  </p>
+                </div>
+                <div className="contthings">
+                  <a
+                    href="overview"
+                    className="relative z-[50] flex gap-3 transition-all duration-300 ease-in-out"
+                  >
+                    <motion.span className=" relative !z-[100] items-center gap-1 text-sm border-b transition-all duration-300 ease-in-out hover:text-white hover:border-white cursor-pointer  border-prime2 text-prime2  inline-flex">
+                      <ArrowUpRight size={16} /> Learn More
+                    </motion.span>
+                  </a>
+                </div>
               </div>
               <div className="hidden md:block space-y-3">
                 <h4 className="contthings text-gray-400">Tech Stack</h4>

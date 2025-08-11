@@ -156,7 +156,6 @@ const Contact = () => {
               </motion.p>
               <p ref={textRef} className="lg:text-xl xl:text-3xl"></p>
               <a
-                // href="/overview"
                 target="_blank"
                 href="https://www.linkedin.com/in/umair-zakria-67477b33a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                 className="relative z-[50] flex gap-3 transition-all duration-500 ease-in-out"
@@ -169,15 +168,7 @@ const Contact = () => {
           {/* </div> */}
         </div>
       </div>
-      <div className="md:block hidden overflow-hidden whitespace-nowrap py-2">
-        <div className="slide-animation inline-block  font-Montserrat space-x-5 items-center   text-8xl  font-light">
-          <span className="">umairzakria6@gmail.com </span>
-          <span className="size-6 inline-block mt-3 rounded-full bg-white"></span>
-          <span className="">Web Developer</span>
-          <span className="size-6 mt-3 rounded-full bg-white inline-block"></span>
-          <span>Web Designer</span>
-        </div>
-      </div>
+
     </>
   );
 };
