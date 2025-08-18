@@ -162,18 +162,37 @@ const About = () => {
     });
 
     let sections = data.length;
+    const isMobileViewport = window.matchMedia("(max-width: 1023px)").matches;
+    const textY = isMobileViewport ? 4 : 10;
+    const snapConfig = isMobileViewport
+      ? {
+          snapTo: "labelsDirectional",
+          duration: { min: 0.15, max: 0.25 },
+          ease: "power1.out",
+          delay: 0,
+        }
+      : {
+          snapTo: "labelsDirectional",
+          duration: { min: 0.2, max: 0.35 },
+          ease: "power1.inOut",
+          delay: 0,
+        };
+    const imageFadeDuration = isMobileViewport ? 0.85 : 0.6;
+    const textFadeDuration = isMobileViewport ? 0.7 : 0.6;
+    const imageOutScale = isMobileViewport ? 0.98 : 1;
+    const imageInStartScale = isMobileViewport ? 0.985 : 1;
+    const imageInOffset = isMobileViewport ? ">+=0.06" : ">+=0.03";
     let tl = gsap.timeline({
       scrollTrigger: {
+        id: "projects-sections",
         trigger: ".projects",
         pin: true,
         start: "top top",
-        end: `+=${sections * window.innerHeight}`,
-        scrub: true,
-        snap: {
-          snapTo: "labelsDirectional",
-          duration: { min: 0.2, max: 0.4 },
-          ease: "power1.inOut",
-        },
+        end: `+=${sections * (isMobileViewport ? window.innerHeight * 0.85 : window.innerHeight)}`,
+        scrub: isMobileViewport ? 0.5 : 1.2,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        snap: snapConfig,
       },
     });
 
@@ -190,34 +209,39 @@ const About = () => {
         ],
         {
           opacity: 0,
-          y: 10,
+          y: textY,
           ease: "power1.inOut",
-          duration: 0.5,
+          duration: textFadeDuration,
         },
         `section${i}`
       )
         .to(
           ".images",
           {
-            transformOrigin: "bottom right",
-            scale: 0,
-            duration: 0.5,
-            ease: "power1.inOut",
+            autoAlpha: 0,
+            scale: imageOutScale,
+            duration: imageFadeDuration,
+            ease: "power2.inOut",
           },
           `section${i}`
         )
-        .add(() => setActiveIndex(i)) // change active index
+        .add(() => {
+          const direction = tl && tl.scrollTrigger ? tl.scrollTrigger.direction : 1;
+          const targetIndex = direction >= 0 ? Math.min(i, sections - 1) : Math.max(i - 1, 0);
+          setActiveIndex((prev) => (prev !== targetIndex ? targetIndex : prev));
+        })
 
         // Fade IN new content
         .fromTo(
           ".images",
-          { scale: 0, transformOrigin: "top left" },
+          { autoAlpha: 0, scale: imageInStartScale },
           {
+            autoAlpha: 1,
             scale: 1,
-            transformOrigin: "top left",
-            duration: 0.5,
-            ease: "power1.inOut",
-          }
+            duration: imageFadeDuration,
+            ease: "power2.out",
+          },
+          imageInOffset
         )
         .fromTo(
           [
@@ -226,13 +250,12 @@ const About = () => {
             ".project-text p",
             ".techstack",
           ],
-          { opacity: 0, y: -10 },
+          { opacity: 0, y: -textY },
           {
             opacity: 1,
             y: 0,
-            duration: 0.5,
+            duration: textFadeDuration,
             ease: "power2.out",
-            stagger: 0.08,
           },
           "<"
         );
@@ -252,7 +275,7 @@ const About = () => {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        transition={{ duration: 1, ease: "easeInOut" }}
         className="absolute inset-0 z-0"
         style={{
           background: `

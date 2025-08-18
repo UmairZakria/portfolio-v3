@@ -223,14 +223,14 @@ const Service = () => {
       >
         {data.map((item, index) => (
           <div key={index} className="relative  p-4 rounded-2xl group ">
-            <div className="absolute p-5  inset-0 z-0 rounded-2xl">
+            {/* <div className="absolute p-5  inset-0 z-0 rounded-2xl">
               <img
                 src={item.img}
                 alt={item.title}
                 fill
                 className="object-cover h-full w-full  rounded-2xl  brightness-75"
               />
-            </div>
+            </div> */}
             <div className="absolute inset-0 bg-black/60  flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 rounded-2xl">
               {/* <span className="  text-blue-500 border-b border-blue-400 pb-2 font-semibold text-4xl cursor-pointer  font-raleway  transition-all duration-300">
                     Learn More
@@ -249,11 +249,11 @@ const Service = () => {
               </motion.div>
             </div>
             <div
-              className="absolute inset-0 z-0 animate-pulse rounded-2xl"
+              className="absolute inset-0 z-0  rounded-2xl"
               style={{
                 background: `
-            radial-gradient( circle at 70% 20%, rgba(88, 180, 255, 0.3)  0%, transparent 40%), 
-            radial-gradient(circle at 20% 80%,  rgba(255, 255, 255, 0.1) 0%, transparent 45%), 
+            radial-gradient( circle at 70% 20%, rgba(255, 255, 255, 0.12)  0%, transparent 40%), 
+            radial-gradient(circle at 20% 80%,  rgba(255, 255, 255, 0.12) 0%, transparent 45%), 
             radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%) 
           `,
                 // Ensure the background covers the entire div

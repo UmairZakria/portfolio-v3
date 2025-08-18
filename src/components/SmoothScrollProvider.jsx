@@ -1,14 +1,10 @@
 import Lenis from 'lenis'
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const SmoothScrollProvider = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
   const lenisRef = useRef(null);
+  const rafRef = useRef(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -16,44 +12,72 @@ const SmoothScrollProvider = ({ children }) => {
              /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     };
     
+    const handleResize = () => {
+      setIsMobile(checkMobile());
+    };
+    
     setIsMobile(checkMobile());
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  useGSAP(() => {
+  useEffect(() => {
+    // Always clean up previous instances first
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+    
     if (lenisRef.current) {
       lenisRef.current.destroy();
       lenisRef.current = null;
     }
 
-    const lenis = new Lenis({
-      lerp: isMobile ? 1 : 0.08, // Much lighter lerp on mobile
-      smoothWheel: !isMobile, // Disable smooth wheel on mobile
-      smoothTouch: isMobile, // Enable only on mobile
-      wheelMultiplier: isMobile ? 0 : 1.2, // Disable wheel on mobile
-      touchMultiplier: isMobile ? 0.8 : 0, // Light touch multiplier
-      touchInertiaMultiplier: isMobile ? 12 : 35, // Lighter inertia
-      easing: (t) => isMobile ? t : Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      duration: isMobile ? 0.8 : 1.2, // Faster on mobile
-      syncTouch: isMobile,
-      syncTouchLerp: isMobile ? 1 : 0.075,
-    });
+    // Always reset CSS properties first
+    document.documentElement.style.scrollBehavior = '';
+    document.body.style.scrollBehavior = '';
+    document.body.style.webkitOverflowScrolling = '';
+    document.documentElement.style.webkitOverflowScrolling = '';
 
-    lenisRef.current = lenis;
-
-    let rafId;
-    function raf(time) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
+    if (isMobile) {
+      // Mobile: Use CSS smooth scrolling
+      document.documentElement.style.scrollBehavior = 'smooth';
+      document.body.style.scrollBehavior = 'smooth';
+      document.body.style.webkitOverflowScrolling = 'touch';
+      document.documentElement.style.webkitOverflowScrolling = 'touch';
+      
+      return;
     }
-    rafId = requestAnimationFrame(raf);
 
-    lenis.on("scroll", ScrollTrigger.update);
+    // Desktop: Use Lenis
+    // Small delay to ensure CSS is cleared
+    const timeoutId = setTimeout(() => {
+      const lenis = new Lenis({
+        lerp: 0.08,
+        smoothWheel: true,
+        smoothTouch: false,
+        wheelMultiplier: 1.2,
+        touchMultiplier: 0,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        duration: 1.2,
+        syncTouch: false,
+      });
 
-    ScrollTrigger.refresh();
+      lenisRef.current = lenis;
+
+      function raf(time) {
+        lenis.raf(time);
+        rafRef.current = requestAnimationFrame(raf);
+      }
+      rafRef.current = requestAnimationFrame(raf);
+    }, 10);
 
     return () => {
-      if (rafId) {
-        cancelAnimationFrame(rafId);
+      clearTimeout(timeoutId);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
       }
       if (lenisRef.current) {
         lenisRef.current.destroy();
@@ -61,6 +85,23 @@ const SmoothScrollProvider = ({ children }) => {
       }
     };
   }, [isMobile]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      if (lenisRef.current) {
+        lenisRef.current.destroy();
+      }
+      // Reset CSS on unmount
+      document.documentElement.style.scrollBehavior = '';
+      document.body.style.scrollBehavior = '';
+      document.body.style.webkitOverflowScrolling = '';
+      document.documentElement.style.webkitOverflowScrolling = '';
+    };
+  }, []);
 
   return <>{children}</>;
 };
