@@ -10,7 +10,10 @@ import Contact from "../components/Contact";
 import Footer2 from "../components/Footer2";
 import { useState, useEffect } from "react";
 import CustomScrollbar from "../components/CustomScrollbar";
-
+import Aboutme from "./Aboutme";
+import Numbers from "./Numbers";
+import Whyme from "./Whyme";
+import AboutMF from "./AboutMF";
 const Main = () => {
   const [anidone, setAnidone] = useState(true);
 
@@ -34,14 +37,19 @@ const Main = () => {
       <SmoothScrollProvider>
         <div className=" text-white">
           <Hero anidone={anidone} />
-          <Service />
+          <Aboutme />
+          <div className="geo">
+            <Numbers/>
 
+          </div>
+          <Service />
+          <Whyme/>
           <div id="AboutUs" className="">
             <About />
-            {/* <About4 /> */}
           </div>
 
           <div id="Contact">
+            {/* <AboutMF /> */}
             <Contact />
             <Footer2 />
           </div>

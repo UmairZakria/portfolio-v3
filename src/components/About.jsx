@@ -66,6 +66,20 @@ const About = () => {
   };
   const data = [
     {
+      name: "Marcus",
+      category: "Web Design",
+      img: "images/Marcus1.jpeg",
+      subtitle: "Modern design, seamless experience, bold impression.",
+      description:
+        "A clean, modern, and fully custom portfolio website — crafted to showcase creativity, professionalism, and a seamless user experience. Designed with attention to detail to make a bold and lasting impression.",
+      techStack: [
+        "React.js",
+        "Tailwind-CSS",
+        "Lucide-Icons"
+      ],
+      year: 2025,
+    },
+    {
       name: "Bitsmart",
       category: "Web Design",
       img: "images/bitsmart2.jpeg",

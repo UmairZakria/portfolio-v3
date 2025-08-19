@@ -21,7 +21,7 @@ const ImageDistortionEffect = ({ imageUrl }) => {
 
       filterRef.current.children[0].setAttribute(
         "baseFrequency",
-        `${0.02 + 0.01 * x}, ${0.02 + 0.01 * y}`
+        `${0.01 + 0.01 * x}, ${0.01 + 0.01 * y}`
       );
       filterRef.current.children[1].setAttribute("scale", 30 * (1 - Math.abs(x - 0.5)));
     };
@@ -68,14 +68,14 @@ const ImageDistortionEffect = ({ imageUrl }) => {
         width: "100%",
         height: "100%",
         maxWidth: "100%",
-        borderRadius: "10px",
+        borderRadius: "16px",
         overflow: "hidden",
       }}
     >
       {/* Unique SVG filter for each component */}
       <svg style={{ position: "absolute", width: 0, height: 0 }}>
         <filter id={filterId} ref={filterRef}>
-          <feTurbulence type="fractalNoise" baseFrequency="0.02 0.02" numOctaves="1" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="1" />
           <feDisplacementMap in="SourceGraphic" scale="0" />
         </filter>
       </svg>

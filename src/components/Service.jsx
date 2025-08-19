@@ -178,7 +178,7 @@ const Service = () => {
       className=" bg-cover min-h-screen overflow-hidden bg-center py-[120px] bg-no-repeat   relative space-y-[10vh]  lg:space-y-[10vh]  font-Montserrat mt-[30vh] px-4 xl:px-20 lg:px-15"
     >
       {/* <div className=""> */}
-        <img src="/images/bg1.jpg" alt=""  className="absolute brightness-50  top-0 left-0  w-full object-center h-full object-cover"/>
+        <img src="/images/bg1.jpg" alt=""  className="absolute brightness-25  top-0 left-0  w-full object-center h-full object-cover"/>
       {/* </div> */}
       <div className="absolute w-full h-[200px] bg-gradient-to-b   z-[100] from-black via-black/40 to-transparent top-0 left-0 "></div>
       <div className="absolute w-full h-[200px] bg-gradient-to-t   z-[100] from-black via-black/70 to-transparent   2xl:-bottom-35   xl:-bottom-30 -bottom-20  left-0"></div>
@@ -189,7 +189,7 @@ const Service = () => {
           className="absolute inset-0 z-0"
           style={{
             background: `
-            radial-gradient(circle at 10% 10%, rgba(37, 157, 255, 0.4) 0%, transparent 40%), /* Indigo glow bottom-left */
+            radial-gradient(circle at 10% 10%, rgba(37, 157, 255, 0.3) 0%, transparent 40%), /* Indigo glow bottom-left */
             radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%) /* Central dark fade */
           `,
             // Ensure the background covers the entire div
@@ -223,14 +223,14 @@ const Service = () => {
       >
         {data.map((item, index) => (
           <div key={index} className="relative  p-4 rounded-2xl group ">
-            {/* <div className="absolute p-5  inset-0 z-0 rounded-2xl">
+            <div className="absolute p-5  inset-0 z-0 rounded-2xl">
               <img
                 src={item.img}
                 alt={item.title}
                 fill
                 className="object-cover h-full w-full  rounded-2xl  brightness-75"
               />
-            </div> */}
+            </div>
             <div className="absolute inset-0 bg-black/60  flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 rounded-2xl">
               {/* <span className="  text-blue-500 border-b border-blue-400 pb-2 font-semibold text-4xl cursor-pointer  font-raleway  transition-all duration-300">
                     Learn More
