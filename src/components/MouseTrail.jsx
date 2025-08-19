@@ -4,7 +4,7 @@ const MouseTrail = () => {
   const svgRef = useRef(null);
   const pathRef = useRef(null);
   const points = useRef([]);
-  const segments = 30;
+  const segments = 15;
   const mouse = useRef({ x: 0, y: 0 });
   const animationFrameId = useRef();
 
@@ -44,7 +44,7 @@ const MouseTrail = () => {
       if (pointsArray.length < 2) return "";
 
       let path = `M ${pointsArray[0].x} ${pointsArray[0].y}`;
-      const tension = 0.4;
+      const tension = 0.1;
 
       for (let i = 0; i < pointsArray.length - 1; i++) {
         const p0 = i > 0 ? pointsArray[i - 1] : pointsArray[i];
@@ -117,7 +117,7 @@ const MouseTrail = () => {
       <path
         ref={pathRef}
         d=""
-        stroke="white"
+        stroke="#58b4ff"
         strokeLinecap="round"
         fill="none"
       />
