@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Numbers = () => {
   return (
-    <div className="grid relative font-Poppins place-items-center container text-white/90 py-5 mx-auto grid-cols-2">
+    <div className="grid relative font-Poppins place-items-center container text-white/90 py-5 gap-4 md:gap-0 mx-auto grid-rows-2  md:grid-rows-1 md:grid-cols-2">
       <div
         className="absolute  inset-0   -z-"
         style={{
@@ -17,14 +17,14 @@ const Numbers = () => {
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      <div className="relative z-10">
+      <div className="relative z-10 md:px-0 px-2">
         <h4 className="uppercase text-prime mb-1">
           Pioneering Trust and Innovation
         </h4>
-        <h2 className="text-5xl font-Raleway font-semibold mb-5">
+        <h2 className="text-3xl md:text-5xl font-Raleway font-semibold mb-5">
           Results That Matter
         </h2>
-        <p className="text-xl w-3/4 text-white/80 mb-10">
+        <p className="text-xl md:w-3/4 text-white/80 mb-10">
           Your vision deserves more than just code—it deserves a solution that
           truly works.
         </p>
@@ -40,7 +40,7 @@ const Numbers = () => {
           </span>
         </motion.a>
       </div>
-      <div className="flex font-Poppins flex-wrap gap-5  w-[450px]  mx-auto text-center justify-around items-center md:gap-y-14">
+      <div className="flex font-Poppins flex-wrap gap-15 md:gap-5  w-full md:w-[450px]  mx-auto text-center justify-evenly md:justify-around items-center md:gap-y-14">
         <div className="space-y-4">
           <div className="text-4xl md:text-5xl  font-medium  font-Poppins">
             2+

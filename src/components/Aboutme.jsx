@@ -39,19 +39,19 @@ const Aboutme = () => {
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
     >
-      <motion.h1 className="text-7xl font-Poppins " variants={fadeUp}>
-        Meet <span className="text-prime2">Umair.</span>
+      <motion.h1 className="text-4xl md:px-0 px-2 lg:text-7xl font-Poppins " variants={fadeUp}>
+        Meet <span className="text-prime2 ">Umair.</span>
       </motion.h1>
 
-      <div className="w-full  h-full grid  grid-cols-2 ">
+      <div className="w-full  h-full grid  grid-cols-1 md:px-0 px-2 lg:grid-cols-2 ">
         <div className="h-full  ">
           <motion.h2
-            className="text-4xl text-white/90 italic font-Poppins mb-8"
+            className="text-2xl md:text-4xl text-white/90 italic font-Poppins mb-8"
             variants={fadeUp}
           >
             Bringing your brand to the life in the digital world
           </motion.h2>
-          <div className="space-y-3 text-lg font-light font-Poppins text-white/70 ">
+          <div className="space-y-3  text-lg font-light font-Poppins text-white/70 ">
             <motion.p variants={fadeUp}>
               Hi, I’m Umair Zakria, a web developer passionate about turning
               ideas into powerful digital solutions. I enjoy creating products
@@ -91,7 +91,7 @@ const Aboutme = () => {
         </div>
 
         <motion.div
-          className=" absolute top-5 right-10 h-[500px] w-[400px] "
+          className=" md:block hidden absolute top-5 right-10 h-[500px] w-[400px] "
           variants={fade}
         >
           <img

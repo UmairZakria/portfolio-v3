@@ -68,7 +68,7 @@ const About = () => {
     {
       name: "Marcus",
       category: "Web Design",
-      img: "images/Marcus1.jpeg",
+      img: "https://umairlab.vercel.app/images/Marcus1.jpeg",
       subtitle: "Modern design, seamless experience, bold impression.",
       description:
         "A clean, modern, and fully custom portfolio website — crafted to showcase creativity, professionalism, and a seamless user experience. Designed with attention to detail to make a bold and lasting impression.",
@@ -82,7 +82,7 @@ const About = () => {
     {
       name: "Bitsmart",
       category: "Web Design",
-      img: "images/bitsmart2.jpeg",
+      img: "https://umairlab.vercel.app/images/bitsmart2.jpeg",
       subtitle: "Crafting digital masterpieces pixel by pixel.",
       description:
         "A modern, responsive, and brand-focused company portfolio website for Bitsmart Tech. Built to showcase services, projects, and client engagement with an emphasis on creativity, clean UI, and smooth user experience.",
@@ -98,7 +98,7 @@ const About = () => {
     {
       name: "SuperSub",
       category: "Web Design",
-      img: "images/super2.jpeg",
+      img: "https://umairlab.vercel.app/images/super2.jpeg",
       subtitle: "Bringing businesses to the digital world.",
       description:
         "SuperSub Officials — an IPTV subscription selling platform  built with a modern tech to showcase its offerings. The site features an integrated online payment system with multiple banks options and a scalable design for future growth.",
@@ -114,7 +114,7 @@ const About = () => {
     {
       name: "FashionMane",
       category: "Web Development",
-      img: "images/fashion2.jpeg",
+      img: "https://umairlab.vercel.app/images/fashion2.jpeg",
       subtitle: "Your style, your stories — managed effortlessly",
       description:
         "FashionMane is a fully functional blogging platform with a built-in CMS, featuring a user-friendly frontend, powerful admin panel, and secure backend. It supports full CRUD operations, dynamic routing, and is optimized for SEO.",
@@ -130,7 +130,7 @@ const About = () => {
     {
       name: "BusGoes+",
       category: "Web Design",
-      img: "images/bus2.jpeg",
+      img: "https://umairlab.vercel.app/images/bus2.jpeg",
       subtitle: "Making bus journeys just a click away.",
       description:
         "Bus Goes is a modern online bus booking platform with a built-in CMS that makes intercity travel simple. It offers a seamless booking experience, smart route management, and an intuitive admin dashboard for effortless reservation handling.",
