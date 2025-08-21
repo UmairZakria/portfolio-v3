@@ -80,7 +80,7 @@ const Navbar = () => {
             {/* <span> */}
               <h1 className="text-4xl space-x-2 inline-flex gap-2 pb-2 border-b-[1px] border-prime2/20 items-end font-Poppins">
                 umair
-                <span className="text-lg font-Poppins  text-prime2">Labs</span>
+                <span className="text-lg font-Poppins  text-prime2">Lab</span>
               </h1>
             {/* </span> */}
           {/* </h1> */}
@@ -94,14 +94,17 @@ const Navbar = () => {
             key={section.name}
             // onClick={() => handleNavClick(section)}
             href={section.href}
-            className={`font-Karla px-4 py-[6px] rounded-full cursor-pointer hover:bg-white hover:text-black transition-all duration-300 ${
+            className={`font-Karla px-4 py-[4px] rounded-full cursor-pointer hover:bg-white hover:text-black transition-all duration-300 ${
               selectedOption === section.name
                 ? "bg-[#ffffff] text-black"
                 : "bg-[black]"
             }`}
           >
             <span className="text-sm">
-              <Word>{section.name}</Word>
+              {/* <Word> */}
+                {section.name}
+
+              {/* </Word> */}
             </span>
           </a>
         ))}
@@ -129,7 +132,10 @@ const Navbar = () => {
                     selectedOption === section ? "bg-white !text-black" : ""
                   }`}
                 >
-                  <Word>{section.name}</Word>
+                  {/* <Word> */}
+                    {section.name}
+
+                  {/* </Word> */}
                 </div>
               </a>
             ))}

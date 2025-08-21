@@ -72,10 +72,10 @@ const Footer2 = () => {
                 <h1 className="text-4xl space-x-2 inline-flex gap-2 pb-2 border-b-[1px] border-prime2/20 items-end font-Poppins">
                   umair
                   <span className="text-lg font-Poppins  text-prime2">
-                    Labs
+                    Lab
                   </span>
                 </h1>
-                <p className=" text-2xl text-gray-200/80 tracking-wider  font-Poppins font-light ">
+                <p className=" text-xl text-gray-200/80 tracking-wider  font-Poppins font-light ">
                   Transforming ideas into powerful digital solutions.
                 </p>
               </div>
