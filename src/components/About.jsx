@@ -319,8 +319,8 @@ const About = () => {
           </div>
           <div className="flex md:flex-row flex-col justify-around h-full   xl:gap-30 ">
             <div className=" relative   h-full flex flex-col  md:gap-0 gap-4 rounded-2xl justify-evenly  col-">
-              <div className="images md:w-[350px] lg:w-[450px] xl:w-[500px]  rounded-sm object-cover">
-                <ImageDistortionEffect imageUrl={data[activeIndex].img} />
+              <div className="images md:w-[350px] lg:w-[450px] xl:w-[500px] rounded-md object-cover" >
+                <img src={data[activeIndex].img} />
               </div>
 
               <div className="project-text space-y-2">
