@@ -111,10 +111,10 @@ const Contact = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
                   target="_blank"
-                  href="/CV.pdf"
+                  href="https://github.com/UmairZakria"
                   className=" transition-all duration-300 ease-in-out  hover:text-white  cursor-pointer border-b border-prime2 pb-2 inline-flex"
                 >
-                  My CV
+                  Github
                 </motion.a>
               </div>
             </div>

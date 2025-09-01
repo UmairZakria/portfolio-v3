@@ -202,7 +202,7 @@ const About = () => {
         trigger: ".projects",
         pin: true,
         start: "top top",
-        end: `+=${sections * (isMobileViewport ? window.innerHeight * 0.85 : window.innerHeight)}`,
+        end: `+=${sections * (isMobileViewport ? window.innerHeight * 0.85 : window.innerHeight + window.innerHeight)}`,
         scrub: isMobileViewport ? 0.5 : 1.2,
         anticipatePin: 1,
         invalidateOnRefresh: true,

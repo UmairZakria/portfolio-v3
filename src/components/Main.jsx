@@ -19,13 +19,13 @@ const Main = () => {
 
   return (
     <div className="relative  !overflow-x-hidden">
-      <a
+      {/* <a
         href="/overview"
         className="fixed bottom-0 left-0  text-[8px] lg:text-sm hidden md:flex items-center gap-2 pr-4 group z-[100] cursor-pointer text-white   font-Raleway font-normal bg-black p-1 px- rounded-tr-3xl hover:text-black hover:bg-white transition-all duration-700 ease-in-out "
       >
         <Lightbulb className="group-hover:text-black size-[16px] " /> Let's Discuss Your
         Idea
-      </a>
+      </a> */}
       {/* <Welcome setAnidone={setAnidone} /> */}
       {/* <Flip/> */}
       <Navbar />
