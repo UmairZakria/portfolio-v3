@@ -151,11 +151,11 @@ const Hero = ({ anidone }) => {
 
         <div
           ref={sectionRef}
-          className="absolute   bg-[#0000004b] backdrop-blur-md md:backdrop-blur-xl inset-0 h-full flex"
+          className="absolute   bg-[#0000004b] backdrop-blur-md md:backdrop-blur-xl 2xl:backdrop-blur-2xl inset-0 h-full flex"
         >
           {/* Section 1 */}
           <div className=" section1 opacity-0 h-screen w-screen   !overflow-hidden   relative   pt-[50px] ">
-            <div className=" container relative h-full overflow-hidden mx-auto flex flex-col justify-around md:justify-between pt-[50px] pb-[50px]  md:px-0 px-  gap-   ">
+            <div className=" lg:w-full xl:container lg:px-10 xl:px-0 relative h-full overflow-hidden mx-auto flex flex-col justify-around md:justify-between pt-[50px] pb-[50px]  md:px-0 px-  gap-   ">
               {/* <div className="socials text-sm absolute   flex z-[50] gap-4  right-0 bottom-16 lg:bottom-[40px]   text-gray-300">
                 <a
                   href="https://www.linkedin.com/in/umair-zakria-67477b33a/"
@@ -179,14 +179,14 @@ const Hero = ({ anidone }) => {
                 </span>
                 <div className="">
                   <ul className=" w-[200%] space-y-2  text-white text-[14px] uppercase font-Karla  xl:text-[16px] flex flex-col ">
-                    <span className="greeting1 border-b-[1px] border-gray-500 hover:text-prime2 ">
+                    <span className="greeting1  border-gray-500 hover:text-prime2 ">
                       <Word>Web&nbsp;Applications</Word>
                     </span>
 
-                    <li className="greeting3 border-b-[1px] border-gray-500 hover:text-prime2 ">
+                    <li className="greeting3  border-gray-500 hover:text-prime2 ">
                       <Word>Website&nbsp;Designs</Word>
                     </li>
-                    <li className="greeting2 border-b-[1px] border-gray-500 hover:text-prime2 ">
+                    <li className="greeting2  border-gray-500 hover:text-prime2 ">
                       <Word>Backend&nbsp;Development</Word>
                     </li>
                   </ul>
@@ -198,11 +198,11 @@ const Hero = ({ anidone }) => {
                     Hi, I'm
                   </h3>
 
-                  <span className="text-lg xl:text-[32px] font-Poppins space-x   hover:text-white transition-all duration-200 ease-in-out">
-                    <span className="text-[] ">Full-Stack Developer</span>{" "}
+                  <span className="text-lg lg:text-2xl xl:text-[32px] font-Poppins space-x   hover:text-white transition-all duration-200 ease-in-out">
+                    <span className="text-[] border-b ">Full-Stack Developer</span>{" "}
                   </span>
                 </div>
-                <div className="title1 w-full   uppercase font-Montserrat font-[400] text-[20px] lg:text-5xl xl:text-[65px]  lg:leading-[70px] xl:leading-[100px]">
+                <div className="title1 w-full   uppercase font-Montserrat font-[400] text-[20px] tracking-wide lg:text-6xl xl:text-[65px]  lg:leading-[75px] xl:leading-[100px]">
                   <div className="">
                     Transforming <span className="animate-">Ideas</span> into
                   </div>

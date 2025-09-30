@@ -64,7 +64,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="absolute top-0 left-1/2 -translate-x-[50%] container  p-2 lg:px-0 px-4 flex items-center justify-between z-[100] w-full">
+    <div className="absolute top-0 left-1/2 -translate-x-[50%] lg:w-full xl:container lg:px-10  p-2 xl:px-0 px-4 flex items-center justify-between z-[100] w-full">
       <motion.div
         initial={{ x: -200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -88,13 +88,13 @@ const Navbar = () => {
       </motion.div>
 
       {/* Desktop Navigation */}
-      <ul className="hidden md:flex bg-[black]  items-center font-Montserrat cursor-pointer gap-3 px-2 py-2 rounded-full backdrop-blur-lg text-white">
+      <ul className="hidden md:flex bg-[black]  items-center font-Montserrat cursor-pointer lg:gap-1 xl:gap-2 px-2 py-2 rounded-full backdrop-blur-lg text-white">
         {sections.map((section) => (
           <a
             key={section.name}
             // onClick={() => handleNavClick(section)}
             href={section.href}
-            className={`font-Karla px-4 py-[4px] rounded-full cursor-pointer hover:bg-white hover:text-black transition-all duration-300 ${
+            className={`font-Karla px-5 py-[4px] rounded-full cursor-pointer hover:bg-white hover:text-black transition-all duration-300 ${
               selectedOption === section.name
                 ? "bg-[#ffffff] text-black"
                 : "bg-[black]"

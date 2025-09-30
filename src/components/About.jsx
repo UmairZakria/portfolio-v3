@@ -305,22 +305,22 @@ const About = () => {
 
       <div
         name="projects"
-        className=" bg- h-full container  relative z-[100] bg-[#ffffff17] p-3  rounded-3xl backdrop-blur-2xl mx-auto    "
+        className=" bg- h-full  lg:mx-10 xl:mx-auto  xl:container  relative z-[100] bg-[#ffffff17] p-3  rounded-3xl backdrop-blur-2xl mx-auto    "
       >
         <div className=" h-full space-y-5 w-full">
           <div className="flex w-full flex-wrap gap-4 items-center  justify-between">
             <h2 className="contthings text-lg md:text-3xl xl:text-4xl  text-white font-Montserrat">
               <span className="text-prime2">Featured</span> Work
             </h2>
-            <p className="md:w-1/4 contthings  leading-loose font-Inter font-extralight text-[10px] md:text-[10px] xl:text-[12px] text-gray-200  ">
+            <p className="md:w-1/4 lg:w-1/4  text-right contthings  leading-loose font-Inter font-extralight text-[10px] md:text-[10px] lg:text-[12px] xl:text-[12px] text-gray-200  ">
               A glimpse into the ideas I've brought to life crafted with
               purpose, shaped by function, and driven by simplicity.
             </p>
           </div>
-          <div className="flex md:flex-row flex-col justify-around h-full   xl:gap-30 ">
+          <div className="flex md:flex-row flex-col justify-around h-full   lg:gap-30 ">
             <div className=" relative   h-full flex flex-col  md:gap-0 gap-4 rounded-2xl justify-evenly  col-">
               <div className="images md:w-[350px] lg:w-[450px] xl:w-[500px] rounded-md object-cover" >
-                <img src={data[activeIndex].img} />
+                <img src={data[activeIndex].img} className="" />
               </div>
 
               <div className="project-text space-y-2">
@@ -341,14 +341,13 @@ const About = () => {
                   </p>
                 </div>
                 <div className="contthings">
-                  <a
-                    href="overview"
+                  <span
                     className="relative z-[50] flex gap-3 transition-all duration-300 ease-in-out"
                   >
-                    <motion.span className=" relative !z-[100] items-center gap-1 text-sm border-b transition-all duration-300 ease-in-out hover:text-white hover:border-white cursor-pointer  border-prime2 text-prime2  inline-flex">
-                      <ArrowUpRight size={16} /> Learn More
-                    </motion.span>
-                  </a>
+                    <motion.a href={'#'} className=" relative !z-[100] items-center gap-1 text-sm border-b transition-all duration-300 ease-in-out hover:text-white hover:border-white cursor-pointer  border-prime2 text-prime2  inline-flex">
+                      <ArrowUpRight size={16} />  Learn More
+                    </motion.a>
+                  </span>
                 </div>
               </div>
               <div className="hidden md:block space-y-3">
@@ -366,7 +365,7 @@ const About = () => {
               </div>
               <div>
                 <h4 className="contthings text-gray-400 ">Description</h4>
-                <p className=" font-light text-gray-300 text-xs lg:text-sm  ">
+                <p className=" font-light text-gray-300 text-xs  line-clamp-3 lg:text-sm  ">
                   {data[activeIndex].description}
                 </p>
               </div>

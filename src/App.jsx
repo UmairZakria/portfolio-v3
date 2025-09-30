@@ -5,6 +5,7 @@ import Main from "./components/Main";
 import Services from "./components/pages/Service";
 import Work from "./components/pages/Work";
 import Overview from "./components/pages/Overview";
+import Case from "./components/pages/Casepages/Case";
 const App = () => {
   return (
     <>
@@ -13,6 +14,8 @@ const App = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/work" element={<Work />} />
         <Route path="/overview" element={<Overview />} />
+        <Route path="/CaseStudy/:title" element={<Case />} />
+
 
       </Routes>
     </>

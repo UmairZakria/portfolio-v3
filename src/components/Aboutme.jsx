@@ -33,20 +33,20 @@ const Aboutme = () => {
   };
   return (
     <motion.div
-      className=" relative container space-y-7 mx-auto   h-screen w-full lg:mt-[150px]  xl:mt-[300px]"
+      className=" relative lg:w-full xl:container lg:px-10 xl:px-0 space-y-7 mx-auto   min-h-screen w-full lg:mt-[150px]  xl:mt-[300px]"
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
     >
-      <motion.h1 className="text-4xl md:px-0 px-2 lg:text-7xl font-Poppins " variants={fadeUp}>
+      <motion.h1 className="text-4xl md:px-0 px-2 lg:text-6xl xl:text-7xl font-Poppins " variants={fadeUp}>
         Meet <span className="text-prime2 ">Umair.</span>
       </motion.h1>
 
       <div className="w-full  h-full grid  grid-cols-1 md:px-0 px-2 lg:grid-cols-2 ">
         <div className="h-full  ">
           <motion.h2
-            className="text-2xl md:text-4xl text-white/90 italic font-Poppins mb-8"
+            className="text-2xl md:text-3xl xl:text-4xl text-white/90 italic font-Poppins mb-8"
             variants={fadeUp}
           >
             Bringing your brand to the life in the digital world
@@ -91,7 +91,7 @@ const Aboutme = () => {
         </div>
 
         <motion.div
-          className=" md:block hidden absolute top-5 right-10 h-[500px] w-[400px] "
+          className=" md:block  hidden absolute top-5 right-10 h-[500px] w-[400px] "
           variants={fade}
         >
           <img

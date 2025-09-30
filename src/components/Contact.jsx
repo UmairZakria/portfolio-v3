@@ -73,7 +73,7 @@ const Contact = () => {
             backgroundRepeat: "no-repeat",
           }}
         ></motion.div>
-        <div className="container mx-auto h-full flex items-center gap-10 flex-wrap md:justify-between  ">
+        <div className="lg:px-10 w-full xl:px-0  xl:container mx-auto h-full flex items-center gap-10 flex-wrap md:justify-between  ">
           <div className="space-y-5  flex justify-around flex-col h-full">
             {" "}
             <div className="space-y-3 relative z-[50] p-2">
@@ -118,7 +118,7 @@ const Contact = () => {
                 </motion.a>
               </div>
             </div>
-            <div className="border-t md:block hidden   w-full md:w-[300px] xl:w-[400px] border-prime2 space-y-5 pt-10">
+            <div className="border-t md:block hidden   w-full md:w-[300px] lg:w-[350px] xl:w-[400px] border-prime2 space-y-5 pt-10">
               <h5 className="text-gray-300 font-Poppins ">
                 Got a project in mind?
               </h5>
@@ -131,7 +131,7 @@ const Contact = () => {
             <div
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="transition-all duration-100 mx-auto  shadow-xl rounded-full ease-in-out"
+              className="transition-all duration-100 mx-auto  rounded-full ease-in-out"
               style={{
                 ...style,
                 transformStyle: "preserve-3d",
@@ -140,11 +140,11 @@ const Contact = () => {
             >
               <img
                 src="/me.png"
-                className=" w-[250px] h-[250px] xl:w-[300px] xl:h-[300px] opacity-90   rounded-full object-cover "
+                className=" w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] opacity-90   rounded-full object-cover "
                 alt=""
               />
             </div>
-            <div className="Abouts flex flex-col md:px-0 px-2 font-Karla w-[300px] xl:w-[500px] gap-10 ">
+            <div className="Abouts flex flex-col md:px-0 px-2 font-Karla w-[300px] lg:w-[400px] xl:w-[500px] gap-10 ">
               <motion.p
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

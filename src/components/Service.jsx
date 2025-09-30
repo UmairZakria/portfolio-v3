@@ -178,25 +178,25 @@ const Service = () => {
       className=" bg-cover min-h-screen overflow-hidden bg-center py-[120px] bg-no-repeat   relative space-y-[10vh]  lg:space-y-[10vh]  font-Montserrat mt-[30vh] px-4 xl:px-20 lg:px-15"
     >
       {/* <div className=""> */}
-        <img src="/images/bg1.jpg" alt=""  className="absolute brightness-25  top-0 left-0  w-full object-center h-full object-cover"/>
+      <img src="/images/bg1.jpg" alt="" className="absolute   brightness-25  top-0 left-0  w-full object-center h-full object-cover" />
       {/* </div> */}
       <div className="absolute w-full h-[200px] bg-gradient-to-b   z-[100] from-black via-black/40 to-transparent top-0 left-0 "></div>
       <div className="absolute w-full h-[200px] bg-gradient-to-t   z-[100] from-black via-black/70 to-transparent   2xl:-bottom-35   xl:-bottom-30 -bottom-20  left-0"></div>
       <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="absolute inset-0 z-0"
-          style={{
-            background: `
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className="absolute inset-0 z-0"
+        style={{
+          background: `
             radial-gradient(circle at 10% 10%, rgba(37, 157, 255, 0.3) 0%, transparent 40%), /* Indigo glow bottom-left */
             radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%) /* Central dark fade */
           `,
-            // Ensure the background covers the entire div
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-          }}
-        ></motion.div>
+          // Ensure the background covers the entire div
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></motion.div>
       <div className="space-y-12">
         <div className="flex items-center flex-col  gap-6 justify-between">
           <h3
@@ -204,16 +204,16 @@ const Service = () => {
             className="text-5xl lg:text-7xl text-center  font-Poppins font-light"
           >
             Services I <span className="text-prime2">Offer</span>
+
           </h3>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
-            className=" md:w-1/3 font-Inter hover:text-white text-center  text-white text-sm font-extralight leading-relaxed"
+          {/* <p></p> */}
+          <p
+            className=" relative z-50 md:w-1/3 font-Inter text-center  text-white text-sm font-extralight leading-relaxed"
           >
             Creating innovative and high-performance digital solutions that
             enhance user experiences and drive growth.
-          </motion.p>
+          </p>
+
         </div>
       </div>
 

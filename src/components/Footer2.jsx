@@ -41,12 +41,8 @@ const Footer2 = () => {
   return (
     <>
       <div className="w-full relative h-[3px] bg-prime2   overflow-hidden mt-[120px] "></div>
-      <div className="relative py-[30px]">
-        <img
-          src="/images/bg2.jpg"
-          className="absolute top-0 left-0 h-full opacity-75 w-full object-cover object-center"
-          alt=""
-        />
+      <div className="relative xl:py-[30px]">
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -65,8 +61,8 @@ const Footer2 = () => {
         ></motion.div>
         <div className="absolute w-full h-[100px] bg-gradient-to-b   z-[100] from-black via-black/70 to-transparent top-0 left-0 "></div>
 
-        <div className=" bg-[#ffffff13] xl:p-8  border-[1px] border-gray-500/50 z-[100] relative container mx-auto  p-2 lg:h-[300px] w-full rounded-2xl backdrop-blur-2xl     font-Montserrat">
-          <div className="h-full flex  md:gap-0 gap-10 md:flex-nowrap flex-wrap  !justify-between">
+        <div className="   z-[100]  bg-[#ffffff04] relative   p-2 lg:h-[300px] w-full backdrop-blur-xl     font-Montserrat">
+          <div className="h-full flex lg:px-10 xl:container mx-auto   md:gap-0 gap-10 md:flex-nowrap flex-wrap  !justify-between">
             <div className="grid place-content-start  w-full lg:w-[350px]  h-full ">
               <div className="space-y-5  ">
                 <h1 className="text-4xl space-x-2 inline-flex gap-2 pb-2 border-b-[1px] border-prime2/20 items-end font-Poppins">
