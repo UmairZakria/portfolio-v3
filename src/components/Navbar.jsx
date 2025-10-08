@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Terminal, Codesandbox, MenuIcon, X, CodeXml } from "lucide-react";
 
 const Navbar = () => {
-  const [selectedOption, setSelectedOption] = useState("intro");
+  const [selectedOption, setSelectedOption] = useState("Home");
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -92,7 +92,7 @@ const Navbar = () => {
         {sections.map((section) => (
           <a
             key={section.name}
-            // onClick={() => handleNavClick(section)}
+            onClick={() => setSelectedOption(section.name)}
             href={section.href}
             className={`font-Karla px-5 py-[4px] rounded-full cursor-pointer hover:bg-white hover:text-black transition-all duration-300 ${
               selectedOption === section.name

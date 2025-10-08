@@ -2,51 +2,13 @@ import React, { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MoveRight, MoveRightIcon, MoveDown,ArrowUpRight } from "lucide-react";
+import {  MoveRightIcon,ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ImageDistortionEffect from "./WaveImage";
-import SplitType from "split-type";
 
-import Word from "./Word";
 
 gsap.registerPlugin(ScrollTrigger);
-const Procard = ({ category, title, image }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1, transition: { delay: 0.2, duration: 1 } }}
-      className="md:w-auto -space-y-24 lg:-space-y-6 xl:space-y-8   pb-2"
-    >
-      <div
-        className="relative overflow-hidden rounded-xl object-cover object-center
-             w-full  h-[400px]"
-      >
-        {/* <img className="rounded-xl object-cover transition-all ease-in-out duration-300 hover:scale-110 w-full shadow-xl h-full" src={image} alt={title} /> */}
-        {/* <WaveImage imageSrc={image} /> */}
-        <p className="shadow-2xl shadow-gray-900 ">
-          <ImageDistortionEffect imageUrl={image} />
-        </p>
-      </div>
-      <div className="pl-4 ">
-        <span className="p-2 uppercase text-gray-300 font-Raleway">
-          {category}
-        </span>
-        {/* <h3 className="text-center text-gray-600 dark:text-gray-400 font-semibold"></h3> */}
-        <h2 className="p-2 group text-2xl font-Montserrat transition-all duration-300 ease-in-out flex items-center gap-2   ">
-          <motion.span
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            className=" group-hover:block hidden transition-all duration-300 ease-in-out"
-          >
-            <MoveRightIcon />
-          </motion.span>
 
-          {title}
-        </h2>
-      </div>
-    </motion.div>
-  );
-};
 const About = () => {
   const [y, setY] = useState(4);
   const textRef2 = useRef(null);
@@ -114,7 +76,7 @@ const About = () => {
     {
       name: "FashionMane",
       category: "Web Development",
-      img: "images/fashion2.jpeg",
+      img: "images/fashion3.jpeg",
       subtitle: "Your style, your stories — managed effortlessly",
       description:
         "FashionMane is a fully functional blogging platform with a built-in CMS, featuring a user-friendly frontend, powerful admin panel, and secure backend. It supports full CRUD operations, dynamic routing, and is optimized for SEO.",
@@ -283,14 +245,14 @@ const About = () => {
   }, []);
 
   return (
-    <div className="projects mt-[120px] relative b w-full  h-screen py-4 ">
+    <div className="projects mt-[120px] relative b w-full flex items-center justify-center   h-screen py-4 ">
       <div className="absolute w-full h-[100px] bg-gradient-to-b   z-[100] from-black via-black/70 to-transparent top-0 left-0 "></div>
       <div className="absolute w-full h-[100px] bg-gradient-to-t   z-[100] from-black via-black/70 to-transparent   bottom-0  left-0"></div>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, ease: "easeInOut" }}
-        className="absolute inset-0 z-0"
+        className="absolute w-full h-screen top-0 left-0 z-0"
         style={{
           background: `
             radial-gradient(circle at 20% 80%, rgba(37, 157, 255, 0.4) 0%, transparent 40%), /* Indigo glow bottom-left */
@@ -302,6 +264,7 @@ const About = () => {
           backgroundRepeat: "no-repeat",
         }}
       ></motion.div>
+    <div className="h-full 2xl:h-[800px] w-full flex-1 ">
 
       <div
         name="projects"
@@ -373,6 +336,8 @@ const About = () => {
           </div>
         </div>
       </div>
+    </div>
+
     </div>
   );
 };

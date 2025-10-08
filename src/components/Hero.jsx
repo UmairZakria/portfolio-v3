@@ -6,7 +6,8 @@ import { motion } from "framer-motion";
 import { useGSAP } from "@gsap/react";
 import Greeting from "./Greeting";
 import Word from "./Word";
-import { Linkedin, Github } from "lucide-react";
+import { Linkedin, Github,MoveRight } from "lucide-react";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,6 +132,38 @@ const Hero = ({ anidone }) => {
         ref={triggerRef}
         className="relative h-screen w-full overflow-hidden"
       >
+        <a href="/overview" className="absolute left-1/2 -translate-x-1/2 text-black text-xl font-medium font-Montserrat z-[999] bottom-[40px] bg-white/95 border-white !border hover:bg-transparent hover:text-white transition-all duration-400 cursor-pointer ease-in-out  rounded-full px-8 py-2 flex items-center gap-2">Let's Talk <MoveRight /></a>
+        <div className="socials text-sm absolute   flex z-[999] gap-4  right-10 bottom-16 lg:bottom-[40px]   text-gray-300">
+          <a
+            href="https://www.linkedin.com/in/umair-zakria-67477b33a/"
+            target="_blank"
+            className="hover:bg-prime2 cursor-pointer hover:text-white transition-all duration-300 ease-in-out border rounded-md p-2 text-prime2 !border-prime2 "
+          >
+            <Linkedin />
+          </a>
+          <a
+            href="https://github.com/UmairZakria"
+            target="_blank"
+            className="hover:bg-prime2 cursor-pointer hover:text-white transition-all duration-300 ease-in-out border rounded-md p-2 text-prime2 !border-prime2 "
+          >
+            <Github />
+          </a>
+        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className="absolute w-full h-screen   top-0 left-0 z-1"
+          style={{
+            background: `
+                            radial-gradient(circle at 50% 50%, rgba(37, 157, 255, 0.35) 20%, transparent 50%), /* Indigo glow bottom-left */
+                            radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%) /* Central dark fade */
+                          `,
+            // Ensure the background covers the entire div
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></motion.div>
         <div className="absolute w-full h-[200px] bg-gradient-to-t     !z-[100] from-black via-black/70 to-transparent   2xl:-bottom-35   xl:-bottom-30 -bottom-20  left-0"></div>
 
         <motion.video
@@ -144,75 +177,39 @@ const Hero = ({ anidone }) => {
           muted
           loop
           autoPlay
-          className="absolute h-full w-full md:brightness-200 scal md:scale-100  object-cover origin-center"
+          className="absolute h-full w-full md:brightness-200 scale-70 md:scale-100  object-cover origin-center"
         />
 
         {/* Horizontal Scroll Container */}
 
         <div
           ref={sectionRef}
-          className="absolute   bg-[#0000004b] backdrop-blur-md md:backdrop-blur-xl 2xl:backdrop-blur-2xl inset-0 h-full flex"
+          className="absolute z-10   bg-[#0000004b] backdrop-blur-md md:backdrop-blur-xl 2xl:backdrop-blur-2xl inset-0 h-full flex"
         >
           {/* Section 1 */}
           <div className=" section1 opacity-0 h-screen w-screen   !overflow-hidden   relative   pt-[50px] ">
             <div className=" lg:w-full xl:container lg:px-10 xl:px-0 relative h-full overflow-hidden mx-auto flex flex-col justify-around md:justify-between pt-[50px] pb-[50px]  md:px-0 px-  gap-   ">
-              {/* <div className="socials text-sm absolute   flex z-[50] gap-4  right-0 bottom-16 lg:bottom-[40px]   text-gray-300">
-                <a
-                  href="https://www.linkedin.com/in/umair-zakria-67477b33a/"
-                  target="_blank"
-                  className="hover:bg-prime2 cursor-pointer hover:text-white transition-all duration-300 ease-in-out border rounded-md p-2 text-prime2 !border-prime2 "
-                >
-                  <Linkedin />
-                </a>
-                <a
-                  href="https://github.com/UmairZakria"
-                  target="_blank"
-                  className="hover:bg-prime2 cursor-pointer hover:text-white transition-all duration-300 ease-in-out border rounded-md p-2 text-prime2 !border-prime2 "
-                >
-                  <Github />
-                </a>
-              </div> */}
 
-              <div className=" flex lg:px-0 px-2  76 justify-between">
-                <span className="greeting">
-                  <Greeting />
-                </span>
-                <div className="">
-                  <ul className=" w-[200%] space-y-2  text-white text-[14px] uppercase font-Karla  xl:text-[16px] flex flex-col ">
-                    <span className="greeting1  border-gray-500 hover:text-prime2 ">
-                      <Word>Web&nbsp;Applications</Word>
-                    </span>
 
-                    <li className="greeting3  border-gray-500 hover:text-prime2 ">
-                      <Word>Website&nbsp;Designs</Word>
-                    </li>
-                    <li className="greeting2  border-gray-500 hover:text-prime2 ">
-                      <Word>Backend&nbsp;Development</Word>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="  px-2 lg:px-0  text-xl  w-full space-y-3">
-                <div className=" title2 lg:pl-1 text-[10px] md:space-y-2 xl:text-[20px] font-Raleway  text-white ">
+
+              <div className=" flex text-center  items-center justify-center flex-col h-full px-2 lg:px-0  text-xl  w-full space-y-3">
+                {/* 
+                <div className="  title1 lg:pl-1 text-[10px] md:space-y-2 xl:text-[20px] font-Raleway  text-white ">
                   <h3 className="tracking-widest font-Poppins text-lg md:text-3xl">
-                    Hi, I'm
+                    Hi, I'm <span> Umair Zakria</span>
                   </h3>
 
-                  <span className="text-lg lg:text-2xl xl:text-[32px] font-Poppins space-x   hover:text-white transition-all duration-200 ease-in-out">
-                    <span className="text-[] border-b ">Full-Stack Developer</span>{" "}
+                  <span className="text-lg lg:text-5xl text-prime  xl:text-[32px] font-Poppins space-x   hover:text-white transition-all duration-200 ease-in-out">
+                    <span className="text-[] border-b  ">Full-Stack Developer</span>{" "}
                   </span>
-                </div>
-                <div className="title1 w-full   uppercase font-Montserrat font-[400] text-[20px] tracking-wide lg:text-6xl xl:text-[65px]  lg:leading-[75px] xl:leading-[100px]">
-                  <div className="">
-                    Transforming <span className="animate-">Ideas</span> into
+                </div>   */}
+                <div className=" title1   font-Montserrat  text-2xl tracking-wide lg:text-xl xl:text-7xl leading-normal ">
+                  <div className=" ">
+                    Bringing Your Brand To<span className="  text-prime2 -b  border-prime  "><br /> Life In The Digital World
+
+                    </span>
                   </div>
-                  <div className=" w-full   ">
-                  Powerful{" "}
-                    <span className="animate- font-[500] font-Montserrat text-prime2  ">
-                       Digital Solutions.
-                    </span>{" "}
-                    {/* <span className="animate- ">Solutions.</span> */}
-                  </div>
+
                 </div>
               </div>
             </div>

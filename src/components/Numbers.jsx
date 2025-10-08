@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Numbers = () => {
   return (
-    <div className="flex items-center justify-between relative font-Poppins  lg:w-full xl:container lg:px-10 xl:px-0 text-white/90 py-5 gap-4 md:gap-0 mx-auto ">
+    <div className="flex flex-wrap-reverse md:flex-nowrap gap-20 items-center justify-between relative font-Poppins  lg:w-full xl:container lg:px-10 xl:px-0 text-white/90 py-5  md:gap-0 mx-auto ">
       <div
         className="absolute  inset-0   -z-"
         style={{
@@ -40,7 +40,7 @@ const Numbers = () => {
           </span>
         </motion.a>
       </div>
-      <div className="flex font-Poppins flex-wrap gap-15 md:gap-5  w-full md:w-[450px]  mx-auto text-center justify-between md:justify-around items-center md:gap-y-14">
+      <div className="flex px-4 md:px-0 font-Poppins flex-wrap gap-15 md:gap-5  w-full md:w-[450px]  mx-auto text-center justify-between md:justify-around items-center md:gap-y-14">
         <div className="space-y-4">
           <div className="text-4xl md:text-5xl  font-medium  font-Poppins">
             2+
