@@ -41,7 +41,7 @@ const Footer2 = () => {
   return (
     <>
       <div className="w-full relative h-[3px] bg-prime2   overflow-hidden mt-[120px] "></div>
-      <div className="relative xl:py-[30px]">
+      <div className="relative ">
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -61,7 +61,7 @@ const Footer2 = () => {
         ></motion.div>
         <div className="absolute w-full h-[100px] bg-gradient-to-b   z-[100] from-black via-black/70 to-transparent top-0 left-0 "></div>
 
-        <div className="   z-[100]  bg-[#ffffff04] relative   p-2 lg:h-[300px] w-full backdrop-blur-xl     font-Montserrat">
+        <div className="   z-[100]  bg-[#ffffff04] relative   p-2 py-[20px] lg:h-[300px] w-full backdrop-blur-xl     font-Montserrat">
           <div className="h-full flex lg:px-10 xl:container mx-auto   md:gap-0 gap-10 md:flex-nowrap flex-wrap  !justify-between">
             <div className="grid place-content-start  w-full lg:w-[350px]  h-full ">
               <div className="space-y-5  ">
@@ -138,7 +138,7 @@ const Footer2 = () => {
                 </a>
               </div>
             </div>
-            <div className="h-full w-[300px] md:mx-0   mx-auto   gap-2 transition-all duration-300 ease-in-out backdrop-blur-xl flex flex-col p-4 rounded-xl">
+            <div className="h-full w-[300px] md:mx-0   mx-auto   gap-2 transition-all duration-300 ease-in-out  flex flex-col  rounded-xl">
               <h4 className="font-Poppins text-lg">Leave a Message!</h4>
               {error && (
                 <span className="text-green-500 text-sm font-Inter">

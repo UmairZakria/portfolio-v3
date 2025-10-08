@@ -32,7 +32,7 @@ const Main = () => {
       <div className="hidden lg:block">
         <MouseTrail />
       </div>
-      <CustomScrollbar />
+      {/* <CustomScrollbar /> */}
 
       <SmoothScrollProvider>
         <div className=" text-white">

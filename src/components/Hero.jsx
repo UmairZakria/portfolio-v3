@@ -132,7 +132,7 @@ const Hero = ({ anidone }) => {
         ref={triggerRef}
         className="relative h-screen w-full overflow-hidden"
       >
-        <a href="/overview" className="absolute left-1/2 -translate-x-1/2 text-black text-xl font-medium font-Montserrat z-[999] bottom-[40px] bg-white/95 border-white !border hover:bg-transparent hover:text-white transition-all duration-400 cursor-pointer ease-in-out  rounded-full px-8 py-2 flex items-center gap-2">Let's Talk <MoveRight /></a>
+        <a href="/overview" className="absolute left-1/2 -translate-x-1/2 text-black text-lg font-medium font-Montserrat z-[999] bottom-[40px] bg-white/90  border-white !border hover:bg-transparent hover:text-white transition-all duration-400 cursor-pointer ease-in-out  rounded-full px-8 py-2 flex items-center gap-2">Let's Talk <MoveRight /></a>
         <div className="socials text-sm absolute   flex z-[999] gap-4  right-10 bottom-16 lg:bottom-[40px]   text-gray-300">
           <a
             href="https://www.linkedin.com/in/umair-zakria-67477b33a/"
@@ -203,7 +203,7 @@ const Hero = ({ anidone }) => {
                     <span className="text-[] border-b  ">Full-Stack Developer</span>{" "}
                   </span>
                 </div>   */}
-                <div className=" title1   font-Montserrat  text-2xl tracking-wide lg:text-xl xl:text-7xl leading-normal ">
+                <div className=" title1   font-Montserrat  text-2xl tracking-wide lg:text-6xl xl:text-7xl leading-normal ">
                   <div className=" ">
                     Bringing Your Brand To<span className="  text-prime2 -b  border-prime  "><br /> Life In The Digital World
 

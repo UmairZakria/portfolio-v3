@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {  MoveRightIcon,ArrowUpRight } from "lucide-react";
+import {  MoveRightIcon,ArrowUpRight, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ImageDistortionEffect from "./WaveImage";
 
@@ -275,10 +275,9 @@ const About = () => {
             <h2 className="contthings text-lg md:text-3xl xl:text-4xl  text-white font-Montserrat">
               <span className="text-prime2">Featured</span> Work
             </h2>
-            <p className="md:w-1/4 lg:w-1/4  text-right contthings  leading-loose font-Inter font-extralight text-[10px] md:text-[10px] lg:text-[12px] xl:text-[12px] text-gray-200  ">
-              A glimpse into the ideas I've brought to life crafted with
-              purpose, shaped by function, and driven by simplicity.
-            </p>
+            <a href="/projects" className=" hover:text-white hover:border-white border-transparent border-b-[0.5px] transition-all duration-300 ease-in-out uppercase flex items-center gap-2   text-right contthings   font-Inter  text-[10px] lg:text-[16px]  text-prime  ">
+              View All <ChevronRight />
+            </a>
           </div>
           <div className="flex md:flex-row flex-col justify-around h-full   lg:gap-30 ">
             <div className=" relative   h-full flex flex-col  md:gap-0 gap-4 rounded-2xl justify-evenly  col-">

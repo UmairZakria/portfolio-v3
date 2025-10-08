@@ -178,7 +178,7 @@ const Service = () => {
       className=" bg-cover min-h-screen overflow-hidden bg-center py-[120px] bg-no-repeat   relative space-y-[10vh]  lg:space-y-[10vh]  font-Montserrat mt-[30vh] px-4 xl:px-20 lg:px-15"
     >
       {/* <div className=""> */}
-      <img src="/images/bg1.jpg" alt="" className="absolute   brightness-25  top-0 left-0  w-full object-center h-full object-cover" />
+      {/* <img src="/images/bg1.jpg" alt="" className="absolute   brightness-25  top-0 left-0  w-full object-center h-full object-cover" /> */}
       {/* </div> */}
       <div className="absolute w-full h-[200px] bg-gradient-to-b   z-[100] from-black via-black/40 to-transparent top-0 left-0 "></div>
       <div className="absolute w-full h-[200px] bg-gradient-to-t   z-[100] from-black via-black/70 to-transparent   2xl:-bottom-35   xl:-bottom-30 -bottom-20  left-0"></div>
@@ -222,7 +222,7 @@ const Service = () => {
         className=" lg:w-full xl:container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gap-y-20 gap-12"
       >
         {data.map((item, index) => (
-          <div key={index} className="relative  p-4 rounded-2xl group ">
+          <div key={index} className="relative max-w-sm p-4 rounded-2xl group ">
             <div className="absolute p-5  inset-0 z-0 rounded-2xl">
               <img
                 src={item.img}
