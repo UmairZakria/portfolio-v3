@@ -227,14 +227,9 @@ const About = () => {
             <div className="flex md:flex-row flex-col justify-around h-full lg:gap-30">
               <div className="relative h-full flex flex-col md:gap-0 gap-4 rounded-2xl justify-evenly col-">
                 
-                {/* --- 🔑 KEY FIX APPLIED HERE 🔑 --- */}
-                {/* 1. Added a wrapper div with a key prop to force unmount/mount 
-                     when the project changes.
-                  2. Used motion.img for a quick fade-in on mount.
-                  3. Removed the GSAP image animations in useGSAP above.
-                */}
+
                 <div
-                    key={data[activeIndex].name} // KEY PROP is the FIX
+                    key={data[activeIndex].name} 
                     className="md:w-[350px] lg:w-[450px] xl:w-[500px] rounded-md"
                 >
                     <motion.img
@@ -242,13 +237,11 @@ const About = () => {
                         alt={data[activeIndex].name}
                         className="images w-full rounded-md object-cover"
                         loading="eager"
-                        // Framer Motion handles the fade/scale on component mount
                         initial={{ opacity: 0,  }} 
                         animate={{ opacity: 1,  }}
-                        transition={{ duration: 0.6, ease: "easeInOut" }}
+                        transition={{ duration: 0.8, ease: "linear" }}
                     />
                 </div>
-                {/* ---------------------------------- */}
 
                 <div className="project-text space-y-2">
                   <h1 className="text-2xl lg:text-5xl xl:text-7xl font-Montserrat">

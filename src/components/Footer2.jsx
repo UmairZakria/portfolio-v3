@@ -40,7 +40,7 @@ const Footer2 = () => {
   };
   return (
     <>
-      <div className="w-full relative h-[3px]  bg-prime2   overflow-hidden mt-[120px] "></div>
+      <div className="w-full relative h-[2px]  bg-prime2   overflow-hidden mt-[120px] "></div>
       <div className="relative ">
 
         <motion.div
@@ -61,8 +61,8 @@ const Footer2 = () => {
         ></motion.div>
         <div className="absolute w-full h-[100px] bg-gradient-to-b   z-[100] from-black via-black/70 to-transparent top-0 left-0 "></div>
 
-        <div className="   z-[100]  bg-[#ffffff04] relative   p-2 py-[20px] lg:h-[300px] w-full backdrop-blur-xl     font-Montserrat">
-          <div className="h-full flex lg:px-10 xl:container mx-auto   md:gap-0 gap-10 md:flex-nowrap flex-wrap  !justify-between">
+        <div className="   z-[100] flex flex-col items-center justify-between    bg-[#ffffff04] relative   p-2  pt-[40px] lg:h-[350px] w-full backdrop-blur-xl     font-Montserrat">
+          <div className="h-3/4 flex w-full lg:px-10 xl:container mx-auto   md:gap-0 gap-10 md:flex-nowrap flex-wrap  !justify-between">
             <div className="grid place-content-start  w-full lg:w-[350px]  h-full ">
               <div className="space-y-5  ">
                 <h1 className="text-4xl space-x-2 text-white inline-flex gap-2 pb-2 border-b-[1px] border-prime2/20 items-end font-Poppins">
@@ -85,6 +85,13 @@ const Footer2 = () => {
                   href="https://www.linkedin.com/in/umair-zakria-67477b33a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                 >
                   Linkedin
+                </a>
+                <a
+                  className=" hover:text-white   transition-all duration-300 ease-in-out cursor-pointer "
+                  target="_blank"
+                  href="https://github.com/UmairZakria"
+                >
+                  Github
                 </a>
                 <a
                   className=" hover:text-white   transition-all duration-300 ease-in-out cursor-pointer "
@@ -123,6 +130,12 @@ const Footer2 = () => {
                   href="/services"
                 >
                   Services
+                </a>
+                <a
+                  className=" hover:text-white   transition-all duration-300 ease-in-out cursor-pointer "
+                  href="/projects"
+                >
+                  Projects
                 </a>
                 <a
                   className=" hover:text-white   transition-all duration-300 ease-in-out cursor-pointer "
@@ -167,6 +180,9 @@ const Footer2 = () => {
               </button>
               {/* </div> */}
             </div>
+          </div>
+          <div className=" w-full p-2 text-center">
+            © 2025 Umair. All Rights Reserved.
           </div>
         </div>
       </div>
