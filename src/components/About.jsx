@@ -281,9 +281,9 @@ const About = () => {
           </div>
           <div className="flex md:flex-row flex-col justify-around h-full   lg:gap-30 ">
             <div className=" relative   h-full flex flex-col  md:gap-0 gap-4 rounded-2xl justify-evenly  col-">
-              <div className="images md:w-[350px] lg:w-[450px] xl:w-[500px] rounded-md object-cover" >
-                <img src={data[activeIndex].img} className="" />
-              </div>
+              {/* <div className="images md:w-[350px] lg:w-[450px] xl:w-[500px] rounded-md object-cover" > */}
+                <img  src={data[activeIndex].img} className="images md:w-[350px] lg:w-[450px] xl:w-[500px] rounded-md object-cover"  />
+              {/* </div> */}
 
               <div className="project-text space-y-2">
                 <h1 className="text-2xl lg:text-5xl xl:text-7xl font-Montserrat">

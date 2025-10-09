@@ -85,49 +85,64 @@ const Projects = () => {
     ];
     return (
 
-        <>
+        <div className=''>
+
             <Navbar />
-            <div className=' mt-[100px] min-h-screen xl:container lg:px-10  gap-5  xl:px-0 mx-auto flex items-center justify-between gap-y-20 flex-wrap'>
+            <div className=' relative mt-[100px] min-h-screen xl:container lg:px-10  2xl:gap-20 gap-5  xl:px-0 mx-auto flex items-center xl:justify-around 2xl:justify-center lg:justify-between gap-y-20 flex-wrap'>
 
                 {
                     data.map((data) => (
 
-                        <div className=' h-full bg-white/10 backdrop-blur-xl rounded-2xl overflow-hidden
+                        <motion.div
+                            key={data.name}
+                            initial={{
+                                opacity: 0,
+                                y: 20
+
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+
+                                transition: {
+                                    delay: 0.1,
+                                    duration: 1.5,
+                                },
+
+
+                            }}
+                            viewport={{ once: true }}
+                            className=' h-full bg-[#3a444b6b] backdrop-blur-xl rounded-lg shadow-2xl shadow-prime/10 overflow-hidden
                         '>
-                            <motion.div
-                                key={data.id}
-                                initial={{
-                                    opacity: 0,
-                                    scaleX: 0.9,
-                                    y: 200
-
-                                }}
-                                whileHover={{ scale: 1.01, cursor: 'pointer' }}
-                                whileTap={{ scale: 0.99 }}
-                                whileInView={{
-                                    opacity: 1,
-                                    y: 0,
-                                    scaleX: 1,
-
-                                    transition: {
-                                        delay: 0.1,
-                                        duration: 1.5,
-                                    },
+                            <div
 
 
-                                }}
-                                viewport={{ once: true }}
-
-                                className=' flex flex-col  shadow-2xl rounded-xl  h-auto w-full md:w-[460px] max-w-sm'>
+                                className=' relative flex flex-col  shadow-2xl   h-auto w-full md:w-[460px] max-w-sm'>
                                 <div className='h-full relative '>
 
                                     <img className=' h-[240px] object-top hover:object-bottom transition-all duration-300 ease-linear w-full rounded-t-lg     object-cover ' src={data.img} alt="image" />
                                 </div>
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    transition={{ duration: 1, ease: "easeInOut" }}
+                                    className="absolute w-full h-full top-0 left-0 -z-10"
+                                    style={{
+                                        background: `
+                        radial-gradient(circle at 0% 50%, rgba(37, 157, 255, 0.1) 0%, transparent 40%), /* Indigo glow bottom-left */
+                        radial-gradient(circle at 100% 100%, rgba(0, 154, 250, 0.1) 0%, transparent 40%) /* Pink glow top-right */
+                          `,
+                                        // Ensure the background covers the entire div
+                                        backgroundSize: "cover",
+                                        backgroundRepeat: "no-repeat",
+                                    }}
+                                ></motion.div>
 
                                 <div
 
-                                    className=' flex flex-col   px-3 py-6  border-gray-400 gap-4 '>
-                                    <div className='flex items-center  flex-wrap justify-between w-full'>
+                                    className='relative flex flex-col   px-3 py-6  border-gray-400 gap-4 '>
+
+                                    <div className='flex  items-center  flex-wrap justify-between w-full'>
 
 
                                         <h1 className='text-2xl font text-white border-b-[1px] border-prime/50 pb-1 font-Poppins '>{data.name}</h1>
@@ -146,16 +161,16 @@ const Projects = () => {
                                     </p>
 
                                 </div>
-                            </motion.div>
-                        </div>
+                            </div>
+                        </motion.div>
                     ))
                 }
 
 
-            </div>
+            </div >
             <Footer2 />
 
-        </>
+        </div>
     )
 }
 

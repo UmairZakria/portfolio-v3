@@ -21,10 +21,10 @@ const Numbers = () => {
         <h4 className="uppercase text-prime mb-1">
           Pioneering Trust and Innovation
         </h4>
-        <h2 className="text-3xl md:text-5xl font-Raleway font-semibold mb-5">
+        <h2 className="text-3xl md:text-5xl font-Raleway font-medium mb-5">
           Results That Matter
         </h2>
-        <p className="text-xl md:w-3/4 text-white/80 mb-10">
+        <p className="text-xl md:w-3/4 text-white/80 mb-12">
           Your vision deserves more than just code—it deserves a solution that
           truly works.
         </p>

@@ -40,7 +40,7 @@ const Footer2 = () => {
   };
   return (
     <>
-      <div className="w-full relative h-[3px] bg-prime2   overflow-hidden mt-[120px] "></div>
+      <div className="w-full relative h-[3px]  bg-prime2   overflow-hidden mt-[120px] "></div>
       <div className="relative ">
 
         <motion.div
@@ -65,7 +65,7 @@ const Footer2 = () => {
           <div className="h-full flex lg:px-10 xl:container mx-auto   md:gap-0 gap-10 md:flex-nowrap flex-wrap  !justify-between">
             <div className="grid place-content-start  w-full lg:w-[350px]  h-full ">
               <div className="space-y-5  ">
-                <h1 className="text-4xl space-x-2 inline-flex gap-2 pb-2 border-b-[1px] border-prime2/20 items-end font-Poppins">
+                <h1 className="text-4xl space-x-2 text-white inline-flex gap-2 pb-2 border-b-[1px] border-prime2/20 items-end font-Poppins">
                   umair
                   <span className="text-lg font-Poppins  text-prime2">
                     Lab
