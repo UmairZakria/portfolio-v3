@@ -8,10 +8,9 @@ import { motion } from "framer-motion";
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-  const [y, setY] = useState(4);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [loadedCount, setLoadedCount] = useState(0);
-  const textRef2 = useRef(null);
+  const textRef2 = useRef(null); // This ref isn't used in the provided logic, but I'll keep it.
 
   const data = [
     {
@@ -66,10 +65,9 @@ const About = () => {
     },
   ];
 
-  const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Preload all images
+  // Preload all images (Good practice, keep this)
   useEffect(() => {
     const imagePromises = data.map((item) => {
       return new Promise((resolve, reject) => {
@@ -96,6 +94,7 @@ const About = () => {
   useGSAP(() => {
     if (!imagesLoaded) return; // Wait for images to load
 
+    // Initial fade in for container elements
     gsap.set(".contthings", { opacity: 0 });
     gsap.to(".contthings", {
       opacity: 1,
@@ -124,11 +123,10 @@ const About = () => {
           ease: "power1.inOut",
           delay: 0,
         };
-    const imageFadeDuration = isMobileViewport ? 0.85 : 0.6;
+    
+    // NOTE: We are removing the GSAP animation for the ".images" element
+    // and letting React/Framer Motion handle the cross-fade on state change.
     const textFadeDuration = isMobileViewport ? 0.7 : 0.6;
-    const imageOutScale = isMobileViewport ? 0.98 : 1;
-    const imageInStartScale = isMobileViewport ? 0.985 : 1;
-    const imageInOffset = isMobileViewport ? ">+=0.06" : ">+=0.03";
     
     let tl = gsap.timeline({
       scrollTrigger: {
@@ -157,32 +155,15 @@ const About = () => {
         },
         `section${i}`
       )
-        .to(
-          ".images",
-          {
-            opacity: 0,
-            scale: imageOutScale,
-            duration: imageFadeDuration,
-            ease: "power2.inOut",
-          },
-          `section${i}`
-        )
+        // Image transition logic is REMOVED from the GSAP timeline here
+
         .add(() => {
+          // This updates the image src and the text data
           const direction = tl && tl.scrollTrigger ? tl.scrollTrigger.direction : 1;
           const targetIndex = direction >= 0 ? Math.min(i, sections - 1) : Math.max(i - 1, 0);
           setActiveIndex((prev) => (prev !== targetIndex ? targetIndex : prev));
-        })
-        .fromTo(
-          ".images",
-          { opacity: 0, scale: imageInStartScale },
-          {
-            opacity: 1,
-            scale: 1,
-            duration: imageFadeDuration,
-            ease: "power2.out",
-          },
-          imageInOffset
-        )
+        }, ">") // Execute the state change *after* the fade-out
+        
         .fromTo(
           [".project-text h1", ".project-text h2", ".project-text p", ".techstack"],
           { opacity: 0, y: -textY },
@@ -192,7 +173,7 @@ const About = () => {
             duration: textFadeDuration,
             ease: "power2.out",
           },
-          "<"
+          "<" // Start text fade-in immediately after state change
         );
     }
   }, [imagesLoaded]);
@@ -245,13 +226,29 @@ const About = () => {
             </div>
             <div className="flex md:flex-row flex-col justify-around h-full lg:gap-30">
               <div className="relative h-full flex flex-col md:gap-0 gap-4 rounded-2xl justify-evenly col-">
-                <img
-                  src={data[activeIndex].img}
-                  alt={data[activeIndex].name}
-                  className="images md:w-[350px] lg:w-[450px] xl:w-[500px] rounded-md object-cover"
-                  loading="eager"
-                  style={{ willChange: 'transform, opacity' }}
-                />
+                
+                {/* --- 🔑 KEY FIX APPLIED HERE 🔑 --- */}
+                {/* 1. Added a wrapper div with a key prop to force unmount/mount 
+                     when the project changes.
+                  2. Used motion.img for a quick fade-in on mount.
+                  3. Removed the GSAP image animations in useGSAP above.
+                */}
+                <div
+                    key={data[activeIndex].name} // KEY PROP is the FIX
+                    className="md:w-[350px] lg:w-[450px] xl:w-[500px] rounded-md"
+                >
+                    <motion.img
+                        src={data[activeIndex].img}
+                        alt={data[activeIndex].name}
+                        className="images w-full rounded-md object-cover"
+                        loading="eager"
+                        // Framer Motion handles the fade/scale on component mount
+                        initial={{ opacity: 0,  }} 
+                        animate={{ opacity: 1,  }}
+                        transition={{ duration: 0.6, ease: "easeInOut" }}
+                    />
+                </div>
+                {/* ---------------------------------- */}
 
                 <div className="project-text space-y-2">
                   <h1 className="text-2xl lg:text-5xl xl:text-7xl font-Montserrat">
