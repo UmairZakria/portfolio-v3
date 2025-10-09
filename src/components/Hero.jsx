@@ -132,8 +132,8 @@ const Hero = ({ anidone }) => {
         ref={triggerRef}
         className="relative h-screen w-full overflow-hidden"
       >
-        <a href="/overview" className="absolute left-1/2 -translate-x-1/2 text-black text-lg font-medium font-Montserrat z-[999] bottom-[40px] bg-white/90  border-white !border hover:bg-transparent hover:text-white transition-all duration-400 cursor-pointer ease-in-out  rounded-full px-8 py-2 flex items-center gap-2">Let's Talk <MoveRight /></a>
-        <div className="socials text-sm absolute   flex z-[999] gap-4  right-10 bottom-16 lg:bottom-[40px]   text-gray-300">
+        <a href="/overview" className="absolute left-1/2 -translate-x-1/2 text-black text-lg font-medium font-Montserrat z-[999] bottom-[40px] bg-white/90  border-white !border hover:bg-transparent hover:text-white transition-all duration-400 cursor-pointer ease-in-out  rounded-full px-4 md:px-8 py-2 flex items-center gap-2">Let's Talk <MoveRight /></a>
+        <div className="socials text-sm absolute   hidden md:flex z-[999] gap-4  right-10 bottom-16 lg:bottom-[40px]   text-gray-300">
           <a
             href="https://www.linkedin.com/in/umair-zakria-67477b33a/"
             target="_blank"
