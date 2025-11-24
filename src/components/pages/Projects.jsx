@@ -6,6 +6,7 @@ const Projects = () => {
     const data = [
         {
             name: "Marcus",
+            link:'/',
             category: "Web Design",
             img: "images/Marcus1.jpeg",
             subtitle: "Modern design, seamless experience, bold impression.",
@@ -20,6 +21,7 @@ const Projects = () => {
         },
         {
             name: "Bitsmart",
+            link:'/',
             category: "Web Design",
             img: "images/bitsmart2.jpeg",
             subtitle: "Crafting digital masterpieces pixel by pixel.",
@@ -36,6 +38,7 @@ const Projects = () => {
         },
         {
             name: "SuperSub",
+            link:'/',
             category: "Web Design",
             img: "images/super2.jpeg",
             subtitle: "Bringing businesses to the digital world.",
@@ -52,6 +55,7 @@ const Projects = () => {
         },
         {
             name: "FashionMane",
+            link:'/',
             category: "Web Development",
             img: "images/fashion3.jpeg",
             subtitle: "Your style, your stories — managed effortlessly",
@@ -68,7 +72,9 @@ const Projects = () => {
         },
         {
             name: "BusGoes+",
+            link:'/',
             category: "Web Design",
+
             img: "images/bus2.jpeg",
             subtitle: "Making bus journeys just a click away.",
             description:

@@ -261,7 +261,7 @@ const About = () => {
                   <div className="contthings">
                     <span className="relative z-[50] flex gap-3 transition-all duration-300 ease-in-out">
                       <motion.a
-                        href="#"
+                        href="projects/case1"
                         className="relative !z-[100] items-center gap-1 text-sm border-b transition-all duration-300 ease-in-out hover:text-white hover:border-white cursor-pointer border-prime2 text-prime2 inline-flex"
                       >
                         <ArrowUpRight size={16} /> Learn More

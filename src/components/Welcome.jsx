@@ -25,7 +25,7 @@ const Welcome = ({setAnidone}) => {
             .to('.smalltriangle', { opacity: 1, rotate: 0, duration: 0.5 })
             .to('.logotext', { opacity: 1, translateX: 0, duration: 1 })
             .to('.logocont', { y: -100, duration: 1, delay: 1.5 })
-            .to('.bar', {  scaleY: 0, opacity:0.95, transformOrigin: "top", stagger: 0.08, duration: 2, ease: 'power4.inOut' },"bar")
+            .to('.bar', {  scaleY: 0, backgroundColor: "#2eafff" , opacity:0.9, transformOrigin: "top", stagger: 0.2, duration: 2, transition: 'all' , ease: 'power4.out' },"bar")
             .add(() => setAnidone(true),"bar+=1.7")
             
             // .to('.bar2', {  height:0, stagger: 0.2, duration: 0.4 },"-=0.5")
@@ -51,7 +51,7 @@ const Welcome = ({setAnidone}) => {
 
                         {
                             [0, 1, 2, 3, 4, 5, 6, 7, 9, 10].map((el, index) => (
-                                <div className="bar bg-white h-[110vh] rounded-bl-4xl w-[40vw] md:w-[10vw] "></div>
+                                <div className="bar bg-white backdrop-blur-xl h-[110vh]  w-[40vw] md:w-[10vw] "></div>
 
                             ))
                         }

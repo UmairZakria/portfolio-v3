@@ -4,7 +4,7 @@ import Word from "./Word";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Terminal, Codesandbox, MenuIcon, X, CodeXml } from "lucide-react";
+import { Terminal, Codesandbox, MenuIcon, X, CodeXml, Send, Linkedin } from "lucide-react";
 
 const Navbar = () => {
   const [selectedOption, setSelectedOption] = useState("Home");
@@ -64,76 +64,53 @@ const Navbar = () => {
   };
 
   return (
-    <div className="absolute top-0 left-1/2 -translate-x-[50%] lg:w-full xl:container lg:px-10  p-2 xl:px-0 px-4 flex items-center justify-between z-[100] w-full">
+    <div className="absolute !z-[999] top-0 left-1/2 -translate-x-[50%] lg:px-[4vw]  py-3 lg:py-[0.8vw] px-4 flex items-center justify-between  w-full">
       <motion.div
-        initial={{ x: -200, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="flex items-center md:px-0 gap-4"
+      // initial={{ x: -200, opacity: 0 }}
+      // animate={{ x: 0, opacity: 1 }}
+      // transition={{ duration: 0.5 }}
       >
         <div className="text-white">
-          {/* <h1 className=" text-4xl flex items-center   lg:text-3xl gap-1 font-Montserrat "> */}
-            {/* <CodeXml />  */}
-            {/* <Codesandbox /> */}
-            {/* <img src="/logoL.png" className="size-[40px] backdrop-blur-2xl rotate-[180deg]" alt="" /> */}
-            {/* <Terminal /> */}
-            {/* <span> */}
-              <h1 className="text-4xl space-x-2 inline-flex gap-2 pb-2 border-b-[1px] border-prime2/20 items-end font-Poppins">
-                umair
-                <span className="text-lg font-Poppins  text-prime2">Lab</span>
-              </h1>
-            {/* </span> */}
-          {/* </h1> */}
+
+          <h1 className="text-3xl md:text-[2.6vw]  inline-flex gap-[0.2vw]  pb-[0vw] font-bold border-b-[0.05vw] tracking-tight border-white/20 items-end font-confortaa">
+            .umair
+            <span className="text-[0.51em] font-confortaa  text-prime2 ">lab</span>
+          </h1>
+
         </div>
       </motion.div>
 
-      {/* Desktop Navigation */}
-      <ul className="hidden md:flex bg-[black]  items-center font-Montserrat cursor-pointer lg:gap-1 xl:gap-2 px-2 py-2 rounded-full backdrop-blur-lg text-white">
-        {sections.map((section) => (
-          <a
-            key={section.name}
-            onClick={() => setSelectedOption(section.name)}
-            href={section.href}
-            className={`font-Karla px-5 py-[4px] rounded-full cursor-pointer hover:bg-white hover:text-black transition-all duration-300 ${
-              selectedOption === section.name
-                ? "bg-[#ffffff] text-black"
-                : "bg-[black]"
-            }`}
-          >
-            <span className="text-sm">
-              {/* <Word> */}
-                {section.name}
 
-              {/* </Word> */}
-            </span>
-          </a>
-        ))}
-      </ul>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden ">
+      <div className=" ">
+        <button className="pl-[1vw] rounded-[0.6vw] text-white cursor-pointer  backdrop-blur-xs">
+          <Linkedin className=" md:size-[1.9vw]" />
+        </button>
+        <button className="px-4 md:px-[1.5vw] rounded-[0.6vw] text-white cursor-pointer  backdrop-blur-xs">
+          <Send className=" md:size-[1.9vw]" />
+        </button>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="p-2 rounded-full text-white active:animate-spin cursor-pointer bg-black "
+          className="p-[0.6vw] rounded-[0.6vw] text-white cursor-pointer bg-white/5  backdrop-blur-xs "
         >
-          {isMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
+          {isMenuOpen ? <X className="md:size-[1.9vw]" /> : <MenuIcon className="md:size-[1.9vw]" />}
         </button>
 
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute top-full right-0 mt-2 font-Montserrat w-48 bg-black  rounded-lg backdrop-blur-lg py-2"
+            className="absolute top-3/4 right-0 lg:right-[4vw] mt-2 font-Poppins w-48 bg-white/5 rounded-lg backdrop-blur-xs py-2"
           >
             {sections.map((section) => (
               <a key={section} href={section.href}>
                 <div
-                  className={`px-4 py-3 text-sm cursor-pointer text-white hover:bg-white hover:text-black transition-all ${
-                    selectedOption === section ? "bg-white !text-black" : ""
-                  }`}
+                  className={`px-4 py-3 text-sm cursor-pointer text-white hover:bg-black hover:text-white transition-all duration-300 ease-in-out ${selectedOption === section ? "bg-white !text-black" : ""
+                    }`}
                 >
                   {/* <Word> */}
-                    {section.name}
+                  {section.name}
 
                   {/* </Word> */}
                 </div>

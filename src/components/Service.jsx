@@ -1,26 +1,23 @@
-// import React from "react";
 import React, { useState, useRef, useEffect } from "react";
-
-import { MoveRight } from "lucide-react";
+import { Check } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { ArrowUpRight } from "lucide-react";
-
-// import { motion } from "framer-motion";
 import SplitType from "split-type";
 import { useGSAP } from "@gsap/react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
 
-import ImageDistortionEffect from "./WaveImage";
+gsap.registerPlugin(ScrollTrigger);
+
 const Service = () => {
   const titleRef = useRef(null);
+  const gridRef = useRef(null);
+  const containerRef = useRef(null);
+
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -29,9 +26,14 @@ const Service = () => {
     {
       title: "UI/UX Design",
       description:
-        "Simple, modern layouts that focus on clarity, usability, and brand identity.",
+        "Simple, modern, and strategically functional layouts focused on clarity, superior usability, and consistent brand identity.",
       img: "https://cdn.dribbble.com/userupload/14656775/file/original-387452115d08470ec289a098dd992c72.png?resize=752x564&vertical=center",
       icon: "https://img.icons8.com/?size=100&id=25049&format=png&color=4c95e9",
+      points: [
+        "Intuitive, engaging user flows.",
+        "Optimized conversion paths.",
+        "Stronger brand consistency.",
+      ],
     },
     {
       title: "Custom Solution",
@@ -39,6 +41,11 @@ const Service = () => {
         "Creating secure, scalable, and tailored web solutions to meet your unique business needs with modern technologies.",
       img: "/custom.png",
       icon: "https://img.icons8.com/ios-filled/50/4c95e9/windows10-personalization.png",
+      points: [
+        "A solution perfectly matching business logic.",
+        "Scalable architecture for future growth.",
+        "Increased operational efficiency.",
+      ],
     },
     {
       title: "Full-Stack Web Application",
@@ -46,87 +53,56 @@ const Service = () => {
         "Developing end-to-end web applications with seamless front-end and back-end integration, tailored for performance and scalability.",
       img: "https://cdn.dribbble.com/userupload/35895022/file/original-429970a9da804b924557444a4b2c5d87.jpg?resize=752x&vertical=center",
       icon: "https://img.icons8.com/?size=100&id=53450&format=png&color=4c95e9",
+      points: [
+        "Fully integrated, robust platform.",
+        "High-performance and reliability.",
+        "A cohesive user experience.",
+      ],
     },
     {
       title: "E-commerce Solutions",
       description:
-        "Scalable online stores designed for seamless shopping experiences and efficient management.",
+        "Scalable online stores for seamless shopping experiences and efficient management. Secure transactions for revenue growth.",
       img: "https://cdn.dribbble.com/userupload/34224869/file/original-b66bfbf48ddbe37a5f061766c189edf5.png?resize=752x&vertical=center",
       icon: "https://img.icons8.com/?size=100&id=11834&format=png&color=4c95e9",
+      points: [
+        "Increased sales potential.",
+        "Efficient inventory management.",
+        "Secure checkout process.",
+      ],
     },
     {
       title: "WordPress Development",
       description:
-        "Creating fully customized, secure, and responsive websites with theme customization, plugin development, and e-commerce integration.",
+        "Customized, secure, and responsive websites with theme customization, plugin development, and e-commerce integration.",
       img: "https://cdn.dribbble.com/userupload/41720954/file/original-c2d576eb55ec1d94d0ca3f7c024d36a1.png?resize=800x600",
       icon: "https://img.icons8.com/?size=100&id=1ZW7Z0C6c26c&format=png&color=4c95e9",
+      points: [
+        "Easy content management.",
+        "Responsive design.",
+        "Plugin-based scalability.",
+      ],
     },
     {
       title: "Backend Integration",
       description:
-        "Seamless integration of APIs, databases, and third-party services with a smooth, responsive frontend experience.",
+        "Seamless integration of APIs, databases, and third-party services with reliable, scalable architecture.",
       img: "https://cdn.dribbble.com/users/1434359/screenshots/3286476/attachments/708082/backend_illustration-hd.png",
       icon: "https://img.icons8.com/?size=100&id=32fUGrUStbEu&format=png&color=4c95e9",
+      points: [
+        "Reliable data flow.",
+        "Optimized performance.",
+        "Future-proof architecture.",
+      ],
     },
   ];
-  const [cursorImg, setCursorImg] = useState(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const cursorX = useMotionValue(-100);
-  const gridRef = useRef(null);
-  const cursorY = useMotionValue(-100);
-  const handleMouseMove = (event) => {
-    cursorX.set(event.clientX);
-    cursorY.set(event.clientY);
-  };
 
-  const handleMouseEnter = (img) => {
-    setCursorImg(img);
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setCursorImg(null);
-    setIsHovered(false);
-  };
-
-  const parentVariants = {
-    hover: {
-      padding: isMobile ? "10px" : "20px",
-      transition: {
-        // staggerChildren: 0.1,
-        when: "beforeChildren",
-      },
-    },
-  };
-
-  const childVariants = {
-    initial: { opacity: isMobile ? 1 : 0 },
-    hover: {
-      opacity: 1,
-      // y: 0,
-      transition: {
-        type: "tween",
-        stiffness: 200,
-        damping: 20,
-      },
-    },
-  };
-
-  const titleVariants = {
-    hover: {
-      fontSize: "35px",
-      color: "#ffffff",
-      paddingLeft: "10px",
-      transition: {
-        type: "tween",
-        stiffness: 200,
-        // damping: 10
-      },
-    },
-  };
-
+  // -------------------- GSAP Optimized --------------------
   useGSAP(() => {
-    const split = new SplitType(titleRef.current, { types: "chars, words" });
+    if (isMobile) return;
+
+    // Split title animation
+    const split = new SplitType(titleRef.current, { types: "words" });
 
     gsap.fromTo(
       split.words,
@@ -135,136 +111,85 @@ const Service = () => {
         opacity: 1,
         y: 0,
         duration: 1.2,
+        stagger: 0.2,
         ease: "power3.out",
-        stagger: 0.5,
         scrollTrigger: {
           trigger: titleRef.current,
-          start: "top 80%",
-          end: "bottom center",
-          scrub: 2,
+          start: "top 85%",
         },
       }
     );
+
     const grid = gridRef.current;
-    if (grid) {
-      gsap.fromTo(
-        grid.children,
-        {
-          y: 30,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.3,
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: grid,
-            // markers:true,
-            start: "top 100%",
-            end: "bottom 10%",
-            // scrub:true,
-            // toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }
-  }, []);
+    const container = containerRef.current;
+
+    // 30vw card width + 2vw gap = 32vw per card
+    const cardWidthVW = 34;
+    const totalWidthVW = data.length * cardWidthVW;
+
+    const totalWidthPX = (totalWidthVW / 100) * window.innerWidth;
+
+    // Smooth horizontal scroll
+    gsap.to(grid, {
+      x: -(totalWidthPX - window.innerWidth),
+      ease: "none",
+      force3D: true,
+      scrollTrigger: {
+        trigger: container,
+        start: "top top",
+        end: totalWidthPX,
+        scrub: 0.1,
+        pin: true,
+        invalidateOnRefresh: true,
+      },
+    });
+  }, [isMobile]);
 
   return (
     <div
       id="Service"
-      className=" bg-cover min-h-screen overflow-hidden bg-center py-[120px] bg-no-repeat   relative space-y-[10vh]  lg:space-y-[10vh]  font-Montserrat mt-[30vh] px-4 xl:px-20 lg:px-15"
+      ref={containerRef}
+      className="min-h-screen py-[2vw] my-[10vw] px-4 lg:px-[4vw] overflow-hidden relative font-Montserrat"
     >
-      {/* <div className=""> */}
-      {/* <img src="/images/bg1.jpg" alt="" className="absolute   brightness-25  top-0 left-0  w-full object-center h-full object-cover" /> */}
-      {/* </div> */}
-      <div className="absolute w-full h-[200px] bg-gradient-to-b   z-[100] from-black via-black/40 to-transparent top-0 left-0 "></div>
-      <div className="absolute w-full h-[200px] bg-gradient-to-t   z-[100] from-black via-black/70 to-transparent   2xl:-bottom-35   xl:-bottom-30 -bottom-20  left-0"></div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="absolute inset-0 z-0"
-        style={{
-          background: `
-            radial-gradient(circle at 10% 10%, rgba(37, 157, 255, 0.3) 0%, transparent 40%), /* Indigo glow bottom-left */
-            radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%) /* Central dark fade */
-          `,
-          // Ensure the background covers the entire div
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      ></motion.div>
       <div className="space-y-12">
-        <div className="flex items-center flex-col  gap-6 justify-between">
+        <div className="flex items-start flex-col gap-[1.4vw] justify-between">
           <h3
             ref={titleRef}
-            className="text-5xl lg:text-7xl text-center  font-Poppins font-light"
+            className="text-[4vw] text font-confortaa font-semibold"
           >
             Services I <span className="text-prime2">Offer</span>
-
           </h3>
-          {/* <p></p> */}
-          <p
-            className=" relative z-50 md:w-1/3 font-Inter text-center  text-white text-sm font-extralight leading-relaxed"
-          >
+
+          <p className="relative z-50 md:w-1/3 font-Poppins  text-white text-[1.1vw] font-extralight leading-relaxed">
             Creating innovative and high-performance digital solutions that
             enhance user experiences and drive growth.
           </p>
-
         </div>
       </div>
 
+      {/* Horizontal Scroll Cards */}
       <div
         ref={gridRef}
-        className=" lg:w-full xl:container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gap-y-20 gap-12"
+        className="flex gap-[4vw] mt-[5vw] mb-[5vw] will-change-transform"
+        style={{ width: `${data.length * 32}vw` }}
       >
         {data.map((item, index) => (
-          <div key={index} className="relative max-w-sm p-4 rounded-2xl group ">
-            <div className="absolute p-5  inset-0 z-0 rounded-2xl">
+          <div
+            key={index}
+            className="relative w-[30vw] h-[32vw] p-[0.1vw] rounded-md group"
+          >
+            <div className="absolute  inset-0 rounded-2xl z-0">
               <img
                 src={item.img}
                 alt={item.title}
-                fill
-                className="object-cover h-full w-full  rounded-2xl  brightness-75"
+                className="object-cover h-full w-full rounded-2xl brightness-25"
               />
             </div>
-            <div className="absolute inset-0 bg-black/60  flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 rounded-2xl">
-              {/* <span className="  text-blue-500 border-b border-blue-400 pb-2 font-semibold text-4xl cursor-pointer  font-raleway  transition-all duration-300">
-                    Learn More
-                  </span>
-                   */}
 
-              <motion.div className=" group/button relative w-[215px] font-poppins cursor-pointer  hover:text-blue-400 text-blue-400  overflow-hidden h-[50px]    ">
-                <a href="/overview" className="group-hover:translate-x-[-210px] flex gap-3 transition-all duration-500 ease-in-out">
-                  <motion.span className=" items-center gap-1 text-3xl border-b  border-blue-400    inline-flex">
-                    <ArrowUpRight size={32} /> Learn&nbsp;More{" "}
-                  </motion.span>
-                  <motion.span className=" items-center gap-1 text-3xl border-b  border-blue-400  inline-flex">
-                    Learn&nbsp;More <ArrowUpRight size={32} />
-                  </motion.span>
-                </a>
-              </motion.div>
-            </div>
-            <div
-              className="absolute inset-0 z-0  rounded-2xl"
-              style={{
-                background: `
-            radial-gradient( circle at 70% 20%, rgba(255, 255, 255, 0.12)  0%, transparent 40%), 
-            radial-gradient(circle at 20% 80%,  rgba(255, 255, 255, 0.12) 0%, transparent 45%), 
-            radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%) 
-          `,
-                // Ensure the background covers the entire div
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></div>
-            <div className="bg-[#00000025] border  min-h-[360px] flex p-4 flex-col items-center justify-around  max-h-full rounded-2xl backdrop-blur-xs !border-white/10 hover:border-white/20 transition-all duration-300 group-hover:scale-105">
-              <img src={item.icon} alt="" className="w-20 h-20" />
-              <h3 className="text-3xl font-medium group-hover:opacity-40 text-center font-poppins">
-                {" "}
+            <div className="absolute inset-0 bg-black/60 rounded-2xl" />
+
+            <div className="bg-[#00000025] border-[1px] w-full h-full flex flex-col justify-between  px-[1.5vw] py-[2vw] gap-[2vw] rounded-[1vw] backdrop-blur-[0.2vw] border-white/10 group-hover:border-white/10 hover:scale-105  transition-all duration-300">
+              <h3 className="text-[2.4vw] font-medium font-Montserrat">
                 {item.title.includes(" ") ? (
                   <>
                     <span className="text-prime2 font-semibold">
@@ -276,9 +201,17 @@ const Service = () => {
                   item.title
                 )}
               </h3>
-              <p className="text-sm text-white px-4 text-center">
-                {item.description}
-              </p>
+
+              <p className="text-[1.2vw] text-white/80">{item.description}</p>
+
+              <div>
+                {item.points.map((point, idx) => (
+                  <div key={idx} className="flex items-center gap-[1vw] mt-[1vw]">
+                    <Check className="size-[1.4vw] text-prime2" />
+                    <p className="text-[1vw] text-white/75">{point}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         ))}

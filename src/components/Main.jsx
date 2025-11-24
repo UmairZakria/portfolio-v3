@@ -14,8 +14,9 @@ import Aboutme from "./Aboutme";
 import Numbers from "./Numbers";
 import Whyme from "./Whyme";
 import AboutMF from "./AboutMF";
+import Welcome from "./Welcome";
 const Main = () => {
-  const [anidone, setAnidone] = useState(true);
+  const [anidone, setAnidone] = useState(false);
 
   return (
     <div className="relative  !overflow-x-hidden">
@@ -32,21 +33,22 @@ const Main = () => {
       <div className="hidden lg:block">
         <MouseTrail />
       </div>
-      {/* <CustomScrollbar /> */}
+      <CustomScrollbar />
 
       <SmoothScrollProvider>
         <div className=" text-white">
           <Hero anidone={anidone} />
-          <Aboutme />
           <div className="geo">
-            <Numbers/>
+            <Numbers />
 
           </div>
           <Service />
-          <Whyme/>
-          <div id="AboutUs" className="">
+          <Aboutme />
+
+          <div id="AboutUs " className="">
             <About />
           </div>
+          <Whyme />
 
           <div id="Contact">
             {/* <AboutMF /> */}

@@ -25,7 +25,7 @@ const Whyme = () => {
     },
   ];
   return (
-    <section className=" text-white py-16 px-6 ">
+    <section className=" text-white  md:mt-30 py-16 px-6 ">
       <div className="lg:px-10 xl:px-0 xl:container mx-auto flex lg:flex-col xl:flex-row items-start md:items-center gap-10 flex-wrap md:flex-nowrap">
         {/* Left side */}
         <div className="space-y-6 w-full md:w-1/3 lg:w-full xl:w-1/2 xl:text-left lg:text-center">
