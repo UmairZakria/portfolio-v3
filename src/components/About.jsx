@@ -68,31 +68,31 @@ const About = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Preload all images (Good practice, keep this)
-  useEffect(() => {
-    const imagePromises = data.map((item) => {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => {
-          setLoadedCount((prev) => prev + 1);
-          resolve();
-        };
-        img.onerror = reject;
-        img.src = item.img;
-      });
-    });
+  // useEffect(() => {
+  //   const imagePromises = data.map((item) => {
+  //     return new Promise((resolve, reject) => {
+  //       const img = new Image();
+  //       img.onload = () => {
+  //         setLoadedCount((prev) => prev + 1);
+  //         resolve();
+  //       };
+  //       img.onerror = reject;
+  //       img.src = item.img;
+  //     });
+  //   });
 
-    Promise.all(imagePromises)
-      .then(() => {
-        setImagesLoaded(true);
-      })
-      .catch((error) => {
-        console.error("Error loading images:", error);
-        setImagesLoaded(true); // Continue anyway
-      });
-  }, []);
+  //   Promise.all(imagePromises)
+  //     .then(() => {
+  //       setImagesLoaded(true);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error loading images:", error);
+  //       setImagesLoaded(true); // Continue anyway
+  //     });
+  // }, []);
 
   useGSAP(() => {
-    if (!imagesLoaded) return; // Wait for images to load
+    // if (!imagesLoaded) return; // Wait for images to load
 
     // Initial fade in for container elements
     gsap.set(".contthings", { opacity: 0 });
@@ -142,11 +142,13 @@ const About = () => {
       },
     });
 
+   
     for (let i = 0; i < sections; i++) {
       tl.addLabel(`section${i}`);
+      
 
       tl.to(
-        [".project-text h1", ".project-text h2", ".project-text p", ".techstack"],
+        [".proimages",".project-text h1", ".project-text h2", ".project-text p", ".techstack"],
         {
           opacity: 0,
           y: textY,
@@ -165,7 +167,7 @@ const About = () => {
         }, ">") // Execute the state change *after* the fade-out
         
         .fromTo(
-          [".project-text h1", ".project-text h2", ".project-text p", ".techstack"],
+          [".proimages",".project-text h1", ".project-text h2", ".project-text p", ".techstack"],
           { opacity: 0, y: -textY },
           {
             opacity: 1,
@@ -179,7 +181,7 @@ const About = () => {
   }, [imagesLoaded]);
 
   return (
-    <div className="projects mt-[120px] relative w-full flex items-center justify-center h-screen py-4">
+    <div className="projects mt-[10vw] relative w-full flex items-center justify-center h-screen py-[1vw]">
       <div className="absolute w-full h-[100px] bg-gradient-to-b z-[100] from-black via-black/70 to-transparent top-0 left-0"></div>
       <div className="absolute w-full h-[100px] bg-gradient-to-t z-[100] from-black via-black/70 to-transparent bottom-0 left-0"></div>
       <motion.div
@@ -199,83 +201,84 @@ const About = () => {
       ></motion.div>
       
       {/* Loading indicator */}
-      {!imagesLoaded && (
+      {/* {!imagesLoaded && (
         <div className="absolute inset-0 flex items-center justify-center z-[200] bg-black/50">
           <div className="text-white text-xl">
             Loading {loadedCount}/{data.length}...
           </div>
         </div>
-      )}
+      )} */}
 
-      <div className="h-full 2xl:h-[800px] w-full flex-1">
+      <div className="h-full  w-full flex-1">
         <div
           name="projects"
-          className="bg- h-full lg:mx-10 xl:mx-auto xl:container relative z-[100] bg-[#ffffff17] p-3 rounded-3xl backdrop-blur-2xl mx-auto"
+          className="bg- h-full lg:mx-[4vw] relative z-[100] bg-[#ffffff17] p-[1.5vw] rounded-[1.5vw] backdrop-blur-[1.5vw] mx-auto"
         >
-          <div className="h-full space-y-5 w-full">
-            <div className="flex w-full flex-wrap gap-4 items-center justify-between">
-              <h2 className="contthings text-lg md:text-3xl xl:text-4xl text-white font-Montserrat">
+          <div className="h-full  w-full">
+            <div className="flex w-full flex-wrap  items-center justify-between font-confortaa">
+              <h2 className="contthings text-lg md:text-3xl lg:text-[2.2vw] text-white font-confortaa">
                 <span className="text-prime2">Featured</span> Work
               </h2>
               <a
                 href="/projects"
-                className="hover:text-white hover:border-white border-transparent border-b-[0.5px] transition-all duration-300 ease-in-out uppercase flex items-center gap-2 text-right contthings font-Inter text-[10px] lg:text-[16px] text-prime"
+                className="hover:text-white hover:border-white font-confortaa border-transparent border-b-[0.1vw] transition-all duration-300 ease-in-out  flex items-center gap-2 text-right contthings  text-[10px] lg:text-[1.2vw] text-prime"
               >
-                View All <ChevronRight />
+                 All Projects
+                  {/* <ChevronRight /> */}
               </a>
             </div>
-            <div className="flex md:flex-row flex-col justify-around h-full lg:gap-30">
-              <div className="relative h-full flex flex-col md:gap-0 gap-4 rounded-2xl justify-evenly col-">
+            <div className="flex md:flex-row flex-col justify-between  mx-[3vw] h-full ">
+              <div className="relative h-full flex flex-col md:gap-0 gap-4   justify-evenly col-">
                 
 
                 <div
                     key={data[activeIndex].name} 
-                    className="md:w-[350px] lg:w-[450px] xl:w-[500px] rounded-md"
+                    className="md:w-[350px] lg:w-[35vw] md:h-[25vw] rounded-[0.8vw] "
                 >
-                    <motion.img
+                    <img
                         src={data[activeIndex].img}
                         alt={data[activeIndex].name}
-                        className="images w-full rounded-md object-cover"
+                        className="proimages w-full h-full object-top rounded-[0.8vw] object-cover"
                         loading="eager"
-                        initial={{ opacity: 0,  }} 
-                        animate={{ opacity: 1,  }}
-                        transition={{ duration: 0.8, ease: "linear" }}
+                        // initial={{ opacity: 0,  }} 
+                        // animate={{ opacity: 1,  }}
+                        // transition={{ duration: 0.8, ease: "linear" }}
                     />
                 </div>
 
-                <div className="project-text space-y-2">
-                  <h1 className="text-2xl lg:text-5xl xl:text-7xl font-Montserrat">
+                <div className="project-text space-y-[0.4vw]">
+                  <h1 className="text-2xl lg:text-[3.2vw] font-Montserrat">
                     {data[activeIndex].name}
                   </h1>
-                  <h2 className="text-prime2 font-Montserrat">
+                  <h2 className="text-prime2 font-Poppins lg:text-[1.2vw] italic font-light">
                     {data[activeIndex].subtitle}
                   </h2>
                 </div>
               </div>
-              <div className="project-text py-4 md:gap-0 gap-1 lg:py-[20px] w-full md:w-[300px] lg:w-[400px] h-full flex flex-col 2xl:justify-evenly md:justify-around font-Poppins">
+              <div className="project-text py-6 md:gap-0 gap-1 lg:pt-[1vw] w-full md:w-[300px] lg:w-[30vw]  h-full flex flex-col md:justify-around font-Montserrat">
                 <div className="flex flex-wrap w-full items-start justify-between">
                   <div>
-                    <h4 className="contthings text-gray-400">Year</h4>
-                    <p className="text-lg lg:text-2xl">{data[activeIndex].year}</p>
+                    <h4 className="contthings  text-white/70 text-[1vw]  tracking-widest uppercase">Year</h4>
+                    <p className="text-lg lg:text-[1.6vw] ">{data[activeIndex].year}</p>
                   </div>
                   <div className="contthings">
                     <span className="relative z-[50] flex gap-3 transition-all duration-300 ease-in-out">
                       <motion.a
                         href="projects/case1"
-                        className="relative !z-[100] items-center gap-1 text-sm border-b transition-all duration-300 ease-in-out hover:text-white hover:border-white cursor-pointer border-prime2 text-prime2 inline-flex"
+                        className="relative !z-[100] items-center gap-1 text-[1vw] border-b transition-all duration-300 ease-in-out hover:text-white hover:border-white cursor-pointer border-prime2 text-prime2 inline-flex"
                       >
-                        <ArrowUpRight size={16} /> Learn More
+                        <ArrowUpRight className="size-[1vw]"/> Learn More
                       </motion.a>
                     </span>
                   </div>
                 </div>
-                <div className="hidden md:block space-y-3">
-                  <h4 className="contthings text-gray-400">Tech Stack</h4>
-                  <section className="techstack flex flex-wrap gap-4">
+                <div className="hidden md:block space-y-[1vw]">
+                  <h4 className="contthings text-white/70 text-[1vw] tracking-widest uppercase">Tech Stack</h4>
+                  <section className="techstack flex flex-wrap gap-[1.4vw]">
                     {data[activeIndex].techStack.map((datas, index) => (
                       <div
                         key={index}
-                        className="px-4 hover:shadow-lg hover:text-white shadow-md shadow-prime2 hover:bg-black rounded-3xl hover:shadow-gray-500 bg-white text-black transition-all ease-in-out duration-500 py-[3px] text-sm"
+                        className="px-[1.3vw] hover:shadow-lg hover:text-white shadow-lg shadow-prime/50 hover:bg-black rounded-[2vw] hover:shadow-gray-500 bg-white text-black transition-all ease-in-out duration-500 py-[0.4vw] text-[1vw] font-medium "
                       >
                         {datas}
                       </div>
@@ -283,8 +286,8 @@ const About = () => {
                   </section>
                 </div>
                 <div>
-                  <h4 className="contthings text-gray-400">Description</h4>
-                  <p className="font-light text-gray-300 text-xs line-clamp-3 lg:text-sm">
+                  <h4 className="contthings text-white/70 text-[1vw] mb-[0.5vw] tracking-widest uppercase">Description</h4>
+                  <p className="font-light text-white/90 font-Poppins text-xs  line-clamp-3 lg:text-[1.1vw] leading-[1.5vw]">
                     {data[activeIndex].description}
                   </p>
                 </div>

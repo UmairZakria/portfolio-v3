@@ -157,7 +157,7 @@ const Service = () => {
             ref={titleRef}
             className="text-[4vw] text font-confortaa font-semibold"
           >
-            Services I <span className="text-prime2">Offer</span>
+            Services I <span className="text-prime">Offer</span>
           </h3>
 
           <p className="relative z-50 md:w-1/3 font-Poppins  text-white text-[1.1vw] font-extralight leading-relaxed">
@@ -178,21 +178,21 @@ const Service = () => {
             key={index}
             className="relative w-[30vw] h-[32vw] p-[0.1vw] rounded-md group"
           >
-            <div className="absolute  inset-0 rounded-2xl z-0">
+            <div className="absolute  inset-0 p-[1vw] z-0">
               <img
                 src={item.img}
                 alt={item.title}
-                className="object-cover h-full w-full rounded-2xl brightness-25"
+                className="object-cover h-full w-full  brightness-75"
               />
             </div>
 
             <div className="absolute inset-0 bg-black/60 rounded-2xl" />
 
-            <div className="bg-[#00000025] border-[1px] w-full h-full flex flex-col justify-between  px-[1.5vw] py-[2vw] gap-[2vw] rounded-[1vw] backdrop-blur-[0.2vw] border-white/10 group-hover:border-white/10 hover:scale-105  transition-all duration-300">
-              <h3 className="text-[2.4vw] font-medium font-Montserrat">
+            <div className="bg-[#00000025] border-[1px] w-full h-full flex flex-col justify-between  px-[1.8vw] py-[2vw] gap-[2vw] rounded-[1vw] backdrop-blur-[0.2vw] border-white/10 group-hover:border-white/10 shadow-inner shadow-black  transition-all duration-300">
+              <h3 className="text-[2.5vw] font-light font-Poppins">
                 {item.title.includes(" ") ? (
                   <>
-                    <span className="text-prime2 font-semibold">
+                    <span className="text-prime font-">
                       {item.title.split(" ")[0]}
                     </span>{" "}
                     {item.title.split(" ").slice(1).join(" ")}
@@ -202,13 +202,13 @@ const Service = () => {
                 )}
               </h3>
 
-              <p className="text-[1.2vw] text-white/80">{item.description}</p>
+              <p className="text-[1.2vw] text-white">{item.description}</p>
 
               <div>
                 {item.points.map((point, idx) => (
                   <div key={idx} className="flex items-center gap-[1vw] mt-[1vw]">
                     <Check className="size-[1.4vw] text-prime2" />
-                    <p className="text-[1vw] text-white/75">{point}</p>
+                    <p className="text-[1vw] text-white">{point}</p>
                   </div>
                 ))}
               </div>

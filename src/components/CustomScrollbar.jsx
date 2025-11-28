@@ -97,6 +97,7 @@ const CustomScrollbar = () => {
         onUpdate: updateThumbPosition,
         onRefresh: () => {
           updateScrollbar();
+          // handleThumbMouseDown();
           updateThumbPosition();
         }
       });

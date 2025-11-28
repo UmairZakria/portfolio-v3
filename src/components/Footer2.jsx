@@ -40,7 +40,7 @@ const Footer2 = () => {
   };
   return (
     <>
-      <div className="w-full relative h-[2px]  bg-prime2   overflow-hidden mt-[120px] "></div>
+      <div className="w-full relative h-[0.1vw]  bg-gradient-to-r from-[#bd06ab]  to-prime   overflow-hidden mt-[8vw]  "></div>
       <div className="relative ">
 
         <motion.div
@@ -59,26 +59,28 @@ const Footer2 = () => {
             backgroundRepeat: "no-repeat",
           }}
         ></motion.div>
-        <div className="absolute w-full h-[100px] bg-gradient-to-b   z-[100] from-black via-black/70 to-transparent top-0 left-0 "></div>
+        {/* <div className="absolute w-full h-[100px] bg-gradient-to-b   !z-[999] from-black   via-black/70 to-transparent top-0 left-0 "></div> */}
 
-        <div className="   z-[100] flex flex-col items-center justify-between    bg-[#ffffff04] relative   p-2  pt-[40px] lg:h-[350px] w-full backdrop-blur-xl     font-Montserrat">
-          <div className="h-3/4 flex w-full lg:px-10 xl:container mx-auto   md:gap-0 gap-10 md:flex-nowrap flex-wrap  !justify-between">
-            <div className="grid place-content-start  w-full lg:w-[350px]  h-full ">
-              <div className="space-y-5  ">
-                <h1 className="text-4xl space-x-2 text-white inline-flex gap-2 pb-2 border-b-[1px] border-prime2/20 items-end font-Poppins">
-                  umair
-                  <span className="text-lg font-Poppins  text-prime2">
-                    Lab
-                  </span>
+        <div className="   z-[100] flex flex-col items-center justify-between    bg-[#ffffff04] relative   px-[4vw]  pt-[4vw] lg:h-[25vw] w-full backdrop-blur-xl     font-Montserrat">
+          <div className="h-full  flex w-full   md:gap-0 gap-10 md:flex-nowrap flex-wrap items-center   !justify-between">
+            <div className="flex   w-full lg:w-[24vw]  h-full ">
+              <div className="gap-[3vw]  h-full flex flex-col justify-center  items-start ">
+                <h1 className="text-3xl text-white md:text-[2.6vw]  inline-flex gap-[0.2vw]  pb-[0vw] font-bold border-b-[0.05vw] tracking-tight border-white/20 items-end font-confortaa">
+                  .umair
+                  <span className="text-[0.51em] font-confortaa  text-transparent bg-gradient-to-tr from-[#b622a7] to-prime bg-clip-text ">lab</span>
                 </h1>
-                <p className=" text-xl text-gray-200/80 tracking-wider  font-Poppins font-light ">
-                  Transforming ideas into powerful digital solutions.
+                <p className=" text-[1.2vw] text-gray-200/80    font-Montserrat font-light ">
+                  {/* Transforming ideas into powerful digital solutions. */}
+                  Creating innovative and high-performance digital solutions that enhance user experiences and drive growth.
+
+                  UI/UX Design
+                  UI/U
                 </p>
               </div>
             </div>
-            <div className=" h-full space-y-4">
-              <h3 className="text-xl font-Raleway text-gray-200">Contact</h3>
-              <div className="flex xl:text-[16px] text-prime2 font-Poppins  md:flex-col gap-4 md:flex-nowrap flex-wrap md:gap-1">
+            <div className=" h-fit space-y-[1vw] ">
+              <h3 className="text-[1.2vw] font-Raleway text-gray-200">Contact</h3>
+              <div className="flex lg:text-[1.1vw] text-prime2  font-Poppins  md:flex-col gap-[1.2vw] md:flex-nowrap flex-wrap md:gap-[0.4vw]">
                 <a
                   className=" hover:text-white   transition-all duration-300 ease-in-out cursor-pointer "
                   target="_blank"
@@ -116,9 +118,9 @@ const Footer2 = () => {
                 </a>
               </div>
             </div>
-            <div className=" h-full space-y-4">
-              <h3 className="text-xl font-Raleway text-gray-200">Nav Links</h3>
-              <div className="flex xl:text-[16px] text-prime2 font-Poppins md:flex-col gap-4 md:flex-nowrap flex-wrap md:gap-1">
+            <div className=" h-fit space-y-[1vw]">
+              <h3 className="text-[1.1vw] font-Raleway text-gray-200">Nav Links</h3>
+              <div className="flex lg:text-[1.1vw] text-prime2 font-Poppins md:flex-col gap-[1.2vw] md:flex-nowrap flex-wrap md:gap-[0.4vw]">
                 <a
                   className=" hover:text-white   transition-all duration-300 ease-in-out cursor-pointer "
                   href="/"
@@ -151,22 +153,22 @@ const Footer2 = () => {
                 </a>
               </div>
             </div>
-            <div className="h-full w-[300px] md:mx-0   mx-auto   gap-2 transition-all duration-300 ease-in-out  flex flex-col  rounded-xl">
-              <h4 className="font-Poppins text-lg">Leave a Message!</h4>
+            <div className="h-full w-[20vw] md:mx-0   mx-auto   gap-[0.6vw] transition-all duration-300 ease-in-out  flex flex-col  rounded-[1vw]">
+              <h4 className="font-Poppins text-[1.1vw]">Leave a Message!</h4>
               {error && (
-                <span className="text-green-500 text-sm font-Inter">
+                <span className="text-green-500 text-[0.8vw] font-Inter">
                   {error}
                 </span>
               )}
               <input
                 onChange={(e) => setEmail(e.target.value)}
-                className="border-[1px] rounded-md p-2 border-gray-500/50"
+                className="border-[0.1vw] rounded-[0.51vw] p-[0.7vw] text-[1vw] border-gray-500/50"
                 type="email"
                 placeholder="Email"
               />
               <textarea
                 onChange={(e) => setDiscription(e.target.value)}
-                className="border-[1px]  rounded-md p-2 h-full border-gray-500/50"
+                className="border-[0.1vw] rounded-[0.51vw] p-[0.7vw] text-[1vw] h-full border-gray-500/50"
                 name=""
                 placeholder="Message"
                 id=""
@@ -174,15 +176,25 @@ const Footer2 = () => {
               {/* <div className=" flex justify-center"> */}
               <button
                 onClick={handleSubmit}
-                className={`px-4 hover:shadow-lg hover:text-white  hover:bg-black rounded-sm cursor-pointer  hover:shadow-gray-500  bg-white text-black  transition-all ease-in-out duration-500   py-[8px] text-sm `}
+                className={`px-[] hover:shadow-lg text-white bg-black rounded-sm cursor-pointer  hover:shadow-gray-500    transition-all ease-in-out duration-500   py-[1vw]  text-[1vw]  `}
               >
                 Send
               </button>
               {/* </div> */}
             </div>
           </div>
-          <div className=" w-full p-2 text-center">
-            © 2025 Umair. All Rights Reserved.
+          <div className=" w-full text-[1.1vw] pt-[3vw] gap-[2vw] flex items-center justify-around text-white/70 pb-[1vw] text-center">
+            <h4>
+              © 2025 All Rights Reserved.
+
+            </h4>
+            <h3 className="gap-[1vw] flex items-end font-confortaa">
+              Made by Umair at
+              <h1 className="text-3xl text-white md:text-[1.6vw]  inline-flex gap-[0.2vw]  pb-[0vw] font-bold tracking-tight border-white/20 items-end font-confortaa">
+                .umair
+                <span className="text-[0.51em] font-confortaa  text-transparent bg-gradient-to-tr from-[#b622a7] to-prime bg-clip-text ">lab</span>
+              </h1>
+            </h3>
           </div>
         </div>
       </div>

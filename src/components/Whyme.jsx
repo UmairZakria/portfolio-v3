@@ -25,14 +25,14 @@ const Whyme = () => {
     },
   ];
   return (
-    <section className=" text-white  md:mt-30 py-16 px-6 ">
-      <div className="lg:px-10 xl:px-0 xl:container mx-auto flex lg:flex-col xl:flex-row items-start md:items-center gap-10 flex-wrap md:flex-nowrap">
+    <section className=" text-white  mt-[10vw] ">
+      <div className="px-4 md:px-[4vw] mx-auto flex  lg:flex-row items-start md:items-center gap-[2vw] flex-wrap md:flex-nowrap">
         {/* Left side */}
-        <div className="space-y-6 w-full md:w-1/3 lg:w-full xl:w-1/2 xl:text-left lg:text-center">
-          <h2 className="text-3xl text-prime2 md:text-5xl lg:text-6xl xl:text-5xl font-Montserrat font-medium">
+        <div className="space-y-6 w-full md:w-1/3 lg:w-1/2 ">
+          <h2 className="text-3xl text-prime2 md:text-5xl lg:text-[3.5vw] font-confortaa font-medium">
             <span className="">Why</span> me?
           </h2>
-          <p className="text-white/80  text-xl leading-relaxed">
+          <p className="text-white/75  text-[1.3vw] w-[30vw] leading-relaxed font-Poppins">
             Every project is a journey, <br /> and I’m here to ensure it thrives long
             after delivery.
           </p>
@@ -46,18 +46,18 @@ const Whyme = () => {
           {features.map((f, i) => (
             <div
               key={i}
-              className="bg-[#3a444b6b] gap-5 relative z-[50] flex-col rounded-xl w-full box-border min-h-[180px] h-full p-6 flex  shadow-md hover:shadow-lg transition"
+              className="bg-[#3a444b6b] gap-[1.2vw] relative z-[50] flex-col  rounded-[0.8vw] w-full box-border h-[13.5vw]  p-[1.4vw] flex  shadow-md hover:shadow-lg transition"
             >
-              <div className="flex flex-row items-center gap-4">
+              <div className="flex flex-row items-center gap-[1vw]">
 
-                <div className=" gap-3">
+                <div className=" gap-[0.8vw]">
                   <div className="bg-prime/60 shadow-xl shadow-prime/20 backdrop-blur-2xl rounded-full w-12 h-12 flex items-center justify-center ">
                     {f.icon}
                   </div>
                 </div>
-                <h3 className="text-2xl  border-b pb-2 border-prime/30 font-Poppins">{f.title}</h3>
+                <h3 className="text-[1.5vw]  border-b pb-[0.9vw] border-prime/30 font-Poppins ">{f.title}</h3>
               </div>
-              <p className="text-white/80  text-[15px] font-Poppins ">{f.desc}</p>
+              <p className="text-white/80  text-[1.1vw] font-Poppins ">{f.desc}</p>
             </div>
           ))}
         </div>

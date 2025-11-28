@@ -74,7 +74,7 @@ const Navbar = () => {
 
           <h1 className="text-3xl md:text-[2.6vw]  inline-flex gap-[0.2vw]  pb-[0vw] font-bold border-b-[0.05vw] tracking-tight border-white/20 items-end font-confortaa">
             .umair
-            <span className="text-[0.51em] font-confortaa  text-prime2 ">lab</span>
+            <span className="text-[0.51em] font-confortaa  text-transparent bg-gradient-to-tr from-[#b622a7] to-prime bg-clip-text ">lab</span>
           </h1>
 
         </div>

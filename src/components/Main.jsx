@@ -33,9 +33,10 @@ const Main = () => {
       <div className="hidden lg:block">
         <MouseTrail />
       </div>
-      <CustomScrollbar />
 
       <SmoothScrollProvider>
+      {/* <CustomScrollbar > */}
+
         <div className=" text-white">
           <Hero anidone={anidone} />
           <div className="geo">
@@ -44,11 +45,12 @@ const Main = () => {
           </div>
           <Service />
           <Aboutme />
+          <Whyme />
+
 
           <div id="AboutUs " className="">
             <About />
           </div>
-          <Whyme />
 
           <div id="Contact">
             {/* <AboutMF /> */}
@@ -56,6 +58,8 @@ const Main = () => {
             <Footer2 />
           </div>
         </div>
+      < CustomScrollbar />
+
       </SmoothScrollProvider>
     </div>
   );
