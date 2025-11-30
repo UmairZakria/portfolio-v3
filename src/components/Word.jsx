@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-const DURATION = 0.3;
-const STAGGER = 0;
-const DELAY = 0.2; // 10-second delay between animations
+const DURATION = 0.2;
+const STAGGER = 0.02;
+const DELAY = 0; // 10-second delay between animations
 
 const Word = ({ children }) => {
   const ref = useRef(null);
@@ -30,7 +30,7 @@ const Word = ({ children }) => {
       ref={ref}
       initial="initial"
       whileHover={"animated" }
-      className="relative block my-1 overflow-hidden whitespace-nowrap"
+      className="relative block my-[0.4vw]  overflow-hidden whitespace-nowrap"
       style={{ lineHeight: 0.75 }}
     >
       <div>
@@ -39,6 +39,7 @@ const Word = ({ children }) => {
             variants={{
               initial: { y: 0 },
               animated: { y: "-100%" },
+              opacity: 0,
             }}
             transition={{
               duration: DURATION,
@@ -58,6 +59,7 @@ const Word = ({ children }) => {
             variants={{
               initial: { y: "100%" },
               animated: { y: 0 },
+              opacity: 1,
             }}
             transition={{
               duration: DURATION,

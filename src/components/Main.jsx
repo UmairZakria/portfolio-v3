@@ -1,7 +1,4 @@
-import React from "react";
 import Hero from "../components/Hero";
-import SmoothScrollProvider from "../components/SmoothScrollProvider";
-import MouseTrail from "../components/MouseTrail";
 import Service from "../components/Service";
 import Navbar from "../components/Navbar";
 import About from "../components/About";
@@ -9,11 +6,9 @@ import { Lightbulb } from "lucide-react";
 import Contact from "../components/Contact";
 import Footer2 from "../components/Footer2";
 import { useState, useEffect } from "react";
-import CustomScrollbar from "../components/CustomScrollbar";
 import Aboutme from "./Aboutme";
 import Numbers from "./Numbers";
 import Whyme from "./Whyme";
-import AboutMF from "./AboutMF";
 import Welcome from "./Welcome";
 const Main = () => {
   const [anidone, setAnidone] = useState(false);
@@ -30,11 +25,9 @@ const Main = () => {
       {/* <Welcome setAnidone={setAnidone} /> */}
       {/* <Flip/> */}
       <Navbar />
-      <div className="hidden lg:block">
-        <MouseTrail />
-      </div>
 
-      <SmoothScrollProvider>
+
+      {/* <SmoothScrollProvider> */}
       {/* <CustomScrollbar > */}
 
         <div className=" text-white">
@@ -53,14 +46,11 @@ const Main = () => {
           </div>
 
           <div id="Contact">
-            {/* <AboutMF /> */}
             <Contact />
             <Footer2 />
           </div>
         </div>
-      < CustomScrollbar />
 
-      </SmoothScrollProvider>
     </div>
   );
 };

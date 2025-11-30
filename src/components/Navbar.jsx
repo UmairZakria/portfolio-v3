@@ -5,8 +5,10 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Terminal, Codesandbox, MenuIcon, X, CodeXml, Send, Linkedin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState("Home");
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -14,7 +16,7 @@ const Navbar = () => {
   const sections = [
     { href: "/", name: "Home" },
     { href: "/services", name: "Services" },
-    { name: "Work", href: "/work" },
+    { name: "Portfolio", href: "/portfolio" },
     { name: "About-Me", href: "/overview" },
     { name: "Contact", href: "/overview" },
   ];
@@ -70,14 +72,14 @@ const Navbar = () => {
       // animate={{ x: 0, opacity: 1 }}
       // transition={{ duration: 0.5 }}
       >
-        <div className="text-white">
+        <a href="https://www.umairlab.com/" title="Umair Lab" className="text-white">
 
-          <h1 className="text-3xl md:text-[2.6vw]  inline-flex gap-[0.2vw]  pb-[0vw] font-bold border-b-[0.05vw] tracking-tight border-white/20 items-end font-confortaa">
-            .umair
-            <span className="text-[0.51em] font-confortaa  text-transparent bg-gradient-to-tr from-[#b622a7] to-prime bg-clip-text ">lab</span>
+          <h1 className="text-3xl md:text-[2.6vw]  space-x-[0.2vw]  pb-[0vw] font-bold  tracking-tight border-white/20 items-end font-confortaa">
+            <span>.umair</span>
+            <span className="text-[0.45em] font-confortaa   text-transparent bg-gradient-to-tr from-[#b622a7] to-prime bg-clip-text ">lab</span>
           </h1>
 
-        </div>
+        </a>
       </motion.div>
 
 
@@ -85,10 +87,10 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div className=" ">
         <button className="pl-[1vw] rounded-[0.6vw] text-white cursor-pointer  backdrop-blur-xs">
-          <Linkedin className=" md:size-[1.9vw]" />
+          <Linkedin className=" md:size-[1.6vw]"  />
         </button>
         <button className="px-4 md:px-[1.5vw] rounded-[0.6vw] text-white cursor-pointer  backdrop-blur-xs">
-          <Send className=" md:size-[1.9vw]" />
+          <Send className=" md:size-[1.6vw]"  />
         </button>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -101,20 +103,21 @@ const Navbar = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute top-3/4 right-0 lg:right-[4vw] mt-2 font-Poppins w-48 bg-white/5 rounded-lg backdrop-blur-xs py-2"
+            className="absolute top-3/4 right-0 lg:right-[4vw] mt-[1vw] flex-col flex items-start font-Poppins w-[14vw] bg-white/5 rounded-lg backdrop-blur-xs py-[0.8vw]"
           >
             {sections.map((section) => (
-              <a key={section} href={section.href}>
-                <div
-                  className={`px-4 py-3 text-sm cursor-pointer text-white hover:bg-black hover:text-white transition-all duration-300 ease-in-out ${selectedOption === section ? "bg-white !text-black" : ""
-                    }`}
+              <button
+
+                className={`px-[1.7vw]  font-Montserrat py-[0.9vw] tracking-wider text-[1vw] w-full text-start  cursor-pointer text-white hover:bg-black hover:text-white transition-all duration-300 ease-in-out ${selectedOption === section ? "bg-white !text-black" : ""}`}
+                key={section} onClick={() => navigate(section.href)}>
+                <span
                 >
-                  {/* <Word> */}
+                  <Word>
                   {section.name}
 
-                  {/* </Word> */}
-                </div>
-              </a>
+                  </Word>
+                </span>
+              </button>
             ))}
           </motion.div>
         )}

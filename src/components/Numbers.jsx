@@ -42,7 +42,7 @@ const Numbers = () => {
           <div className="text-4xl md:text-[4vw]  font-medium font-confortaa">
             99%
           </div>
-          <p className=" text-lg md:text-[1.4vw] uppercase  text-white/75">Stasified clients</p>
+          <p className=" text-lg md:text-[1.4vw] uppercase  text-white/75">Satisfied clients</p>
         </div>
       </div>
     </div>

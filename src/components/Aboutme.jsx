@@ -97,15 +97,13 @@ const Aboutme = () => {
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 1, duration: 0.5, ease: "easeOut" }} className="h-[0.2vw] mb-[0.5vw] w-[4vw] rounded-full bg-gradient-to-tr from-[#b622a7] to-prime " />
 
-              I’m Umair Zakria, a Full Stack Web Developer who turn messy problems into clean, scalable, and user-friendly web applications.
-            </motion.div>
+          Hey, I’m Umair Zakria — a Full Stack Web Developer turning clients’ visions into reality with clean, scalable, and user-friendly web applications.            </motion.div>
             <motion.div variants={fadeUp} className="w-[25vw] shadow-inner shadow-black bg-white/5 p-[1.5vw] rounded-[1vw] absolute top-[85%] left-[6.5vw]">
               <motion.div
                 initial={{ scaleX: 0, originX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 1, duration: 0.5, ease: "easeOut" }} className="h-[0.2vw] mb-[0.5vw] rounded-full w-[4vw] bg-gradient-to-tr from-[#b622a7] to-prime " />
-              Atque aspernatur at fugit ratione, quis, exercitationem nulla doloremque aperiam reiciendis quas alias ab quibusdam. Nam, maxime ad! Pariatur, ratione. Obcaecati, quos.
-            </motion.div>
+ I keep the user at the center of every decision. Because a good product isn’t just about functionality, it’s about how people feel when they use it.            </motion.div>
           </div>
           {/* <motion.div className="mt-8 space-x-6 flex " variants={fade}>
             <motion.button

@@ -5,13 +5,16 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { useGSAP } from "@gsap/react";
 import Greeting from "./Greeting";
+import { useNavigate } from "react-router-dom";
+
 import Word from "./Word";
-import { Linkedin, Github, MoveRight } from "lucide-react";
+import { Linkedin, Github, MoveRight, MoveRightIcon } from "lucide-react";
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = ({ anidone }) => {
+  const navigate = useNavigate();
   const contref = useRef(null);
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
@@ -192,13 +195,14 @@ const Hero = ({ anidone }) => {
                 Making the first impression work as hard as months of effort, leaving a lasting mark with Umair Lab.                              </p>
             </div>
             <div className="flex md:justify-start justify-ceter mt-4 md:mt-[4vw] gap-4 md:gap-[2vw] ">
-              <button className="bg-gradient-to-b relative  rounded-md  md:text-[1.1vw] transition-all duration-300 ease-in-out hover:scale-105 font-Poppins  shadow-inner shadow-black  from-white/20  to-black/10 cursor-pointer text-white px-6 md:px-[2vw] py-3  md:py-[0.9vw]">
+              <button onClick={()=> navigate('/portfolio')} className="bg-gradient-to-b relative  rounded-[0.21vw]  md:text-[1.1vw] transition-all duration-300 ease-in-out hover:scale-105 font-Poppins  shadow-inner shadow-black  from-white/20  to-black/10 cursor-pointer text-white px-6 md:px-[2vw] py-3  md:py-[0.9vw]">
 
                 Portfolio
               </button>
-              <button className="bg-gradient-to-b rounded-md  md:text-[1.1vw]  transition-all duration-300 ease-in-out hover:scale-105 font-Poppins  from-prime/60 to-prime/10 cursor-pointer px-6 md:px-[2vw] py-3 md:py-[0.9w] ">
+              <a href="https://calendly.com/umairzakria6/30min" target="_blank" title="Book 15 Minute call with Umair" className="bg-gradient-to-b flex gap-[0.8vw] items-center font rounded-[0.21vw]  md:text-[1.1vw]   transition-all duration-300 ease-in-out hover:scale-105 font-Montserrat  from-prime/60 to-prime/10 cursor-pointer px-6 md:px-[2vw] py-3 md:py-[0.9w] ">
                 Get in Touch
-              </button>
+                {/* <MoveRightIcon className="size-[1.4vw] " /> */}
+              </a>
 
             </div>
 

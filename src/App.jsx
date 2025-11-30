@@ -8,14 +8,20 @@ import Overview from "./components/pages/Overview";
 import Case from "./components/pages/Casepages/Case";
 import CustomScrollbar from "./components/CustomScrollbar";
 import Projects from "./components/pages/Projects";
+import SmoothScrollProvider from "./components/SmoothScrollProvider";
+import MouseTrail from "./components/MouseTrail";
 const App = () => {
   return (
     <>
-  <CustomScrollbar />
+      <CustomScrollbar />
+      <SmoothScrollProvider />
+      <div className="hidden lg:block">
+        <MouseTrail />
+      </div>{/*  */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/work" element={<Work />} />
+        <Route path="/portfolio" element={<Work />} />
         <Route path="/overview" element={<Overview />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/CaseStudy/:title" element={<Case />} />
