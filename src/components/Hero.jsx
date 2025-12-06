@@ -201,7 +201,6 @@ const Hero = ({ anidone }) => {
               </button>
               <a href="https://calendly.com/umairzakria6/30min" target="_blank" title="Book 15 Minute call with Umair" className="bg-gradient-to-b flex gap-[0.8vw] items-center font rounded-[0.21vw]  md:text-[1.1vw]   transition-all duration-300 ease-in-out hover:scale-105 font-Montserrat  from-prime/60 to-prime/10 cursor-pointer px-6 md:px-[2vw] py-3 md:py-[0.9w] ">
                 Get in Touch
-                {/* <MoveRightIcon className="size-[1.4vw] " /> */}
               </a>
 
             </div>

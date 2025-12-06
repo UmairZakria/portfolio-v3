@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 const Numbers = () => {
   return (
-    <div className="flex flex-col  flex-wrap-reverse md:flex-nowrap  items-center justify-center relative font-Poppins  lg:px-[4vw] px-4 text-white/90 pt-15   md:gap-[5vw] mx-auto ">
+    <div className="flex flex-col  flex-wrap-reverse md:flex-nowrap  items-center justify-center relative font-Poppins   lg:px-[4vw] px-4 text-white/90 pt-15 gap-5  md:gap-[5vw] mx-auto ">
   
-      <div className="space-y-[1vw]">
-        <h4 className="uppercase text-center text-[1.2vw] font-Poppins text-prime ">
+      <div className="space-y-3 md:space-y-[1vw]">
+        <h4 className="uppercase text-center text-xs md:text-[1.2vw] font-Poppins text-prime ">
           Pioneering Trust and Innovation
         </h4>
         <h2 className="text-3xl md:text-[3.5vw]  text-center font-confortaa font-semibold ">
@@ -19,7 +19,7 @@ const Numbers = () => {
         </p> */}
 
       </div>
-      <div className="flex  flex-1 px-4 md:px-0 font-Poppins flex-wrap gap-15 md:gap-5  w-full md:w-full mx-auto text-center justify-between md:justify-around items-center md:gap-y-14 ">
+      <div className="flex  flex-1 px-4 md:px-0 font-Poppins flex-wrap gap-20 md:gap-5  w-full md:w-full mx-auto text-center justify-around md:justify-around items-center  md:gap-y-14 ">
         <div className="space-y-4">
           <div className="text-4xl md:text-[4vw]  font-medium  font-confortaa">
             3+

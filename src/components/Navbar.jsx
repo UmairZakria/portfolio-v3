@@ -86,12 +86,14 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       <div className=" ">
-        <button className="pl-[1vw] rounded-[0.6vw] text-white cursor-pointer  backdrop-blur-xs">
+        <a   target="_blank" href="https://www.linkedin.com/in/umair-zakria-67477b33a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="pl-[1vw] inline-block rounded-[0.6vw] text-white cursor-pointer  backdrop-blur-xs">
           <Linkedin className=" md:size-[1.6vw]"  />
-        </button>
-        <button className="px-4 md:px-[1.5vw] rounded-[0.6vw] text-white cursor-pointer  backdrop-blur-xs">
+        </a>
+        <a 
+         href="https://wa.me/923184394363"  target="_blank" 
+        className="px-4 md:px-[1.5vw] inline-block rounded-[0.6vw] text-white cursor-pointer  backdrop-blur-xs">
           <Send className=" md:size-[1.6vw]"  />
-        </button>
+        </a>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="p-[0.6vw] rounded-[0.6vw] text-white cursor-pointer bg-white/5  backdrop-blur-xs "
@@ -103,12 +105,12 @@ const Navbar = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute top-3/4 right-0 lg:right-[4vw] mt-[1vw] flex-col flex items-start font-Poppins w-[14vw] bg-white/5 rounded-lg backdrop-blur-xs py-[0.8vw]"
+            className="absolute top-[100%] md:top-3/4 right-4  lg:right-[4vw] mt-[1vw] flex-col flex items-start font-Poppins  md:w-[14vw] bg-white/5 rounded-lg backdrop-blur-xs py-[4px] md:py-[0.8vw]"
           >
             {sections.map((section) => (
               <button
 
-                className={`px-[1.7vw]  font-Montserrat py-[0.9vw] tracking-wider text-[1vw] w-full text-start  cursor-pointer text-white hover:bg-black hover:text-white transition-all duration-300 ease-in-out ${selectedOption === section ? "bg-white !text-black" : ""}`}
+                className={`px-[12px] md:px-[1.7vw]  font-Montserrat py-[6px]  md:py-[0.9vw] tracking-wider  text-xs md:text-[1vw] w-full text-start  cursor-pointer text-white hover:bg-black hover:text-white transition-all duration-300 ease-in-out ${selectedOption === section ? "bg-white !text-black" : ""}`}
                 key={section} onClick={() => navigate(section.href)}>
                 <span
                 >

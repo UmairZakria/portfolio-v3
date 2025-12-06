@@ -123,11 +123,11 @@ const CustomScrollbar = () => {
   return (
     <div 
       ref={containerRef}
-      className="hidden md:block fixed top-[8vh] md:top-[5vh] right-0 md:right-[5px] w-[6px] h-[90vh] bg-[#ffffff56] rounded-md z-[1000] overflow-hidden"
+      className="hidden md:block fixed top-[8vh] md:top-[5vh] right-0 md:right-[0.4vw] w-[0.4vw] h-[90vh] bg-white/25 rounded-md z-[1000] overflow-hidden"
     >
       <div
         ref={thumbRef}
-        className="w-full bg-white rounded-full absolute top-0 cursor-pointer"
+        className="w-full bg-white/75 rounded-full absolute top-0 cursor-pointer"
         onMouseDown={handleThumbMouseDown}
       />
     </div>

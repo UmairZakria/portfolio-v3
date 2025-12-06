@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Check } from "lucide-react";
+import { Check, MoveRight } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitType from "split-type";
@@ -39,7 +39,7 @@ const Service = () => {
       title: "Custom Solution",
       description:
         "Creating secure, scalable, and tailored web solutions to meet your unique business needs with modern technologies.",
-      img: "/custom.png",
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
       icon: "https://img.icons8.com/ios-filled/50/4c95e9/windows10-personalization.png",
       points: [
         "A solution perfectly matching business logic.",
@@ -97,7 +97,7 @@ const Service = () => {
     },
   ];
 
-  // -------------------- GSAP Optimized --------------------
+  // -------------------- GSAP Optimized (Desktop Only) --------------------
   useGSAP(() => {
     if (isMobile) return;
 
@@ -123,7 +123,7 @@ const Service = () => {
     const grid = gridRef.current;
     const container = containerRef.current;
 
-    // 30vw card width + 2vw gap = 32vw per card
+    // 30vw card width + 4vw gap = 34vw per card
     const cardWidthVW = 34;
     const totalWidthVW = data.length * cardWidthVW;
 
@@ -149,50 +149,57 @@ const Service = () => {
     <div
       id="Service"
       ref={containerRef}
-      className="min-h-screen py-[2vw] my-[10vw] px-4 lg:px-[4vw] overflow-hidden relative font-Montserrat"
+      className="min-h-screen py-8 md:py-[2vw] my-12 md:my-[10vw] px-4 lg:px-[4vw] overflow-hidden relative font-Montserrat"
     >
-      <div className="space-y-12">
-        <div className="flex items-start flex-col gap-[1.4vw] justify-between">
+      <div className="space-y-8 md:space-y-12">
+        <div className="flex flex-col md:flex-row items-start gap-6 md:gap-[1.4vw] justify-between">
           <h3
             ref={titleRef}
-            className="text-[4vw] text font-confortaa font-semibold"
+            className="text-4xl md:text-[4vw] font-confortaa font-bold"
           >
             Services I <span className="text-prime">Offer</span>
           </h3>
 
-          <p className="relative z-50 md:w-1/3 font-Poppins  text-white text-[1.1vw] font-extralight leading-relaxed">
+          <p className="relative z-50 md:w-1/3 font-Poppins text-white/75 text-base md:text-[1.1vw] font-extralight leading-relaxed">
             Creating innovative and high-performance digital solutions that
             enhance user experiences and drive growth.
           </p>
         </div>
       </div>
 
-      {/* Horizontal Scroll Cards */}
+      {/* Desktop: Horizontal Scroll | Mobile: Horizontal Swipe */}
       <div
         ref={gridRef}
-        className="flex gap-[4vw] mt-[5vw] mb-[5vw] will-change-transform"
-        style={{ width: `${data.length * 32}vw` }}
+        className={`
+          flex gap-6 md:gap-[4vw] mt-8 md:mt-[5vw] mb-8 md:mb-[5vw]
+          ${isMobile ? 'overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4' : 'will-change-transform'}
+        `}
+        style={!isMobile ? { width: `${data.length * 34}vw` } : {}}
       >
         {data.map((item, index) => (
           <div
             key={index}
-            className="relative w-[30vw] h-[32vw] p-[0.1vw] rounded-md group"
+            className={`
+              relative group flex-shrink-0
+              ${isMobile ? 'w-[90vw] h-[120vw] snap-center' : 'w-[29vw] h-[35vw]'}
+              p-[0.1vw] rounded-md
+            `}
           >
-            <div className="absolute  inset-0 p-[1vw] z-0">
+            <div className="absolute inset-0 p-2 md:p-[1vw] z-0">
               <img
                 src={item.img}
                 alt={item.title}
-                className="object-cover h-full w-full  brightness-75"
+                className="object-cover h-full w-full brightness-75 rounded-lg"
               />
             </div>
 
             <div className="absolute inset-0 bg-black/60 rounded-2xl" />
 
-            <div className="bg-[#00000025] border-[1px] w-full h-full flex flex-col justify-between  px-[1.8vw] py-[2vw] gap-[2vw] rounded-[1vw] backdrop-blur-[0.2vw] border-white/10 group-hover:border-white/10 shadow-inner shadow-black  transition-all duration-300">
-              <h3 className="text-[2.5vw] font-light font-Poppins">
+            <div className="bg-[#00000025] border-[1px] w-full h-full flex flex-col justify-between px-6 py-5 md:px-[1.8vw] md:py-[1.3vw] gap-6 md:gap-[2vw] rounded-xl md:rounded-[1vw] backdrop-blur-sm md:backdrop-blur-[0.2vw] border-white/10 group-hover:border-white/10 shadow-inner shadow-black transition-all duration-300">
+              <h3 className="text-3xl md:text-[2.5vw] font-light font-Poppins">
                 {item.title.includes(" ") ? (
                   <>
-                    <span className="text-prime font-">
+                    <span className="text-prime">
                       {item.title.split(" ")[0]}
                     </span>{" "}
                     {item.title.split(" ").slice(1).join(" ")}
@@ -202,20 +209,55 @@ const Service = () => {
                 )}
               </h3>
 
-              <p className="text-[1.2vw] text-white">{item.description}</p>
+              <p className="text-base md:text-[1.2vw] text-white leading-relaxed">
+                {item.description}
+              </p>
 
               <div>
                 {item.points.map((point, idx) => (
-                  <div key={idx} className="flex items-center gap-[1vw] mt-[1vw]">
-                    <Check className="size-[1.4vw] text-prime2" />
-                    <p className="text-[1vw] text-white">{point}</p>
+                  <div key={idx} className="flex items-center gap-3 md:gap-[1vw] mt-3 md:mt-[1vw]">
+                    <Check className="w-5 h-5 md:w-[1.4vw] md:h-[1.4vw] text-prime2 flex-shrink-0" />
+                    <p className="text-sm md:text-[1vw] text-white">{point}</p>
                   </div>
                 ))}
               </div>
+
+              <a
+                href="https://calendly.com/umairzakria6/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Book 15 Minute call with Umair"
+                className="bg-[#004e7e] flex justify-between gap-3 md:gap-[0.8vw] items-center rounded md:rounded-[0.21vw] text-base md:text-[1.2vw] transition-all duration-300 ease-in-out hover:scale-105 font-Montserrat cursor-pointer px-6 md:px-[2vw] py-3 md:py-[0.9vw]"
+              >
+                <span>Learn More</span>
+                <MoveRight className="w-5 h-5 md:w-auto md:h-auto" />
+              </a>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Mobile scroll indicator */}
+      {/* {isMobile && (
+        <div className="flex justify-center gap-2 mt-4">
+          {data.map((_, index) => (
+            <div
+              key={index}
+              className="w-2 h-2 rounded-full bg-white/30"
+            />
+          ))}
+        </div>
+      )} */}
+
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </div>
   );
 };
