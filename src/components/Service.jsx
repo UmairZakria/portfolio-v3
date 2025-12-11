@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Check, MoveRight } from "lucide-react";
+import { Check, MoveRight, ChevronRight } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitType from "split-type";
@@ -11,6 +11,7 @@ const Service = () => {
   const titleRef = useRef(null);
   const gridRef = useRef(null);
   const containerRef = useRef(null);
+  const wrapperRef = useRef(null);
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -120,7 +121,7 @@ const Service = () => {
       }
     );
 
-    const grid = gridRef.current;
+    const wrapper = wrapperRef.current;
     const container = containerRef.current;
 
     // 30vw card width + 4vw gap = 34vw per card
@@ -130,7 +131,7 @@ const Service = () => {
     const totalWidthPX = (totalWidthVW / 100) * window.innerWidth;
 
     // Smooth horizontal scroll
-    gsap.to(grid, {
+    gsap.to(wrapper, {
       x: -(totalWidthPX - window.innerWidth),
       ease: "none",
       force3D: true,
@@ -139,11 +140,79 @@ const Service = () => {
         start: "top top",
         end: totalWidthPX,
         scrub: 0.1,
-        pin: true,
+
         invalidateOnRefresh: true,
       },
     });
   }, [isMobile]);
+
+  const handleInertia = (slider) => {
+    const currentX = gsap.getProperty(slider, "x");
+    let velocity = slider.velocity || 0;
+
+    // If the user stopped dragging for > 100ms, velocity is effectively 0
+    if (Date.now() - (slider.lastTime || 0) > 100) {
+      velocity = 0;
+    }
+
+    // Inertia factor (adjust for feel)
+    const inertiaFactor = 300;
+    let targetX = currentX + velocity * inertiaFactor;
+
+    // Clamping limits
+    const cardWidthVW = 34;
+    const totalWidthVW = data.length * cardWidthVW;
+    const totalWidthPX = (totalWidthVW / 100) * window.innerWidth;
+
+    // Max scroll is negative
+    const maxScroll = -(totalWidthPX - window.innerWidth);
+    const minScroll = 0; // Left edge
+
+    // Clamp
+    if (targetX > minScroll) targetX = minScroll;
+    if (targetX < maxScroll) targetX = maxScroll;
+
+    gsap.to(slider, {
+      x: targetX,
+      duration: Math.min(Math.abs(velocity) * 500 + 0.8, 2.5), // Dynamic duration based on velocity
+      ease: "power2.out",
+      overwrite: "auto",
+    });
+  };
+
+  const handleNext = () => {
+    // Card width + gap calculation
+    // Desktop: 30vw card + 4vw gap = 34vw
+    // Mobile: 90vw card + gap (handled by snap usually, but lets approx)
+
+    if (isMobile) {
+      if (gridRef.current) {
+        const cardWidth = window.innerWidth * 0.9 + 24; // 90vw + gap estimate
+        gridRef.current.scrollBy({ left: cardWidth, behavior: "smooth" });
+      }
+    } else {
+      const slider = gridRef.current;
+      const currentX = gsap.getProperty(slider, "x");
+      const cardWidthVW = 34; // 34vw
+      const cardWidthPX = (cardWidthVW / 100) * window.innerWidth;
+
+      let targetX = currentX - cardWidthPX;
+
+      // Clamp
+      const totalWidthVW = data.length * cardWidthVW;
+      const totalWidthPX = (totalWidthVW / 100) * window.innerWidth;
+      const maxScroll = -(totalWidthPX - window.innerWidth);
+
+      if (targetX < maxScroll) targetX = maxScroll;
+
+      gsap.to(slider, {
+        x: targetX,
+        duration: 0.8,
+        ease: "power2.out",
+        overwrite: "auto",
+      });
+    }
+  };
 
   return (
     <div
@@ -167,74 +236,185 @@ const Service = () => {
         </div>
       </div>
 
+      {/* Navigation Arrow */}
+      <button
+        onClick={handleNext}
+        className="absolute md:block hidden  right-2 md:right-[5vw] top-1/2 -translate-y-1/2 z-50 p-3 md:p-[1vw] rounded-full bg-white/10 backdrop-blur-md border-[1px] border-white/20 hover:bg-white/20 transition-all duration-300 group/btn"
+        aria-label="Next Slide"
+      >
+        <ChevronRight className="w-6 h-6 md:w-[1.5vw] md:h-[1.5vw] text-white group-hover/btn:translate-x-1 transition-transform" />
+      </button>
+
       {/* Desktop: Horizontal Scroll | Mobile: Horizontal Swipe */}
       <div
-        ref={gridRef}
-        className={`
-          flex gap-6 md:gap-[4vw] mt-8 md:mt-[5vw] mb-8 md:mb-[5vw]
-          ${isMobile ? 'overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4' : 'will-change-transform'}
-        `}
-        style={!isMobile ? { width: `${data.length * 34}vw` } : {}}
+        ref={wrapperRef}
+        className={`${!isMobile ? "will-change-transform" : ""}`}
       >
-        {data.map((item, index) => (
-          <div
-            key={index}
-            className={`
-              relative group flex-shrink-0
-              ${isMobile ? 'w-[90vw] h-[120vw] snap-center' : 'w-[29vw] h-[35vw]'}
-              p-[0.1vw] rounded-md
-            `}
-          >
-            <div className="absolute inset-0 p-2 md:p-[1vw] z-0">
-              <img
-                src={item.img}
-                alt={item.title}
-                className="object-cover h-full w-full brightness-75 rounded-lg"
-              />
-            </div>
+        <div
+          ref={gridRef}
+          className={`
+            flex gap-6 md:gap-[4vw] mt-8 md:mt-[5vw] mb-8 md:mb-[5vw]
+            ${
+              isMobile
+                ? "overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
+                : ""
+            }
+            cursor-grab active:cursor-grabbing
+          `}
+          style={!isMobile ? { width: `${data.length * 34}vw` } : {}}
+          onMouseDown={(e) => {
+            const slider = gridRef.current;
+            // Stop any ongoing inertia/animation
+            gsap.killTweensOf(slider);
 
-            <div className="absolute inset-0 bg-black/60 rounded-2xl" />
+            slider.isDown = true;
+            slider.startX = e.pageX - slider.offsetLeft;
+            slider.scrollLeftStart = slider.scrollLeft;
 
-            <div className="bg-[#00000025] border-[1px] w-full h-full flex flex-col justify-between px-6 py-5 md:px-[1.8vw] md:py-[1.3vw] gap-6 md:gap-[2vw] rounded-xl md:rounded-[1vw] backdrop-blur-sm md:backdrop-blur-[0.2vw] border-white/10 group-hover:border-white/10 shadow-inner shadow-black transition-all duration-300">
-              <h3 className="text-3xl md:text-[2.5vw] font-light font-Poppins">
-                {item.title.includes(" ") ? (
-                  <>
-                    <span className="text-prime">
-                      {item.title.split(" ")[0]}
-                    </span>{" "}
-                    {item.title.split(" ").slice(1).join(" ")}
-                  </>
-                ) : (
-                  item.title
-                )}
-              </h3>
+            // Track for click prevention
+            slider.clickStartX = e.clientX;
+            slider.clickStartY = e.clientY;
 
-              <p className="text-base md:text-[1.2vw] text-white leading-relaxed">
-                {item.description}
-              </p>
+            // Desktop separate drag tracking
+            if (!isMobile) {
+              slider.dragStartX = gsap.getProperty(slider, "x") || 0;
+              // Initialize velocity tracking
+              slider.lastX = e.pageX;
+              slider.lastTime = Date.now();
+              slider.velocity = 0;
+            }
+          }}
+          onMouseLeave={() => {
+            const slider = gridRef.current;
+            if (slider && slider.isDown) {
+              slider.isDown = false;
+              if (!isMobile) handleInertia(slider);
+            }
+          }}
+          onMouseUp={() => {
+            const slider = gridRef.current;
+            if (slider && slider.isDown) {
+              slider.isDown = false;
+              if (!isMobile) handleInertia(slider);
+            }
+          }}
+          onMouseMove={(e) => {
+            const slider = gridRef.current;
+            if (!slider || !slider.isDown) return;
+            e.preventDefault();
 
-              <div>
-                {item.points.map((point, idx) => (
-                  <div key={idx} className="flex items-center gap-3 md:gap-[1vw] mt-3 md:mt-[1vw]">
-                    <Check className="w-5 h-5 md:w-[1.4vw] md:h-[1.4vw] text-prime2 flex-shrink-0" />
-                    <p className="text-sm md:text-[1vw] text-white">{point}</p>
-                  </div>
-                ))}
+            if (isMobile) {
+              const x = e.pageX - slider.offsetLeft;
+              const walk = (x - slider.startX) * 1.5;
+              slider.scrollLeft = slider.scrollLeftStart - walk;
+            } else {
+              // Desktop: Velocity Tracking
+              const now = Date.now();
+              const dt = now - slider.lastTime;
+              const currentX = e.pageX;
+
+              if (dt > 0) {
+                slider.velocity = (currentX - slider.lastX) / dt; // pixels per ms
+              }
+              slider.lastX = currentX;
+              slider.lastTime = now;
+
+              // Damped Drag
+              const x = e.pageX - slider.offsetLeft;
+              const walk = (x - slider.startX) * 1;
+              const targetX = slider.dragStartX + walk;
+
+              // Smoothly animate to drag position (damping)
+              gsap.to(slider, {
+                x: targetX,
+                duration: 0.5,
+                ease: "power2.out",
+                overwrite: "auto",
+              });
+            }
+          }}
+          onClickCapture={(e) => {
+            const slider = gridRef.current;
+            if (!slider) return;
+            const dist = Math.hypot(
+              e.clientX - (slider.clickStartX || 0),
+              e.clientY - (slider.clickStartY || 0)
+            );
+            if (dist > 5) {
+              e.stopPropagation();
+              e.preventDefault();
+            }
+          }}
+        >
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className={`
+                relative group flex-shrink-0
+                ${
+                  isMobile
+                    ? "w-[90vw] h-[120vw] snap-center"
+                    : "w-[29vw] h-[35vw]"
+                }
+                p-[0.1vw] rounded-md
+              `}
+            >
+              <div className="absolute inset-0 p-2 md:p-[1vw] z-0">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="object-cover h-full w-full brightness-75 rounded-lg select-none pointer-events-none"
+                />
               </div>
 
-              <a
-                href="https://calendly.com/umairzakria6/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Book 15 Minute call with Umair"
-                className="bg-[#004e7e] flex justify-between gap-3 md:gap-[0.8vw] items-center rounded md:rounded-[0.21vw] text-base md:text-[1.2vw] transition-all duration-300 ease-in-out hover:scale-105 font-Montserrat cursor-pointer px-6 md:px-[2vw] py-3 md:py-[0.9vw]"
-              >
-                <span>Learn More</span>
-                <MoveRight className="w-5 h-5 md:w-auto md:h-auto" />
-              </a>
+              <div className="absolute inset-0 bg-black/60 rounded-2xl pointer-events-none" />
+
+              <div className="bg-[#00000025] border-[1px] w-full h-full flex flex-col justify-between px-6 py-5 md:px-[1.8vw] md:py-[1.3vw] gap-6 md:gap-[2vw] rounded-xl md:rounded-[1vw] backdrop-blur-sm md:backdrop-blur-[0.2vw] border-white/10 group-hover:border-white/10 shadow-inner shadow-black transition-all duration-300 pointer-events-none">
+                <h3 className="text-3xl md:text-[2.5vw] font-light font-Poppins">
+                  {item.title.includes(" ") ? (
+                    <>
+                      <span className="text-prime">
+                        {item.title.split(" ")[0]}
+                      </span>{" "}
+                      {item.title.split(" ").slice(1).join(" ")}
+                    </>
+                  ) : (
+                    item.title
+                  )}
+                </h3>
+
+                <p className="text-base md:text-[1.2vw] text-white leading-relaxed">
+                  {item.description}
+                </p>
+
+                <div>
+                  {item.points.map((point, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-3 md:gap-[1vw] mt-3 md:mt-[1vw]"
+                    >
+                      <Check className="w-5 h-5 md:w-[1.4vw] md:h-[1.4vw] text-prime2 flex-shrink-0" />
+                      <p className="text-sm md:text-[1vw] text-white">
+                        {point}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href="https://calendly.com/umairzakria6/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Book 15 Minute call with Umair"
+                  className="bg-[#004e7e] flex justify-between gap-3 md:gap-[0.8vw] items-center rounded md:rounded-[0.21vw] text-base md:text-[1.2vw] transition-all duration-300 ease-in-out hover:scale-105 font-Montserrat cursor-pointer px-6 md:px-[2vw] py-3 md:py-[0.9vw] pointer-events-auto"
+                >
+                  <span>Learn More</span>
+                  <MoveRight className="w-5 h-5 md:w-auto md:h-auto" />
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Mobile scroll indicator */}
