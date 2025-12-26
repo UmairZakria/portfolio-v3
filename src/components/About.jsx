@@ -13,10 +13,28 @@ const About = () => {
 
   const data = [
     {
-      name: "Marcus",
+      name: "Hexa4K IPTV",
+      category: "Web Design",
+      href: "https://hexa4k.com/",
+      img: "https://i.ibb.co/VW2zdPKK/hexa4k.png",
+      subtitle: "Streaming entertainment without limits.",
+      description:
+        "A sleek, user-friendly IPTV service website offering 4K streaming, multi-device support, and global content access.",
+      techStack: [
+        "React.js",
+        "Tailwind-CSS",
+        "Framer-Motion",
+        "Lenis",
+        
+      ],
+      year: 2024,
+    },
+
+    {
+      name: "Marcus Portfolio",
       category: "Web Design",
       href: "https://mustafa-portfolio-nine.vercel.app/",
-      img: "images/Marcus3.png",
+      img: "https://i.ibb.co/LXB9QZPv/Marcus3.png",
       subtitle: "Modern design, seamless experience, bold impression.",
       description:
         "A clean, modern, and fully custom portfolio website — crafted to showcase creativity, professionalism, and a seamless user experience. Designed with attention to detail to make a bold and lasting impression.",
@@ -24,9 +42,10 @@ const About = () => {
       year: 2025,
     },
     {
-      name: "Bitsmart",
+      name: "Bitsmart Tech",
       category: "Web Design",
-      img: "images/bitsmart2.jpeg",
+      href: "https://bitsmart-tech.vercel.app/",
+      img: "https://i.ibb.co/0pdssWZ6/bitsmart5.png",
       subtitle: "Crafting digital masterpieces pixel by pixel.",
       description:
         "A modern, responsive, and brand-focused company portfolio website for Bitsmart Tech. Built to showcase services, projects, and client engagement with an emphasis on creativity, clean UI, and smooth user experience.",
@@ -42,8 +61,8 @@ const About = () => {
     {
       name: "SuperSub Officials",
       category: "Web Design",
-      href: "https://super-sub-officials.vercel.app/",
-      img: "images/super3.png",
+      href: "https://supersubofficials.com/",
+      img: "https://i.ibb.co/zVBHW5CM/super4.png",
       subtitle: "Bringing businesses to the digital world.",
       description:
         "SuperSub Officials — an IPTV subscription selling platform built with a modern tech to showcase its offerings. The site features an integrated online payment system with multiple banks options and a scalable design for future growth.",
@@ -57,10 +76,11 @@ const About = () => {
       year: 2024,
     },
     {
-      name: "FashionMane",
+      name: "Fashion Mane",
       category: "Web Development",
-      img: "images/fashion4.png",
-      subtitle: "Your style, your stories — managed effortlessly",
+      href: "https://fashionmane.com/",
+      img: "https://i.ibb.co/b5DXPG9H/fashion5.png",
+      subtitle: "Your style, your stories managed effortlessly",
       description:
         "FashionMane is a fully functional blogging platform with a built-in CMS, featuring a user-friendly frontend, powerful admin panel, and secure backend. It supports full CRUD operations, dynamic routing, and is optimized for SEO.",
       techStack: [
@@ -76,7 +96,7 @@ const About = () => {
       name: "BusGoes+",
       category: "Web Design",
       href: "https://github.com/UmairZakria/bus-management-system",
-      img: "images/bus3.png",
+      img: "https://i.ibb.co/FLKZxttx/bus4.png",
       subtitle: "Making bus journeys just a click away.",
       description:
         "Bus Goes is a modern online bus booking platform with a built-in CMS that makes intercity travel simple. It offers a seamless booking experience, smart route management, and an intuitive admin dashboard for effortless reservation handling.",
@@ -293,11 +313,11 @@ const About = () => {
               /* DESKTOP VIEW */
               <div className="flex flex-col md:flex-row justify-between mx-0 md:mx-[3vw] h-full gap-6 md:gap-0">
                 <div className="relative h-full flex flex-col gap-4 md:gap-0 justify-evenly">
-                  <div className="w-full md:w-[350px] lg:w-[35vw] h-64 md:h-[25vw] rounded-lg md:rounded-[0.8vw]">
+                  <div className="w-full  md:w-[350px] lg:w-[35vw] h-64 md:h-[25vw] rounded-lg md:rounded-[0.8vw]">
                     <img
                       src={data[activeIndex].img}
                       alt={data[activeIndex].name}
-                      className="proimages w-full h-full object-top rounded-lg md:rounded-[0.8vw] object-cover"
+                      className="proimages shadow-2xl shadow-black w-full h-full object-top rounded-lg md:rounded-[0.5vw] object-cover"
                       loading="eager"
                     />
                   </div>
