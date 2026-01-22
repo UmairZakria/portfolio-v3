@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +12,24 @@ const About = () => {
   const textRef2 = useRef(null);
 
   const data = [
+     {
+      name: "Movie Lab",
+      category: "Web Design",
+      href: "https://movies.umairlab.com/",
+      img: "https://i.ibb.co/tTZ6YKtq/movielab.jpg",
+      subtitle: "Crafting digital masterpieces pixel by pixel.",
+      description:
+        "MovieLab is a modern movie discovery platform featuring trending films, genre‑based collections, and a responsive interface. It offers intuitive search, real‑time updates, and a secure backend for smooth content management.",
+      techStack: [
+        "Next.js",
+        "Tailwind-CSS",
+        "Framer-Motion",
+        "Lenis",
+        "Mongodb",
+        "REST API",
+      ],
+      year: 2026,
+    },
     {
       name: "Hexa4K IPTV",
       category: "Web Design",
@@ -20,14 +38,8 @@ const About = () => {
       subtitle: "Streaming entertainment without limits.",
       description:
         "A sleek, user-friendly IPTV service website offering 4K streaming, multi-device support, and global content access.",
-      techStack: [
-        "React.js",
-        "Tailwind-CSS",
-        "Framer-Motion",
-        "Lenis",
-        
-      ],
-      year: 2024,
+      techStack: ["React.js", "Tailwind-CSS", "Framer-Motion", "Lenis"],
+      year: 2025,
     },
 
     {
@@ -41,23 +53,24 @@ const About = () => {
       techStack: ["React.js", "Tailwind-CSS", "Lucide-Icons"],
       year: 2025,
     },
-    {
-      name: "Bitsmart Tech",
-      category: "Web Design",
-      href: "https://bitsmart-tech.vercel.app/",
-      img: "https://i.ibb.co/0pdssWZ6/bitsmart5.png",
-      subtitle: "Crafting digital masterpieces pixel by pixel.",
-      description:
-        "A modern, responsive, and brand-focused company portfolio website for Bitsmart Tech. Built to showcase services, projects, and client engagement with an emphasis on creativity, clean UI, and smooth user experience.",
-      techStack: [
-        "Next.js",
-        "Tailwind-CSS",
-        "Framer-Motion",
-        "Mongodb",
-        "REST API",
-      ],
-      year: 2024,
-    },
+       
+    // {
+    //   name: "Bitsmart Tech",
+    //   category: "Web Design",
+    //   href: "https://bitsmart-tech.vercel.app/",
+    //   img: "https://i.ibb.co/0pdssWZ6/bitsmart5.png",
+    //   subtitle: "Crafting digital masterpieces pixel by pixel.",
+    //   description:
+    //     "A modern, responsive, and brand-focused company portfolio website for Bitsmart Tech. Built to showcase services, projects, and client engagement with an emphasis on creativity, clean UI, and smooth user experience.",
+    //   techStack: [
+    //     "Next.js",
+    //     "Tailwind-CSS",
+    //     "Framer-Motion",
+    //     "Mongodb",
+    //     "REST API",
+    //   ],
+    //   year: 2024,
+    // },
     {
       name: "SuperSub Officials",
       category: "Web Design",
@@ -120,6 +133,13 @@ const About = () => {
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    data.forEach((project) => {
+      const img = new Image();
+      img.src = project.img;
+    });
   }, []);
 
   useGSAP(() => {
@@ -313,13 +333,20 @@ const About = () => {
               /* DESKTOP VIEW */
               <div className="flex flex-col md:flex-row justify-between mx-0 md:mx-[3vw] h-full gap-6 md:gap-0">
                 <div className="relative h-full flex flex-col gap-4 md:gap-0 justify-evenly">
-                  <div className="w-full  md:w-[350px] lg:w-[35vw] h-64 md:h-[25vw] rounded-lg md:rounded-[0.8vw]">
-                    <img
-                      src={data[activeIndex].img}
-                      alt={data[activeIndex].name}
-                      className="proimages shadow-2xl shadow-black w-full h-full object-top rounded-lg md:rounded-[0.5vw] object-cover"
-                      loading="eager"
-                    />
+                  <div className="w-full relative md:w-[350px] lg:w-[35vw] h-64 md:h-[25vw] rounded-lg md:rounded-[0.8vw] overflow-hidden">
+                    <AnimatePresence mode="popLayout">
+                      <motion.img
+                        key={activeIndex}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                        src={data[activeIndex].img}
+                        alt={data[activeIndex].name}
+                        className="proimages absolute top-0 left-0 shadow-2xl shadow-black w-full h-full object-top rounded-lg md:rounded-[0.5vw] object-cover"
+                        loading="eager"
+                      />
+                    </AnimatePresence>
                   </div>
 
                   <div className="project-text space-y-2 md:space-y-[0.4vw]">
