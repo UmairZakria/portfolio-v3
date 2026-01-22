@@ -12,11 +12,11 @@ const About = () => {
   const textRef2 = useRef(null);
 
   const data = [
-     {
+    {
       name: "Movie Lab",
       category: "Web Design",
       href: "https://movies.umairlab.com/",
-      img: "https://i.ibb.co/tTZ6YKtq/movielab.jpg",
+      img: "https://i.ibb.co/QjMjPn0V/movielab.jpg",
       subtitle: "Crafting digital masterpieces pixel by pixel.",
       description:
         "MovieLab is a modern movie discovery platform featuring trending films, genre‑based collections, and a responsive interface. It offers intuitive search, real‑time updates, and a secure backend for smooth content management.",
@@ -53,7 +53,7 @@ const About = () => {
       techStack: ["React.js", "Tailwind-CSS", "Lucide-Icons"],
       year: 2025,
     },
-       
+
     // {
     //   name: "Bitsmart Tech",
     //   category: "Web Design",
@@ -212,7 +212,7 @@ const About = () => {
           ease: "power1.inOut",
           duration: textFadeDuration,
         },
-        `section${i}`
+        `section${i}`,
       )
         .add(() => {
           const direction =
@@ -236,7 +236,7 @@ const About = () => {
             duration: textFadeDuration,
             ease: "power2.out",
           },
-          "<"
+          "<",
         );
     }
   }, [isMobile]);
