@@ -37,6 +37,7 @@ const Main = () => {
 
           </div>
           <Service />
+          {/* <div className="bg-black h-screen w-full "></div> */}
           <Aboutme />
           <Whyme />
 

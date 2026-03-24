@@ -237,13 +237,13 @@ const Service = () => {
       </div>
 
       {/* Navigation Arrow */}
-      <button
+      {/* <button
         onClick={handleNext}
         className="absolute md:block hidden  right-2 md:right-[5vw] top-1/2 -translate-y-1/2 z-50 p-3 md:p-[1vw] rounded-full bg-white/10 backdrop-blur-md border-[1px] border-white/20 hover:bg-white/20 transition-all duration-300 group/btn"
         aria-label="Next Slide"
       >
         <ChevronRight className="w-6 h-6 md:w-[1.5vw] md:h-[1.5vw] text-white group-hover/btn:translate-x-1 transition-transform" />
-      </button>
+      </button> */}
 
       {/* Desktop: Horizontal Scroll | Mobile: Horizontal Swipe */}
       <div
@@ -253,7 +253,7 @@ const Service = () => {
         <div
           ref={gridRef}
           className={`
-            flex gap-6 md:gap-[4vw] mt-8 md:mt-[5vw] mb-8 md:mb-[5vw]
+            flex gap-6 md:gap-[4vw]  mt-8 md:mt-[5vw] mb-8 md:mb-[5vw]
             ${
               isMobile
                 ? "overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
@@ -350,7 +350,7 @@ const Service = () => {
             <div
               key={index}
               className={`
-                relative group flex-shrink-0
+                relative group  flex-shrink-0
                 ${
                   isMobile
                     ? "w-[90vw] h-[120vw] snap-center"
@@ -359,7 +359,7 @@ const Service = () => {
                 p-[0.1vw] rounded-md
               `}
             >
-              <div className="absolute inset-0 p-2 md:p-[1vw] z-0">
+              <div className="absolute  inset-0 p-2 md:p-[1vw] z-0">
                 <img
                   src={item.img}
                   alt={item.title}
