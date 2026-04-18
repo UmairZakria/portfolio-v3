@@ -36,8 +36,8 @@ const Main = () => {
             <Numbers />
 
           </div>
-          <Service />
-          {/* <div className="bg-black h-screen w-full "></div> */}
+          {/* <Service />  */}
+          <div className="bg-black h-[30vh] w-full "></div>
           <Aboutme />
           <Whyme />
 

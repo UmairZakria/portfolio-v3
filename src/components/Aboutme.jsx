@@ -131,7 +131,7 @@ const Aboutme = () => {
             muted
             loop
             autoPlay
-            className="w-full h-full object-cover origin-center"
+            className="w-full h-full  object-cover origin-center"
           ></video>
         </motion.div>
       </div>

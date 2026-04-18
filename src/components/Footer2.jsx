@@ -144,7 +144,7 @@ const Footer2 = () => {
                 </a>
                 <a
                   className="hover:text-white transition-all duration-300 ease-in-out cursor-pointer"
-                  href="/projects"
+                  href="/"
                 >
                   Projects
                 </a>

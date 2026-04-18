@@ -156,9 +156,12 @@ const Contact = () => {
               transformStyle: "preserve-3d",
             }}
           >
-            <img
+            <motion.img
+              initial={{ opacity: 0,  }}
+              whileInView={{ opacity: 1,}}
+              transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
               title="Umair Zakria"
-              src="/me.png"
+              src="/me2.png"
               className="w-48 h-48 md:w-64 md:h-64 lg:w-[23vw] lg:h-[23vw] opacity-90 rounded-full object-cover"
               alt="Umair Zakria"
             />
