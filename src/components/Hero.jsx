@@ -183,11 +183,11 @@ const Hero = ({ anidone }) => {
 
         <div className=" lg:px-[4vw] px-4 flex items-center  mx-auto w-full h-full relative z-100">
           <div className=" md:pt-[3vw] space-y-8 md:space-y-[2vw]">
-            <div className=" w-fit mx-auo md:mx-0 px-6 md:px-[1.6vw] py-3 md:py-[0.7vw] rounded-full font-light shadow-inner shadow-black bg-gradient-to-b from-prime/60 to-prime/5 font-Poppins text-sm md:text-[1.2vw]">
+            <div className=" w-fit mx-auo md:mx-0 px-6 md:px-[1.6vw] py-3 md:py-[0.7vw] rounded-full font-light shadow-inner shadow-black bg-gradient-to-b from-prime to-prime/5 font-Poppins text-sm md:text-[1.2vw]">
               Where Ideas become Reality
             </div>
             <div className="space-y-3 md:space-y-[0.8vw]">
-              <h1 className="font-confortaa text-3xl md:text-[4.5vw]  md:leading-[6vw] md:text-left text- md:w-[65vw]">
+              <h1 className="font-Montserrat text-3xl md:text-[4.5vw]  md:leading-[6vw] md:text-left text- md:w-[65vw]">
                 High Quality Affordable Websites That Represent Your Brand{" "}
               </h1>
               <p className="font-Poppins  text-white/75 font-light text-sm md:text-left text- md:text-[1.2vw] md:leading-[1.7vw] md:w-[40vw]">
@@ -197,7 +197,7 @@ const Hero = ({ anidone }) => {
             <div className="flex md:justify-start justify-ceter mt-4 md:mt-[4vw] gap-4 md:gap-[2vw] ">
               <button
                 onClick={() => navigate("/portfolio")}
-                className="bg-gradient-to-b relative  rounded-[0.21vw]  md:text-[1.1vw] transition-all duration-300 ease-in-out hover:scale-105 font-Poppins  shadow-inner shadow-black  from-white/20  to-black/10 cursor-pointer text-white px-6 md:px-[2vw] py-3  md:py-[0.9vw]"
+                className="bg-gradient-to-b relative  rounded-[0.21vw]  md:text-[1.1vw] transition-all duration-300 ease-in-out hover:scale-105 font-Poppins  shadow-inner shadow-black  from-white/40  to-white/5 cursor-pointer text-white px-6 md:px-[2vw] py-3  md:py-[0.9vw]"
               >
                 Portfolio
               </button>
@@ -205,7 +205,7 @@ const Hero = ({ anidone }) => {
                 href="https://calendly.com/umairzakria6/30min"
                 target="_blank"
                 title="Book 15 Minute call with Umair"
-                className="bg-gradient-to-b flex gap-[0.8vw] items-center font rounded-[0.21vw]  md:text-[1.1vw]   transition-all duration-300 ease-in-out hover:scale-105 font-Montserrat  from-prime/60 to-prime/10 cursor-pointer px-6 md:px-[2vw] py-3 md:py-[0.9w] "
+                className="bg-gradient-to-b flex gap-[0.8vw] items-center font rounded-[0.21vw]  md:text-[1.1vw]   transition-all duration-300 ease-in-out hover:scale-105 font-Montserrat  from-prime to-prime/10 cursor-pointer px-6 md:px-[2vw] py-3 md:py-[0.9w] "
               >
                 Get in Touch
               </a>
