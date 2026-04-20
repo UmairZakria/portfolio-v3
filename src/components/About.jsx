@@ -15,7 +15,7 @@ const About = () => {
     {
       name: "Movie Lab",
       category: "Web Design",
-      href: "https://movies.umairlab.com/",
+      href: "https://movielab-taupe.vercel.app/",
       img: "https://i.ibb.co/QjMjPn0V/movielab.jpg",
       subtitle: "Crafting digital masterpieces pixel by pixel.",
       description:
