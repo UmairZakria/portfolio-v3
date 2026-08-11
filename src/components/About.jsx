@@ -243,28 +243,28 @@ const About = () => {
 
   return (
     <div className="projects mt-12 md:mt-[10vw] relative w-full flex items-center justify-center min-h-[50vh] md:h-screen py-4 md:py-[1vw]">
-      <div className="absolute w-full h-[100px] bg-gradient-to-b z-[100] from-black via-black/70 to-transparent top-0 left-0"></div>
-      <div className="absolute w-full h-[100px] bg-gradient-to-t z-[100] from-black via-black/70 to-transparent bottom-0 left-0"></div>
-      <motion.div
+      <div className="absolute w-full h-[100px] bg-linear-to-b z-[100] from-black via-black/70 to-transparent top-0 left-0"></div>
+      <div className="absolute w-full h-[100px] bg-linear-to-t z-[100] from-black via-black/70 to-transparent bottom-0 left-0"></div>
+      {/* <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, ease: "easeInOut" }}
         className="absolute w-full h-full md:h-screen top-0 left-0 z-0"
         style={{
           background: `
-            radial-gradient(circle at 20% 80%, rgba(37, 157, 255, 0.4) 0%, transparent 40%),
-            radial-gradient(circle at 80% 20%, rgba(0, 154, 250, 0.4) 0%, transparent 40%),
+            radial-gradient(circle at 20% 80%, rgba(37, 157, 255, 0.1) 0%, transparent 40%),
+            radial-gradient(circle at 80% 20%, rgba(0, 154, 250, 0.1) 0%, transparent 40%),
             radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%)
           `,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-      ></motion.div>
+      ></motion.div> */}
 
       <div className="h-full w-full flex-1">
         <div
           name="projects"
-          className="h-full mx-4 md:mx-[4vw] relative z-[100] bg-[#ffffff17] p-4 md:p-[1.5vw] rounded-xl md:rounded-[1.5vw] backdrop-blur-md md:backdrop-blur-[1.5vw]"
+          className="h-full mx-4 md:mx-[4vw] relative z-[100] bg-[#ffffff17] p-4 md:p-[1.5vw] rounded-xl md:rounded-[1.5vw] backdrop-blur-md md:backdrop-blur-[2px]"
         >
           <div className="h-full w-full">
             <div className="flex w-full flex-wrap items-center justify-between font-confortaa mb-6 md:mb-0">

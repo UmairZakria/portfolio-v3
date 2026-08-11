@@ -1,24 +1,72 @@
 @import "tailwindcss";
 
-
 @font-face {
-  font-family: 'Brittany';
-  src: url('/fonts/Brittany.ttf') format('truetype'); /* or 'opentype' for .otf */
+  font-family: "Brittany";
+  src: url("/fonts/Brittany.ttf") format("truetype"); /* or 'opentype' for .otf */
   font-weight: 400;
   font-style: normal;
+}
+
+:root {
+  /* Default (Mobile) - using fixed pixels for readability on small screens */
+  --text-xs-fluid: 12px;
+  --text-sm-fluid: 14px;
+  --text-base-fluid: 16px;
+  --text-lg-fluid: 18px;
+  --text-xl-fluid: 20px;
+  --text-2xl-fluid: 24px;
+  --text-3xl-fluid: 30px;
+  --text-4xl-fluid: 36px;
+  --text-5xl-fluid: 48px;
+  --text-6xl-fluid: 60px;
+  --text-7xl-fluid: 72px;
+  --text-8xl-fluid: 96px;
+  --text-9xl-fluid: 128px;
+}
+
+@media (min-width: 1025px) {
+  :root {
+    /* Desktop/Large - using VW for fluid scaling */
+    --text-xs-fluid: 0.65vw;
+    --text-sm-fluid: 0.75vw;
+    --text-base-fluid: 0.85vw;
+    --text-lg-fluid: 1vw;
+    --text-xl-fluid: 1.25vw;
+    --text-2xl-fluid: 1.5vw;
+    --text-3xl-fluid: 2vw;
+    --text-4xl-fluid: 2.5vw;
+    --text-5xl-fluid: 3vw;
+    --text-6xl-fluid: 4vw;
+    --text-7xl-fluid: 5vw;
+    --text-8xl-fluid: 6vw;
+    --text-9xl: 7vw;
+  }
 }
 
 @theme {
   --font-Montserrat: "Montserrat", sans-serif;
   --font-confortaa: "Comfortaa", sans-serif;
-  --font-Karla : "Karla", sans-serif;
+  --font-Karla: "Karla", sans-serif;
   --font-Raleway: "Raleway", sans-serif;
   --font-Poppins: "Poppins", sans-serif;
   --font-Inter: "Inter", sans-serif;
   --color-prime: #2eafff;
   --color-prime2: #58b4ff;
+  --radius-DEFAULT: 0.75rem;
 
-
+  --text-xs: var(--text-xs-fluid);
+  --text-sm: var(--text-sm-fluid);
+  --text-base: var(--text-base-fluid);
+  --text-lg: var(--text-lg-fluid);
+  --text-xl: var(--text-xl-fluid);
+  --text-2xl: var(--text-2xl-fluid);
+  --text-3xl: var(--text-3xl-fluid);
+  --text-4xl: var(--text-4xl-fluid);
+  --text-5xl: var(--text-5xl-fluid);
+  --text-6xl: var(--text-6xl-fluid);
+  --text-7xl: var(--text-7xl-fluid);
+  --text-8xl: var(--text-8xl-fluid);
+  --text-9xl: var(--text-9xl-fluid);
 }
 
 ::-webkit-scrollbar {
@@ -43,20 +91,85 @@ html {
   animation: slide 40s ease-in-out infinite;
 }
 
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
 
+@keyframes aurora-flow {
+  from {
+    background-position:
+      50% 50%,
+      50% 50%;
+  }
+  to {
+    background-position:
+      350% 50%,
+      350% 50%;
+  }
+}
 
+.aurora-effect {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  right: 0;
+  height: 70vh;
+  pointer-events: none;
+  z-index: -10;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at 50% 0%,
+    black 30%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+}
 
+.aurora-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-image:
+    repeating-linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 7%,
+      transparent 10%,
+      transparent 12%,
+      rgba(255, 255, 255, 0.05) 16%
+    ),
+    repeating-linear-gradient(
+      100deg,
+      rgba(0, 183, 255, 0.5) 10%,
+      rgba(0, 183, 255, 0) 20%,
+      rgba(0, 255, 195, 0.6) 25%,
+      rgba(0, 183, 255, 0) 13%,
+      rgba(0, 255, 195, 0.6) 22%,
+      rgba(0, 100, 255, 0) 22%,
+      rgba(0, 183, 255, 0.6) 28%
+    );
+  background-size: 300% 200%;
+  background-position:
+    50% 50%,
+    50% 50%;
+  filter: blur(40px);
+  animation: aurora-flow 120s linear infinite;
+  transform: translateX(-20%) translateY(-10%) rotate(-5deg);
+}
 
-
-
-html, body {
+html,
+body {
   overflow: auto;
   /* scrollbar-width: none; Firefox */
   -ms-overflow-style: none; /* IE/Edge */
-  background-color: black;
+  /* background-color: black; */
 }
-
-
 
 .border {
   border: 2px solid red;
@@ -64,6 +177,4 @@ html, body {
 
 .writing-mode-vertical-lr {
   writing-mode: vertical-lr;
-
 }
-

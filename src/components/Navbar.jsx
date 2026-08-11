@@ -64,9 +64,9 @@ const Navbar = () => {
       setIsMenuOpen(false); // Close menu on mobile after click
     }
   };
-
+// top-0 left-1/2 -translate-x-[50%] 
   return (
-    <div className="absolute !z-[999] top-0 left-1/2 -translate-x-[50%] lg:px-[4vw]  py-3 lg:py-[0.8vw] px-4 flex items-center justify-between  w-full">
+    <div className="navbar-container fixed !z-[999] top-0 left-1/2 -translate-x-[50%]  lg:px-[4vw]  py-3 lg:py-[0.8vw] px-4 flex items-center justify-between  w-full">
       <motion.div
       // initial={{ x: -200, opacity: 0 }}
       // animate={{ x: 0, opacity: 1 }}
@@ -74,9 +74,12 @@ const Navbar = () => {
       >
         <a href="https://www.umairlab.com/" title="Umair Lab" className="text-white">
 
-          <h1 className="text-3xl md:text-[2.6vw]  space-x-[0.2vw]  pb-[0vw] font-bold  tracking-tight border-white/20 items-end font-confortaa">
-            <span>.umair</span>
-            <span className="text-[0.45em] font-confortaa   text-transparent bg-gradient-to-tr from-[#b622a7] to-prime bg-clip-text ">lab</span>
+          <h1 className="text-3xl   md:text-[2.4vw]  space-x-[0.2vw]  pb-[0vw]   items- font-semibold font-confortaa">
+            {/* <span> */}
+              .u
+              
+              {/* </span> */}
+            <span className=" font-   text-transparent bg-linear-to-tr from-[#00d0ff]  to-[#0d00fd] bg-clip-text ">m</span>air
           </h1>
 
         </a>

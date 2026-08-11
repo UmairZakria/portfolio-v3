@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 const Numbers = () => {
   return (
     <div className="flex flex-col  flex-wrap-reverse md:flex-nowrap  items-center justify-center relative font-Poppins   lg:px-[4vw] px-4 text-white/90 pt-15 gap-5  md:gap-[5vw] mx-auto ">
-  
       <div className="space-y-3 md:space-y-[1vw]">
         <h4 className="uppercase text-center text-xs md:text-[1.2vw] font-Poppins text-prime ">
           Pioneering Trust and Innovation
@@ -17,32 +16,40 @@ const Numbers = () => {
           Your vision deserves more than just code—it deserves a solution that
           truly works.
         </p> */}
-
       </div>
       <div className="flex  flex-1 px-4 md:px-0 font-Poppins flex-wrap gap-20 md:gap-5  w-full md:w-full mx-auto text-center justify-around md:justify-around items-center  md:gap-y-14 ">
         <div className="space-y-4">
           <div className="text-4xl md:text-[4vw]  font-medium  font-confortaa">
             3+
           </div>
-          <p className=" text-lg md:text-[1.4vw] uppercase  text-white/75">Years of Experience</p>
+          <p className=" text-lg md:text-[1.4vw] uppercase  text-white/75">
+            Years of Experience
+          </p>
         </div>
         <div className="space-y-4">
           <div className="text-4xl md:text-[4vw]  font-medium font-confortaa ">
             30+
           </div>
-          <p className=" text-lg md:text-[1.4vw] uppercase  text-white/75">Completed Projects</p>
+          <p className=" text-lg md:text-[1.4vw] uppercase  text-white/75">
+            Completed Projects
+          </p>
         </div>
         <div className="space-y-4 ">
           <div className="text-4xl md:text-[4vw]   font-medium  font-confortaa">
             25+
           </div>
-          <p className=" text-lg md:text-[1.4vw] uppercase  text-white/75"> Clients</p>
+          <p className=" text-lg md:text-[1.4vw] uppercase  text-white/75">
+            {" "}
+            Clients
+          </p>
         </div>
         <div className="space-y-4">
           <div className="text-4xl md:text-[4vw]  font-medium font-confortaa">
             99%
           </div>
-          <p className=" text-lg md:text-[1.4vw] uppercase  text-white/75">Satisfied clients</p>
+          <p className=" text-lg md:text-[1.4vw] uppercase  text-white/75">
+            Satisfied clients
+          </p>
         </div>
       </div>
     </div>

@@ -42,12 +42,12 @@ const Aboutme = () => {
     >
       <div className="flex items-center justify-between">
         <div>
-          <motion.h1 
-            className="text-4xl md:px-0  lg:text-[4.4vw] font-Poppins" 
+          <motion.h1
+            className="text-4xl md:px-0  lg:text-[4.4vw] font-Poppins"
             variants={fadeUp}
           >
             Meet{" "}
-            <span className="text-transparent bg-gradient-to-tr from-[#b622a7] to-prime bg-clip-text font-confortaa font-medium tracking-tight">
+            <span className="text-transparent bg-linear-to-tr from-[#b622a7] to-prime bg-clip-text font-confortaa font-medium tracking-tight">
               .umair
             </span>
           </motion.h1>
@@ -72,10 +72,11 @@ const Aboutme = () => {
                 initial={{ scaleX: 0, originX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 1, duration: 0.5, ease: "easeOut" }}
-                className="h-[0.2vw] mb-[0.5vw] w-[4vw] rounded-full bg-gradient-to-tr from-[#b622a7] to-prime"
+                className="h-[0.2vw] mb-[0.5vw] w-[4vw] rounded-full bg-linear-to-tr from-[#b622a7] to-prime"
               />
               Whether it's a CRM, ERP, eCommerce store, or a modern portfolio, I
-              build systems that actually work fast, responsive, and simple to use.
+              build systems that actually work fast, responsive, and simple to
+              use.
             </motion.div>
 
             <motion.div
@@ -86,7 +87,7 @@ const Aboutme = () => {
                 initial={{ scaleX: 0, originX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 1, duration: 0.5, ease: "easeOut" }}
-                className="h-[0.2vw] mb-[0.5vw] w-[4vw] rounded-full bg-gradient-to-tr from-[#b622a7] to-prime"
+                className="h-[0.2vw] mb-[0.5vw] w-[4vw] rounded-full bg-linear-to-tr from-[#b622a7] to-prime"
               />
               <strong>My toolkit?</strong> React, Next.js, Node.js, MongoDB,
               Tailwind CSS… plus smooth animations with GSAP/Framer Motion, and
@@ -101,11 +102,11 @@ const Aboutme = () => {
                 initial={{ scaleX: 0, originX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 1, duration: 0.5, ease: "easeOut" }}
-                className="h-[0.2vw] mb-[0.5vw] w-[4vw] rounded-full bg-gradient-to-tr from-[#b622a7] to-prime"
+                className="h-[0.2vw] mb-[0.5vw] w-[4vw] rounded-full bg-linear-to-tr from-[#b622a7] to-prime"
               />
-              Hey, I'm Umair Zakria — a Full Stack Web Developer turning clients'
-              visions into reality with clean, scalable, and user-friendly web
-              applications.
+              Hey, I'm Umair Zakria — a Full Stack Web Developer turning
+              clients' visions into reality with clean, scalable, and
+              user-friendly web applications.
             </motion.div>
 
             <motion.div
@@ -116,7 +117,7 @@ const Aboutme = () => {
                 initial={{ scaleX: 0, originX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 1, duration: 0.5, ease: "easeOut" }}
-                className="h-[0.2vw] mb-[0.5vw] rounded-full w-[4vw] bg-gradient-to-tr from-[#b622a7] to-prime"
+                className="h-[0.2vw] mb-[0.5vw] rounded-full w-[4vw] bg-linear-to-tr from-[#b622a7] to-prime"
               />
               I keep the user at the center of every decision. Because a good
               product isn't just about functionality, it's about how people feel
@@ -125,7 +126,7 @@ const Aboutme = () => {
           </div>
         </div>
 
-        <motion.div className="h-[35vw] w-[35vw] mx-auto" variants={fade}>
+        {/* <motion.div className="h-[35vw] w-[35vw] mx-auto" variants={fade}>
           <video
             src="/bg2.mp4"
             muted
@@ -133,13 +134,16 @@ const Aboutme = () => {
             autoPlay
             className="w-full h-full  object-cover origin-center"
           ></video>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       {/* Mobile Layout - Stacked vertical cards */}
       <div className="lg:hidden mt-8 space-y-6">
         {/* Video on mobile - smaller and at top */}
-        <motion.div className="w-full h-64 rounded-2xl overflow-hidden" variants={fade}>
+        <motion.div
+          className="w-full h-64 rounded-2xl overflow-hidden"
+          variants={fade}
+        >
           <video
             src="/bg2.mp4"
             muted
@@ -160,12 +164,12 @@ const Aboutme = () => {
               initial={{ scaleX: 0, originX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
-              className="h-1 mb-3 w-12 rounded-full bg-gradient-to-tr from-[#b622a7] to-prime"
+              className="h-1 mb-3 w-12 rounded-full bg-linear-to-tr from-[#b622a7] to-prime"
             />
             <p className="text-sm md:text-base font-light font-Poppins text-white leading-relaxed">
-              Hey, I'm Umair Zakria — a Full Stack Web Developer turning clients'
-              visions into reality with clean, scalable, and user-friendly web
-              applications.
+              Hey, I'm Umair Zakria — a Full Stack Web Developer turning
+              clients' visions into reality with clean, scalable, and
+              user-friendly web applications.
             </p>
           </motion.div>
 
@@ -177,11 +181,12 @@ const Aboutme = () => {
               initial={{ scaleX: 0, originX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
-              className="h-1 mb-3 w-12 rounded-full bg-gradient-to-tr from-[#b622a7] to-prime"
+              className="h-1 mb-3 w-12 rounded-full bg-linear-to-tr from-[#b622a7] to-prime"
             />
             <p className="text-sm md:text-base font-light font-Poppins text-white leading-relaxed">
               Whether it's a CRM, ERP, eCommerce store, or a modern portfolio, I
-              build systems that actually work fast, responsive, and simple to use.
+              build systems that actually work fast, responsive, and simple to
+              use.
             </p>
           </motion.div>
 
@@ -193,7 +198,7 @@ const Aboutme = () => {
               initial={{ scaleX: 0, originX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
-              className="h-1 mb-3 w-12 rounded-full bg-gradient-to-tr from-[#b622a7] to-prime"
+              className="h-1 mb-3 w-12 rounded-full bg-linear-to-tr from-[#b622a7] to-prime"
             />
             <p className="text-sm md:text-base font-light font-Poppins text-white leading-relaxed">
               <strong>My toolkit?</strong> React, Next.js, Node.js, MongoDB,
@@ -210,7 +215,7 @@ const Aboutme = () => {
               initial={{ scaleX: 0, originX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
-              className="h-1 mb-3 w-12 rounded-full bg-gradient-to-tr from-[#b622a7] to-prime"
+              className="h-1 mb-3 w-12 rounded-full bg-linear-to-tr from-[#b622a7] to-prime"
             />
             <p className="text-sm md:text-base font-light font-Poppins text-white leading-relaxed">
               I keep the user at the center of every decision. Because a good

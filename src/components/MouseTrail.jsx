@@ -117,7 +117,7 @@ const MouseTrail = () => {
       <path
         ref={pathRef}
         d=""
-        stroke="#58b4ff"
+        stroke="white"
         strokeLinecap="round"
         fill="none"
       />

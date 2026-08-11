@@ -118,7 +118,7 @@ const Service = () => {
           trigger: titleRef.current,
           start: "top 85%",
         },
-      }
+      },
     );
 
     const wrapper = wrapperRef.current;
@@ -338,7 +338,7 @@ const Service = () => {
             if (!slider) return;
             const dist = Math.hypot(
               e.clientX - (slider.clickStartX || 0),
-              e.clientY - (slider.clickStartY || 0)
+              e.clientY - (slider.clickStartY || 0),
             );
             if (dist > 5) {
               e.stopPropagation();
@@ -429,7 +429,7 @@ const Service = () => {
         </div>
       )} */}
 
-      <style jsx>{`
+      <style>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }

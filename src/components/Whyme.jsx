@@ -34,8 +34,8 @@ const Whyme = () => {
             <span className="text-prime2">Why</span> me?
           </h2>
           <p className="text-white/75 text-base md:text-lg lg:text-[1.3vw] lg:w-[30vw] leading-relaxed font-Poppins">
-            Every project is a journey, <br className="hidden lg:block" /> and I'm here to ensure it thrives long
-            after delivery.
+            Every project is a journey, <br className="hidden lg:block" /> and
+            I'm here to ensure it thrives long after delivery.
           </p>
         </div>
 

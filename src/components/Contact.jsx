@@ -72,8 +72,8 @@ const Contact = () => {
   return (
     <>
       <div className="containerabout h-auto py-16 md:py-[12vw] relative flex items-center justify-center mt-16 md:mt-[12vw]">
-        <div className="absolute w-full h-24 md:h-[8vw] bg-gradient-to-b z-[100] from-black via-black/70 to-transparent top-0 left-0"></div>
-        <div className="absolute w-full h-24 md:h-[8vw] bg-gradient-to-t z-[100] from-black via-black/30 to-transparent bottom-0 left-0"></div>
+        <div className="absolute w-full h-24 md:h-[8vw] bg-linear-to-b z-[100] from-black via-black/70 to-transparent top-0 left-0"></div>
+        <div className="absolute w-full h-24 md:h-[8vw] bg-linear-to-t z-[100] from-black via-black/30 to-transparent bottom-0 left-0"></div>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -92,7 +92,9 @@ const Contact = () => {
           {/* Left Section - Contact Info */}
           <div className="space-y-6 md:space-y-[2vw] flex justify-around flex-col h-full w-full md:w-auto">
             <div className="space-y-4 md:space-y-[1.5vw] relative z-[50]">
-              <h4 className="text-2xl md:text-[1.5vw] text-white">Contact me</h4>
+              <h4 className="text-2xl md:text-[1.5vw] text-white">
+                Contact me
+              </h4>
               <div className="flex md:flex-col md:items-start flex-wrap gap-4 md:gap-[1vw] text-base md:text-[1.1vw] text-prime2">
                 <motion.a
                   initial={{ opacity: 0.5, y: 15 }}
@@ -134,7 +136,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="w-full relative h-[2px] md:h-[0.09vw] rounded-full bg-gradient-to-r from-[#bd06ab] to-prime overflow-hidden mt-4 md:mt-[1vw]"></div>
+            <div className="w-full relative h-[2px] md:h-[0.09vw] rounded-full bg-linear-to-r from-[#bd06ab] to-prime overflow-hidden mt-4 md:mt-[1vw]"></div>
 
             <div className="relative z-[100] w-full space-y-4 md:space-y-[2vw] pt-4 md:pt-[1vw]">
               <h5 className="text-white/65 text-lg md:text-[1.2vw] font-Poppins">
@@ -157,8 +159,8 @@ const Contact = () => {
             }}
           >
             <motion.img
-              initial={{ opacity: 0,  }}
-              whileInView={{ opacity: 1,}}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
               title="Umair Zakria"
               src="/me2.png"
@@ -182,8 +184,8 @@ const Contact = () => {
             {isMobile ? (
               <p className="text-lg text-white/90 leading-relaxed">
                 Being a developer is about turning ideas into results. It's
-                dedicating yourself to building reliable, scalable solutions that
-                drive business growth while delivering an exceptional user
+                dedicating yourself to building reliable, scalable solutions
+                that drive business growth while delivering an exceptional user
                 experience.
               </p>
             ) : (

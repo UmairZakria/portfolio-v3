@@ -10,13 +10,16 @@ import CustomScrollbar from "./components/CustomScrollbar";
 import Projects from "./components/pages/Projects";
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
 import MouseTrail from "./components/MouseTrail";
+import StarryBackground from "./components/StarryBackground";
+
 const App = () => {
   return (
     <>
+      {/* <StarryBackground /> */}
       <CustomScrollbar />
       <SmoothScrollProvider />
       <div className="hidden lg:block">
-        <MouseTrail />
+        {/* <MouseTrail /> */}
       </div>{/*  */}
       <Routes>
         <Route path="/" element={<Main />} />
